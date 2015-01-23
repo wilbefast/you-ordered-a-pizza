@@ -1,0 +1,6 @@
+[submodule "src/unrequited"]
+	path = src/unrequited
+	url = https://wilbefast@github.com/wilbefast/unrequited-love2d
+[submodule "src/fudge"]
+	path = src/fudge
+	url = https://wilbefast@github.com/wilbefast/fudge
