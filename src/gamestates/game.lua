@@ -28,7 +28,7 @@ end
 
 function state:enter()
   -- set up the world
-  self.world = love.physics.newWorld(-WORLD_W, 0, 2*WORLD_W, WORLD_H, 0, -9.81)
+  self.world = love.physics.newWorld(0, 9.81, true)
   self.world:setCallbacks(
     self.beginContact, 
     self.endContact, 
@@ -42,25 +42,19 @@ function state:enter()
     self.world, WORLD_W/2, WORLD_H - 32)
   self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
   self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
---[[
-  --let's create a ball
-  objects.ball = {}
-  objects.ball.body = love.physics.newBody(world, 650/2, 650/2, "dynamic") --place the body in the center of the world and make it dynamic, so it can move around
-  objects.ball.shape = love.physics.newCircleShape( 20) --the ball's shape has a radius of 20
-  objects.ball.fixture = love.physics.newFixture(objects.ball.body, objects.ball.shape, 1) -- Attach fixture to body and give it a density of 1.
-  objects.ball.fixture:setRestitution(0.9) --let the ball bounce
 
-  --let's create a couple blocks to play around with
-  objects.block1 = {}
-  objects.block1.body = love.physics.newBody(world, 200, 550, "dynamic")
-  objects.block1.shape = love.physics.newRectangleShape(0, 0, 50, 100)
-  objects.block1.fixture = love.physics.newFixture(objects.block1.body, objects.block1.shape, 5) -- A higher density gives it more mass.
+  self.ball = {}
+  self.ball.body = love.physics.newBody(
+    self.world, WORLD_W/2, WORLD_H/2, "dynamic") 
+  self.ball.shape = love.physics.newCircleShape(20)
+  self.ball.fixture = love.physics.newFixture(self.ball.body, self.ball.shape, 1)
+  self.ball.fixture:setRestitution(0.9)
 
-  objects.block2 = {}
-  objects.block2.body = love.physics.newBody(world, 200, 400, "dynamic")
-  objects.block2.shape = love.physics.newRectangleShape(0, 0, 100, 50)
-  objects.block2.fixture = love.physics.newFixture(objects.block2.body, objects.block2.shape, 2)  
-  ]]--
+  self.block = {}
+  self.block.body = love.physics.newBody(
+    self.world, WORLD_W/2, 0, "dynamic")
+  self.block.shape = love.physics.newRectangleShape(0, 0, 50, 100)
+  self.block.fixture = love.physics.newFixture(self.block.body, self.block.shape, 5)
 
 end
 
@@ -86,6 +80,17 @@ function state:mousereleased()
 end
 
 function state:update(dt)
+  -- update phyics
+  self.world:update(dt)
+
+  -- control physics
+  if love.keyboard.isDown("right") then
+    self.ball.body:applyForce(512*dt, 0)
+  elseif love.keyboard.isDown("left") then
+    self.ball.body:applyForce(-512*dt, 0)
+  end
+
+  -- update logic
   GameObject.updateAll(dt)
 end
 
