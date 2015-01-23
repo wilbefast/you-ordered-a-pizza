@@ -36,6 +36,7 @@ function state:enter()
     self.postSolve)
   love.physics.setMeter(100) -- 100 pixels per meter
 
+
   -- populate the world
   self.floor = {}
   self.floor.body = love.physics.newBody(
@@ -43,18 +44,28 @@ function state:enter()
   self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
   self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
 
-  self.ball = {}
-  self.ball.body = love.physics.newBody(
-    self.world, WORLD_W/2, WORLD_H/2, "dynamic") 
-  self.ball.shape = love.physics.newCircleShape(20)
-  self.ball.fixture = love.physics.newFixture(self.ball.body, self.ball.shape, 1)
-  self.ball.fixture:setRestitution(0.9)
+  self.testguy = {}
 
-  self.block = {}
-  self.block.body = love.physics.newBody(
-    self.world, WORLD_W/2, 0, "dynamic")
-  self.block.shape = love.physics.newRectangleShape(0, 0, 50, 100)
-  self.block.fixture = love.physics.newFixture(self.block.body, self.block.shape, 5)
+  torsoX = WORLD_W/2
+  torsoY = 70
+  torsoWidth = 50
+  torsoHeight = 100
+  headRadius = 20
+
+  self.testguy.torso = {}
+  self.testguy.torso.body = love.physics.newBody(
+    self.world, torsoX, torsoY, "dynamic")
+  self.testguy.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
+  self.testguy.torso.fixture = love.physics.newFixture(self.testguy.torso.body, self.testguy.torso.shape, 5)
+
+  self.testguy.head = {}
+  self.testguy.head.body = love.physics.newBody(
+    self.world, torsoX, torsoY - torsoHeight/2-headRadius, "dynamic") 
+  self.testguy.head.shape = love.physics.newCircleShape(headRadius)
+  self.testguy.head.fixture = love.physics.newFixture(self.testguy.head.body, self.testguy.head.shape, 1)
+  self.testguy.head.fixture:setRestitution(0.9)
+
+  headTorsojoint = love.physics.newDistanceJoint( self.testguy.head.body, self.testguy.torso.body, torsoX, torsoY - torsoHeight/2-headRadius, torsoX, torsoY - torsoHeight/2, true )
 
 end
 
@@ -74,6 +85,7 @@ function state:keypressed(key, uni)
 end
 
 function state:mousepressed(x, y)
+
 end
 
 function state:mousereleased()
@@ -85,9 +97,9 @@ function state:update(dt)
 
   -- control physics
   if love.keyboard.isDown("right") then
-    self.ball.body:applyForce(512*dt, 0)
+    self.testguy.head.body:applyForce(512*dt, 0)
   elseif love.keyboard.isDown("left") then
-    self.ball.body:applyForce(-512*dt, 0)
+    self.testguy.head.body:applyForce(-512*dt, 0)
   end
 
   -- update logic
