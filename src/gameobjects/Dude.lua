@@ -20,11 +20,33 @@ local Dude = Class({
 
   type = GameObject.newType("Dude"),
 
-  init = function(self, x, y, dx, dy)
+  init = function(self, x, y)
 
-    GameObject.init(self, x, y, 8, 8)
+    GameObject.init(self, x, y)
 
-    self.dx, self.dy = dx, dy
+
+	  local torsoWidth = 50
+	  local torsoHeight = 100
+	  local headRadius = 20
+
+	  self.torso = {}
+	  self.torso.body = love.physics.newBody(
+	    game.world, self.x, self.y, "dynamic")
+	  self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
+	  self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
+
+	  self.head = {}
+	  self.head.body = love.physics.newBody(
+	    game.world, self.x, self.x - torsoHeight/2 - headRadius, "dynamic") 
+	  self.head.shape = love.physics.newCircleShape(headRadius)
+	  self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 1)
+	  self.head.fixture:setRestitution(0.9)
+
+	  local headTorsojoint = love.physics.newDistanceJoint(
+	  	self.head.body, self.torso.body, 
+	  	self.x, self.y - torsoHeight/2-headRadius, 
+	  	self.x, self.y - torsoHeight/2, true)
+
   end,
 })
 
@@ -43,15 +65,23 @@ Game loop
 --]]--
 
 function Dude:update(dt)
-  GameObject.update(self, dt)
+	self.x, self.y = self.torso.body:getX(), self.torso.body:getY()
 end
 
 function Dude:draw(x, y)
 
-  --if DEBUG then
-    self.DEBUG_VIEW:draw(self)
-  --end
+  love.graphics.circle("line", x, y, 32)
 end
+
+--[[------------------------------------------------------------
+Physics
+--]]--
+
+function Dude:pullTowards(x, y, force)
+	local dx, dy = Vector.normalize(x - self.x, y - self.y)
+  self.head.body:applyForce(dx*force, dy*force)
+end
+
 
 --[[------------------------------------------------------------
 Collisions

@@ -44,29 +44,8 @@ function state:enter()
   self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
   self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
 
-  self.testguy = {}
-
-  torsoX = WORLD_W/2
-  torsoY = 70
-  torsoWidth = 50
-  torsoHeight = 100
-  headRadius = 20
-
-  self.testguy.torso = {}
-  self.testguy.torso.body = love.physics.newBody(
-    self.world, torsoX, torsoY, "dynamic")
-  self.testguy.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
-  self.testguy.torso.fixture = love.physics.newFixture(self.testguy.torso.body, self.testguy.torso.shape, 5)
-
-  self.testguy.head = {}
-  self.testguy.head.body = love.physics.newBody(
-    self.world, torsoX, torsoY - torsoHeight/2-headRadius, "dynamic") 
-  self.testguy.head.shape = love.physics.newCircleShape(headRadius)
-  self.testguy.head.fixture = love.physics.newFixture(self.testguy.head.body, self.testguy.head.shape, 1)
-  self.testguy.head.fixture:setRestitution(0.9)
-
-  headTorsojoint = love.physics.newDistanceJoint( self.testguy.head.body, self.testguy.torso.body, torsoX, torsoY - torsoHeight/2-headRadius, torsoX, torsoY - torsoHeight/2, true )
-
+  Dude(100, 100)
+  self.dude = Dude(200, 200)
 end
 
 
@@ -96,11 +75,8 @@ function state:update(dt)
   self.world:update(dt)
 
   -- control physics
-  if love.keyboard.isDown("right") then
-    self.testguy.head.body:applyForce(512*dt, 0)
-  elseif love.keyboard.isDown("left") then
-    self.testguy.head.body:applyForce(-512*dt, 0)
-  end
+  local mx, my = love.mouse.getPosition()
+  self.dude:pullTowards(mx, my, 15000*dt)
 
   -- update logic
   GameObject.updateAll(dt)
@@ -114,6 +90,7 @@ function state:draw()
   -- background
   love.graphics.setColor(200, 50, 200)
   love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
+  useful.bindWhite()
 
 	-- objects
 	GameObject.drawAll(self.view)
