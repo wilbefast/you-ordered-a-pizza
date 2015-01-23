@@ -63,22 +63,35 @@ function state:keypressed(key, uni)
 end
 
 function state:mousepressed(x, y)
-  log:write(math.floor(x), math.floor(y))
-  Dude(x, y)
-  --self.mouseJoint = love.physics.newMouseJoint(self.dude.head.body, x, y)
+
+
+  self.world:queryBoundingBox(x, y, x, y, function(fixture) 
+
+    if self.mouseJoint then
+      self.mouseJoint:destroy()
+    end
+    self.mouseJoint = love.physics.newMouseJoint(fixture:getBody(), x, y)
+
+    return true
+  end)
+
+
 end
 
 function state:mousereleased()
+  if self.mouseJoint then
+    self.mouseJoint:destroy()
+  end
   self.mouseJoint = nil
 end
 
 function state:update(dt)
-  -- update phyics
+  -- update physics
   self.world:update(dt)
 
   -- control physics
   if self.mouseJoint then
-    --self.mouseJoint:setTarget(love.mouse.getPosition())
+    self.mouseJoint:setTarget(love.mouse.getPosition())
   end
 
   -- update logic
