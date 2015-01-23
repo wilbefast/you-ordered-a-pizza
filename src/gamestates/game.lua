@@ -43,7 +43,6 @@ function state:enter()
     self.world, WORLD_W/2, WORLD_H - 32)
   self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
   self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
-
   self.dude = Dude(200, 200)
 end
 
