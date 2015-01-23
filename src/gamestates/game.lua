@@ -44,7 +44,6 @@ function state:enter()
   self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
   self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
 
-  Dude(100, 100)
   self.dude = Dude(200, 200)
 end
 
@@ -64,10 +63,13 @@ function state:keypressed(key, uni)
 end
 
 function state:mousepressed(x, y)
-
+  log:write(math.floor(x), math.floor(y))
+  Dude(x, y)
+  --self.mouseJoint = love.physics.newMouseJoint(self.dude.head.body, x, y)
 end
 
 function state:mousereleased()
+  self.mouseJoint = nil
 end
 
 function state:update(dt)
@@ -75,8 +77,9 @@ function state:update(dt)
   self.world:update(dt)
 
   -- control physics
-  local mx, my = love.mouse.getPosition()
-  self.dude:pullTowards(mx, my, 15000*dt)
+  if self.mouseJoint then
+    --self.mouseJoint:setTarget(love.mouse.getPosition())
+  end
 
   -- update logic
   GameObject.updateAll(dt)

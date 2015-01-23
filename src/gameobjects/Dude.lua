@@ -16,6 +16,10 @@ Lesser General Public License for more details.
 Initialisation
 --]]--
 
+local torsoWidth = 50
+local torsoHeight = 100
+local headRadius = 20
+
 local Dude = Class({
 
   type = GameObject.newType("Dude"),
@@ -24,28 +28,23 @@ local Dude = Class({
 
     GameObject.init(self, x, y)
 
-
-	  local torsoWidth = 50
-	  local torsoHeight = 100
-	  local headRadius = 20
-
 	  self.torso = {}
 	  self.torso.body = love.physics.newBody(
-	    game.world, self.x, self.y, "dynamic")
+	    game.world, x, y, "dynamic")
 	  self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
 	  self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
 
 	  self.head = {}
 	  self.head.body = love.physics.newBody(
-	    game.world, self.x, self.x - torsoHeight/2 - headRadius, "dynamic") 
+	    game.world, x, y - torsoHeight/2 - headRadius, "dynamic") 
 	  self.head.shape = love.physics.newCircleShape(headRadius)
 	  self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 1)
 	  self.head.fixture:setRestitution(0.9)
 
 	  local headTorsojoint = love.physics.newDistanceJoint(
 	  	self.head.body, self.torso.body, 
-	  	self.x, self.y - torsoHeight/2-headRadius, 
-	  	self.x, self.y - torsoHeight/2, true)
+	  	x, y - torsoHeight/2 - headRadius, 
+	  	x, y - torsoHeight/2, true)
 
   end,
 })
@@ -77,10 +76,6 @@ end
 Physics
 --]]--
 
-function Dude:pullTowards(x, y, force)
-	local dx, dy = Vector.normalize(x - self.x, y - self.y)
-  self.head.body:applyForce(dx*force, dy*force)
-end
 
 
 --[[------------------------------------------------------------

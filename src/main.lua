@@ -51,8 +51,8 @@ VIEW_H = 0
 VIEW_SCALE = 1
 
 local __convert_mouse_position = function(x, y)
-  x = (x - (WINDOW_W - VIEW_W*VIEW_SCALE)*0.5)/VIEW_SCALE
-  y = (y - (WINDOW_H - VIEW_H*VIEW_SCALE)*0.5)/VIEW_SCALE
+  x = (x - (WINDOW_W - VIEW_W)*0.5)/VIEW_SCALE
+  y = (y - (WINDOW_H - VIEW_H)*0.5)/VIEW_SCALE
   return x, y
 end
 
