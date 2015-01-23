@@ -16,15 +16,78 @@ Lesser General Public License for more details.
 Initialisation
 --]]--
 
+local torsoWidth = 50
+local torsoHeight = 100
+local headRadius = 20
+
 local Dude = Class({
 
   type = GameObject.newType("Dude"),
 
-  init = function(self, x, y, dx, dy)
+  init = function(self, x, y)
 
-    GameObject.init(self, x, y, 8, 8)
+    GameObject.init(self, x, y)
 
-    self.dx, self.dy = dx, dy
+     self.testguy = {}
+
+  torsoX = WORLD_W/2
+  torsoY = 70
+  torsoWidth = 50
+  torsoHeight = 100
+  headRadius = 20
+  armWidth = 15
+  armHeight = 90
+  legWidth = 15
+  legHeight = 90
+  legspacing = 15
+  memberTorsoDistance = 10
+
+  self.torso = {}
+  self.torso.body = love.physics.newBody(
+    game.world, torsoX, torsoY, "dynamic")
+  self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
+  self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
+
+  self.head = {}
+  self.head.body = love.physics.newBody(
+    game.world, torsoX, torsoY - torsoHeight/2-headRadius, "dynamic") 
+  self.head.shape = love.physics.newCircleShape(headRadius)
+  self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 1)
+
+  headTorsojoint = love.physics.newDistanceJoint( self.head.body, self.torso.body, torsoX, torsoY - torsoHeight/2-headRadius, torsoX, torsoY - torsoHeight/2, true )
+
+  self.rightArm = {}
+  self.rightArm.body = love.physics.newBody(
+    game.world, torsoX + (torsoWidth+armWidth)/2, torsoY - torsoHeight/2 + armHeight / 2, "dynamic")
+  self.rightArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+  self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1)
+
+  rightArmjoint = love.physics.newRevoluteJoint( self.rightArm.body, self.torso.body, torsoX + torsoWidth/2, torsoY - (torsoHeight-armWidth)/2, false )
+
+  self.leftArm = {}
+  self.leftArm.body = love.physics.newBody(
+    game.world, torsoX - (torsoWidth+armWidth)/2, torsoY - torsoHeight/2 + armHeight / 2, "dynamic")
+  self.leftArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+  self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1)
+
+  leftArmjoint = love.physics.newRevoluteJoint( self.leftArm.body, self.torso.body, torsoX - torsoWidth/2, torsoY - (torsoHeight-armWidth)/2, false )
+
+  self.rightLeg = {}
+  self.rightLeg.body = love.physics.newBody(
+    game.world, torsoX + legspacing, torsoY + torsoHeight/2 + legHeight / 2 + memberTorsoDistance, "dynamic")
+  self.rightLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+  self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 1)
+
+  rightLegjoint = love.physics.newRevoluteJoint( self.rightLeg.body, self.torso.body, torsoX + legspacing, torsoY + torsoHeight/2 + memberTorsoDistance, true )
+
+  self.leftLeg = {}
+  self.leftLeg.body = love.physics.newBody(
+    game.world, torsoX - legspacing, torsoY + torsoHeight/2 + legHeight / 2 + memberTorsoDistance, "dynamic")
+  self.leftLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+  self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 1)
+
+  leftLegjoint = love.physics.newRevoluteJoint( self.leftLeg.body, self.torso.body, torsoX - legspacing, torsoY + torsoHeight/2 + memberTorsoDistance, true )
+
   end,
 })
 
@@ -43,15 +106,19 @@ Game loop
 --]]--
 
 function Dude:update(dt)
-  GameObject.update(self, dt)
+	self.x, self.y = self.torso.body:getX(), self.torso.body:getY()
 end
 
 function Dude:draw(x, y)
 
-  --if DEBUG then
-    self.DEBUG_VIEW:draw(self)
-  --end
+  love.graphics.circle("line", x, y, 32)
 end
+
+--[[------------------------------------------------------------
+Physics
+--]]--
+
+
 
 --[[------------------------------------------------------------
 Collisions
