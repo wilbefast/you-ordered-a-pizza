@@ -34,7 +34,7 @@ AnimationView = require("unrequited/AnimationView")
 Controller = require("unrequited/Controller")
 
 -- debug function I found online
-debugWorld = require("debugWorldDraw")
+debugWorldDraw = require("debugWorldDraw")
 
 -------------------------------------------------------------------------------
 -- SCALING

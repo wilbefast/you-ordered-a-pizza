@@ -27,7 +27,7 @@ end
 
 
 function state:enter()
-  -- setup the world
+  -- set up the world
   self.world = love.physics.newWorld(-WORLD_W, 0, 2*WORLD_W, WORLD_H, 0, -9.81)
   self.world:setCallbacks(
     self.beginContact, 
@@ -36,8 +36,32 @@ function state:enter()
     self.postSolve)
   love.physics.setMeter(100) -- 100 pixels per meter
 
-  -- 
-  self.body = love.physics.newBody(self.world, WORLD_W/2, WORLD_H/2, "dynamic")
+  -- populate the world
+  self.floor = {}
+  self.floor.body = love.physics.newBody(
+    self.world, WORLD_W/2, WORLD_H - 32)
+  self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
+  self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
+--[[
+  --let's create a ball
+  objects.ball = {}
+  objects.ball.body = love.physics.newBody(world, 650/2, 650/2, "dynamic") --place the body in the center of the world and make it dynamic, so it can move around
+  objects.ball.shape = love.physics.newCircleShape( 20) --the ball's shape has a radius of 20
+  objects.ball.fixture = love.physics.newFixture(objects.ball.body, objects.ball.shape, 1) -- Attach fixture to body and give it a density of 1.
+  objects.ball.fixture:setRestitution(0.9) --let the ball bounce
+
+  --let's create a couple blocks to play around with
+  objects.block1 = {}
+  objects.block1.body = love.physics.newBody(world, 200, 550, "dynamic")
+  objects.block1.shape = love.physics.newRectangleShape(0, 0, 50, 100)
+  objects.block1.fixture = love.physics.newFixture(objects.block1.body, objects.block1.shape, 5) -- A higher density gives it more mass.
+
+  objects.block2 = {}
+  objects.block2.body = love.physics.newBody(world, 200, 400, "dynamic")
+  objects.block2.shape = love.physics.newRectangleShape(0, 0, 100, 50)
+  objects.block2.fixture = love.physics.newFixture(objects.block2.body, objects.block2.shape, 2)  
+  ]]--
+
 end
 
 
@@ -64,6 +88,7 @@ end
 function state:update(dt)
   GameObject.updateAll(dt)
 end
+
 
 function state:draw()
 	-- clear
