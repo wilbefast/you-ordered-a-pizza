@@ -33,6 +33,9 @@ Animation = require("unrequited/Animation")
 AnimationView = require("unrequited/AnimationView")
 Controller = require("unrequited/Controller")
 
+-- debug function I found online
+debugWorld = require("debugWorldDraw")
+
 -------------------------------------------------------------------------------
 -- SCALING
 -------------------------------------------------------------------------------
@@ -94,6 +97,7 @@ gameover = require("gamestates/gameover")
 -- LOVE CALLBACKS
 -------------------------------------------------------------------------------
 love.load = function()
+
 	WINDOW_W = love.graphics.getWidth()
 	WINDOW_H = love.graphics.getHeight()
 
@@ -107,7 +111,6 @@ love.load = function()
     VIEW_H = WORLD_H*VIEW_SCALE
 	end
 	VIEW_SCALE = VIEW_SCALE - 0.0001
-	print(WINDOW_W, WINDOW_H, VIEW_SCALE)
 
 	love.graphics.setDefaultFilter("nearest", "nearest", 1)
 

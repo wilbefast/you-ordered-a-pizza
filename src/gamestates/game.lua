@@ -15,7 +15,7 @@ Lesser General Public License for more details.
 local state = gamestate.new()
 
 --[[------------------------------------------------------------
-Defines
+Workspace, local to this file
 --]]--
 
 --[[------------------------------------------------------------
@@ -27,6 +27,17 @@ end
 
 
 function state:enter()
+  -- setup the world
+  self.world = love.physics.newWorld(-WORLD_W, 0, 2*WORLD_W, WORLD_H, 0, -9.81)
+  self.world:setCallbacks(
+    self.beginContact, 
+    self.endContact, 
+    self.preSolve, 
+    self.postSolve)
+  love.physics.setMeter(100) -- 100 pixels per meter
+
+  -- 
+  self.body = love.physics.newBody(self.world, WORLD_W/2, WORLD_H/2, "dynamic")
 end
 
 
@@ -35,7 +46,7 @@ function state:leave()
 end
 
 --[[------------------------------------------------------------
-Callbacks
+Love callbacks
 --]]--
 
 function state:keypressed(key, uni)
@@ -64,8 +75,28 @@ function state:draw()
 
 	-- objects
 	GameObject.drawAll(self.view)
+
+  -- debug
+  if DEBUG then
+    debugWorldDraw(self.world, 0, 0, WORLD_W, WORLD_H)
+  end
 end
 
+--[[------------------------------------------------------------
+Physics callbacks
+--]]--
+
+function state.beginContact()
+end
+
+function state.endContact()
+end
+
+function state.preSolve()
+end
+
+function state.postSolve()
+end
 
 --[[------------------------------------------------------------
 EXPORT

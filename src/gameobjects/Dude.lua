@@ -16,8 +16,8 @@ Lesser General Public License for more details.
 Initialisation
 --]]--
 
-local Dude = Class
-{
+local Dude = Class({
+
   type = GameObject.newType("Dude"),
 
   init = function(self, x, y, dx, dy)
@@ -26,7 +26,8 @@ local Dude = Class
 
     self.dx, self.dy = dx, dy
   end,
-}
+})
+
 Dude:include(GameObject)
 
 
@@ -34,7 +35,7 @@ Dude:include(GameObject)
 Destruction
 --]]--
 
-function Dude:onPurge()
+function Dude.onPurge(self)
 end
 
 --[[------------------------------------------------------------
