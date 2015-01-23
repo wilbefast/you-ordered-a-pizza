@@ -51,6 +51,12 @@ function state:enter()
   torsoWidth = 50
   torsoHeight = 100
   headRadius = 20
+  armWidth = 15
+  armHeight = 90
+  legWidth = 15
+  legHeight = 90
+  legspacing = 15
+  memberTorsoDistance = 10
 
   self.testguy.torso = {}
   self.testguy.torso.body = love.physics.newBody(
@@ -63,9 +69,40 @@ function state:enter()
     self.world, torsoX, torsoY - torsoHeight/2-headRadius, "dynamic") 
   self.testguy.head.shape = love.physics.newCircleShape(headRadius)
   self.testguy.head.fixture = love.physics.newFixture(self.testguy.head.body, self.testguy.head.shape, 1)
-  self.testguy.head.fixture:setRestitution(0.9)
 
   headTorsojoint = love.physics.newDistanceJoint( self.testguy.head.body, self.testguy.torso.body, torsoX, torsoY - torsoHeight/2-headRadius, torsoX, torsoY - torsoHeight/2, true )
+
+  self.testguy.rightArm = {}
+  self.testguy.rightArm.body = love.physics.newBody(
+    self.world, torsoX + (torsoWidth+armWidth)/2, torsoY - torsoHeight/2 + armHeight / 2, "dynamic")
+  self.testguy.rightArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+  self.testguy.rightArm.fixture = love.physics.newFixture(self.testguy.rightArm.body, self.testguy.rightArm.shape, 1)
+
+  rightArmjoint = love.physics.newRevoluteJoint( self.testguy.rightArm.body, self.testguy.torso.body, torsoX + torsoWidth/2, torsoY - (torsoHeight-armWidth)/2, false )
+
+  self.testguy.leftArm = {}
+  self.testguy.leftArm.body = love.physics.newBody(
+    self.world, torsoX - (torsoWidth+armWidth)/2, torsoY - torsoHeight/2 + armHeight / 2, "dynamic")
+  self.testguy.leftArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+  self.testguy.leftArm.fixture = love.physics.newFixture(self.testguy.leftArm.body, self.testguy.leftArm.shape, 1)
+
+  leftArmjoint = love.physics.newRevoluteJoint( self.testguy.leftArm.body, self.testguy.torso.body, torsoX - torsoWidth/2, torsoY - (torsoHeight-armWidth)/2, false )
+
+  self.testguy.rightLeg = {}
+  self.testguy.rightLeg.body = love.physics.newBody(
+    self.world, torsoX + legspacing, torsoY + torsoHeight/2 + legHeight / 2 + memberTorsoDistance, "dynamic")
+  self.testguy.rightLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+  self.testguy.rightLeg.fixture = love.physics.newFixture(self.testguy.rightLeg.body, self.testguy.rightLeg.shape, 1)
+
+  rightLegjoint = love.physics.newRevoluteJoint( self.testguy.rightLeg.body, self.testguy.torso.body, torsoX + legspacing, torsoY + torsoHeight/2 + memberTorsoDistance, true )
+
+  self.testguy.leftLeg = {}
+  self.testguy.leftLeg.body = love.physics.newBody(
+    self.world, torsoX - legspacing, torsoY + torsoHeight/2 + legHeight / 2 + memberTorsoDistance, "dynamic")
+  self.testguy.leftLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+  self.testguy.leftLeg.fixture = love.physics.newFixture(self.testguy.leftLeg.body, self.testguy.leftLeg.shape, 1)
+
+  leftLegjoint = love.physics.newRevoluteJoint( self.testguy.leftLeg.body, self.testguy.torso.body, torsoX - legspacing, torsoY + torsoHeight/2 + memberTorsoDistance, true )
 
 end
 
