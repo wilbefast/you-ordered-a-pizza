@@ -49,166 +49,172 @@ local Dude = Class({
     self.canBeGrabbed = false
 
     -- rag doll
-    self.torso = { dude = self, part = "torso" }
-    self.torso.body = love.physics.newBody(
+    local parts = {}
+    parts.torso = { dude = self, part = "torso" }
+    parts.torso.body = love.physics.newBody(
       game.world, x, y, "dynamic")
-    self.torso.body:setUserData(self.torso)
-    self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
-    self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
-    self.torso.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.torso.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.torso.fixture:setFriction(self.friction)
-    self.torso.body:setUserData(self.torso)
+    parts.torso.body:setUserData(parts.torso)
+    parts.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
+    parts.torso.fixture = love.physics.newFixture(parts.torso.body, parts.torso.shape, 5)
+    parts.torso.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.torso.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.torso.fixture:setFriction(self.friction)
+    parts.torso.body:setUserData(parts.torso)
 
-    self.head = { dude = self, part = "head" }
-    self.head.body = love.physics.newBody(
+    parts.head = { dude = self, part = "head" }
+    parts.head.body = love.physics.newBody(
       game.world, x, y - torsoHeight/2-headRadius, "dynamic") 
-    self.head.shape = love.physics.newCircleShape(headRadius)
-    self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 1)
-    self.head.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.head.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.head.fixture:setFriction(self.friction)
-    headTorsojoint = love.physics.newDistanceJoint( self.head.body, self.torso.body, x, y - torsoHeight/2-headRadius, x, y - torsoHeight/2, true )
-    self.head.body:setUserData(self.head)
+    parts.head.shape = love.physics.newCircleShape(headRadius)
+    parts.head.fixture = love.physics.newFixture(parts.head.body, parts.head.shape, 1)
+    parts.head.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.head.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.head.fixture:setFriction(self.friction)
+    headTorsojoint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2-headRadius, x, y - torsoHeight/2, true )
+    parts.head.body:setUserData(parts.head)
 
-    self.rightArm = { dude = self, part = "rightArm" }
-    self.rightArm.body = love.physics.newBody(
+    parts.rightArm = { dude = self, part = "rightArm" }
+    parts.rightArm.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight / 2, "dynamic")
-    self.rightArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1)
-    self.rightArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.rightArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightArm.fixture:setFriction(self.friction)
-    rightArmjoint = love.physics.newRevoluteJoint( self.rightArm.body, self.torso.body, x + torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
-    self.rightArm.body:setUserData(self.rightArm)
+    parts.rightArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+    parts.rightArm.fixture = love.physics.newFixture(parts.rightArm.body, parts.rightArm.shape, 1)
+    parts.rightArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.rightArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightArm.fixture:setFriction(self.friction)
+    rightArmjoint = love.physics.newRevoluteJoint( parts.rightArm.body, parts.torso.body, x + torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
+    parts.rightArm.body:setUserData(parts.rightArm)
 
-    self.rightForearm = { dude = self, part = "rightForearm" }
-    self.rightForearm.body = love.physics.newBody(
+    parts.rightForearm = { dude = self, part = "rightForearm" }
+    parts.rightForearm.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 3*armHeight / 2, "dynamic")
-    self.rightForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.rightForearm.fixture = love.physics.newFixture(self.rightForearm.body, self.rightForearm.shape, 1)
-    self.rightForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.rightForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightForearm.fixture:setFriction(self.friction)
-    rightForearmjoint = love.physics.newRevoluteJoint( self.rightForearm.body, self.rightArm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
-    self.rightForearm.body:setUserData(self.rightForearm)
+    parts.rightForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+    parts.rightForearm.fixture = love.physics.newFixture(parts.rightForearm.body, parts.rightForearm.shape, 1)
+    parts.rightForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.rightForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightForearm.fixture:setFriction(self.friction)
+    rightForearmjoint = love.physics.newRevoluteJoint( parts.rightForearm.body, parts.rightArm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
+    parts.rightForearm.body:setUserData(parts.rightForearm)
 
-    self.rightHand = { dude = self, part = "rightArm" }
-    self.rightHand.body = love.physics.newBody(
+    parts.rightHand = { dude = self, part = "rightArm" }
+    parts.rightHand.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight + handHeight/2, "dynamic")
-    self.rightHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
-    self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, 1)
-    self.rightHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.rightHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightHand.fixture:setFriction(self.friction)
-    rightHandjoint = love.physics.newRevoluteJoint( self.rightHand.body, self.rightForearm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
-    self.rightHand.body:setUserData(self.rightHand)
+    parts.rightHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
+    parts.rightHand.fixture = love.physics.newFixture(parts.rightHand.body, parts.rightHand.shape, 1)
+    parts.rightHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.rightHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightHand.fixture:setFriction(self.friction)
+    rightHandjoint = love.physics.newRevoluteJoint( parts.rightHand.body, parts.rightForearm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
+    parts.rightHand.body:setUserData(parts.rightHand)
 
-    self.leftArm = { dude = self, part = "leftArm" }
-    self.leftArm.body = love.physics.newBody(
+    parts.leftArm = { dude = self, part = "leftArm" }
+    parts.leftArm.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight / 2, "dynamic")
-    self.leftArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1)
-    self.leftArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.leftArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftArm.fixture:setFriction(self.friction)
-    leftArmjoint = love.physics.newRevoluteJoint( self.leftArm.body, self.torso.body, x - torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
-    self.leftArm.body:setUserData(self.leftArm)
+    parts.leftArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+    parts.leftArm.fixture = love.physics.newFixture(parts.leftArm.body, parts.leftArm.shape, 1)
+    parts.leftArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.leftArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftArm.fixture:setFriction(self.friction)
+    leftArmjoint = love.physics.newRevoluteJoint( parts.leftArm.body, parts.torso.body, x - torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
+    parts.leftArm.body:setUserData(parts.leftArm)
 
-    self.leftForearm = { dude = self, part = "leftForearm" }
-    self.leftForearm.body = love.physics.newBody(
+    parts.leftForearm = { dude = self, part = "leftForearm" }
+    parts.leftForearm.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 3*armHeight / 2, "dynamic")
-    self.leftForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.leftForearm.fixture = love.physics.newFixture(self.leftForearm.body, self.leftForearm.shape, 1)
-    self.leftForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.leftForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftForearm.fixture:setFriction(self.friction)
-    leftForearmjoint = love.physics.newRevoluteJoint( self.leftForearm.body, self.leftArm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
-    self.leftForearm.body:setUserData(self.leftForearm)
+    parts.leftForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
+    parts.leftForearm.fixture = love.physics.newFixture(parts.leftForearm.body, parts.leftForearm.shape, 1)
+    parts.leftForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.leftForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftForearm.fixture:setFriction(self.friction)
+    leftForearmjoint = love.physics.newRevoluteJoint( parts.leftForearm.body, parts.leftArm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
+    parts.leftForearm.body:setUserData(parts.leftForearm)
 
-    self.leftHand = { dude = self, part = "leftHand" }
-    self.leftHand.body = love.physics.newBody(
+    parts.leftHand = { dude = self, part = "leftHand" }
+    parts.leftHand.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight + handHeight/2, "dynamic")
-    self.leftHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
-    self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, 1)
-    self.leftHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
-    self.leftHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftHand.fixture:setFriction(self.friction)
-    leftHandjoint = love.physics.newRevoluteJoint( self.leftHand.body, self.leftForearm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
-    self.leftHand.body:setUserData(self.leftHand)
+    parts.leftHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
+    parts.leftHand.fixture = love.physics.newFixture(parts.leftHand.body, parts.leftHand.shape, 1)
+    parts.leftHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.leftHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftHand.fixture:setFriction(self.friction)
+    leftHandjoint = love.physics.newRevoluteJoint( parts.leftHand.body, parts.leftForearm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
+    parts.leftHand.body:setUserData(parts.leftHand)
 
-    self.rightLeg = { dude = self, part = "rightLeg" }
-    self.rightLeg.body = love.physics.newBody(
+    parts.rightLeg = { dude = self, part = "rightLeg" }
+    parts.rightLeg.body = love.physics.newBody(
       game.world, x + legspacing, y + torsoHeight/2 + legHeight / 2 + memberDistance, "dynamic")
-    self.rightLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 1)
-    self.rightLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.rightLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightLeg.fixture:setFriction(self.friction)
-    rightLegjoint = love.physics.newRevoluteJoint( self.rightLeg.body, self.torso.body, x + legspacing, y + torsoHeight/2 + memberDistance, true )
-    self.rightLeg.body:setUserData(self.rightLeg)
+    parts.rightLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+    parts.rightLeg.fixture = love.physics.newFixture(parts.rightLeg.body, parts.rightLeg.shape, 1)
+    parts.rightLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.rightLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightLeg.fixture:setFriction(self.friction)
+    rightLegjoint = love.physics.newRevoluteJoint( parts.rightLeg.body, parts.torso.body, x + legspacing, y + torsoHeight/2 + memberDistance, true )
+    parts.rightLeg.body:setUserData(parts.rightLeg)
 
-    self.rightForeleg = { dude = self, part = "rightForeleg" }
-    self.rightForeleg.body = love.physics.newBody(
+    parts.rightForeleg = { dude = self, part = "rightForeleg" }
+    parts.rightForeleg.body = love.physics.newBody(
       game.world, x + legspacing, y + torsoHeight/2 + 3*legHeight / 2 + 2*memberDistance, "dynamic")
-    self.rightForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.rightForeleg.fixture = love.physics.newFixture(self.rightForeleg.body, self.rightForeleg.shape, 1)
-    self.rightForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.rightForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightForeleg.fixture:setFriction(self.friction)
-    rightForelegjoint = love.physics.newRevoluteJoint( self.rightForeleg.body, self.rightLeg.body, x + legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
-    self.rightForeleg.body:setUserData(self.rightForeleg)
+    parts.rightForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+    parts.rightForeleg.fixture = love.physics.newFixture(parts.rightForeleg.body, parts.rightForeleg.shape, 1)
+    parts.rightForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.rightForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightForeleg.fixture:setFriction(self.friction)
+    rightForelegjoint = love.physics.newRevoluteJoint( parts.rightForeleg.body, parts.rightLeg.body, x + legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
+    parts.rightForeleg.body:setUserData(parts.rightForeleg)
 
-    self.rightFoot = { dude = self, part = "rightFoot" }
-    self.rightFoot.body = love.physics.newBody(
+    parts.rightFoot = { dude = self, part = "rightFoot" }
+    parts.rightFoot.body = love.physics.newBody(
       game.world, x + legspacing + footXDecal, y + torsoHeight/2 + 2*legHeight + 3*memberDistance, "dynamic")
-    self.rightFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
-    self.rightFoot.fixture = love.physics.newFixture(self.rightFoot.body, self.rightFoot.shape, 1)
-    self.rightFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.rightFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.rightFoot.fixture:setFriction(self.friction)
-    rightFootjoint = love.physics.newRevoluteJoint( self.rightFoot.body, self.rightForeleg.body, x + legspacing + footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
-    self.rightFoot.body:setUserData(self.rightFoot)
+    parts.rightFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
+    parts.rightFoot.fixture = love.physics.newFixture(parts.rightFoot.body, parts.rightFoot.shape, 1)
+    parts.rightFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.rightFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.rightFoot.fixture:setFriction(self.friction)
+    rightFootjoint = love.physics.newRevoluteJoint( parts.rightFoot.body, parts.rightForeleg.body, x + legspacing + footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.rightFoot.body:setUserData(parts.rightFoot)
 
-    self.leftLeg = { dude = self, part = "leftLeg" }
-    self.leftLeg.body = love.physics.newBody(
+    parts.leftLeg = { dude = self, part = "leftLeg" }
+    parts.leftLeg.body = love.physics.newBody(
       game.world, x - legspacing, y + torsoHeight/2 + legHeight / 2 + memberDistance, "dynamic")
-    self.leftLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 1)
-    self.leftLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.leftLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftLeg.fixture:setFriction(self.friction)
-    leftLegjoint = love.physics.newRevoluteJoint( self.leftLeg.body, self.torso.body, x - legspacing, y + torsoHeight/2 + memberDistance, true )
-    self.leftLeg.body:setUserData(self.leftLeg)
+    parts.leftLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+    parts.leftLeg.fixture = love.physics.newFixture(parts.leftLeg.body, parts.leftLeg.shape, 1)
+    parts.leftLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.leftLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftLeg.fixture:setFriction(self.friction)
+    leftLegjoint = love.physics.newRevoluteJoint( parts.leftLeg.body, parts.torso.body, x - legspacing, y + torsoHeight/2 + memberDistance, true )
+    parts.leftLeg.body:setUserData(parts.leftLeg)
 
-    self.leftForeleg = { dude = self, part = "leftForeleg" }
-    self.leftForeleg.body = love.physics.newBody(
+    parts.leftForeleg = { dude = self, part = "leftForeleg" }
+    parts.leftForeleg.body = love.physics.newBody(
       game.world, x - legspacing, y + torsoHeight/2 + 3*legHeight / 2 + 2*memberDistance, "dynamic")
-    self.leftForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.leftForeleg.fixture = love.physics.newFixture(self.leftForeleg.body, self.leftForeleg.shape, 1)
-    self.leftForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.leftForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftForeleg.fixture:setFriction(self.friction)
-    leftForelegjoint = love.physics.newRevoluteJoint( self.leftForeleg.body, self.leftLeg.body, x - legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
-    self.leftForeleg.body:setUserData(self.leftForeleg)
+    parts.leftForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
+    parts.leftForeleg.fixture = love.physics.newFixture(parts.leftForeleg.body, parts.leftForeleg.shape, 1)
+    parts.leftForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.leftForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftForeleg.fixture:setFriction(self.friction)
+    leftForelegjoint = love.physics.newRevoluteJoint( parts.leftForeleg.body, parts.leftLeg.body, x - legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
+    parts.leftForeleg.body:setUserData(parts.leftForeleg)
 
-    self.leftFoot = { dude = self, part = "leftFoot" }
-    self.leftFoot.body = love.physics.newBody(
+    parts.leftFoot = { dude = self, part = "leftFoot" }
+    parts.leftFoot.body = love.physics.newBody(
       game.world, x - legspacing - footXDecal, y + torsoHeight/2 + 2*legHeight + 3*memberDistance, "dynamic")
-    self.leftFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
-    self.leftFoot.fixture = love.physics.newFixture(self.leftFoot.body, self.leftFoot.shape, 1)
-    self.leftFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
-    self.leftFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
-    self.leftFoot.fixture:setFriction(self.friction)
-    leftFootjoint = love.physics.newRevoluteJoint( self.leftFoot.body, self.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
-    self.leftFoot.body:setUserData(self.leftFoot)
+    parts.leftFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
+    parts.leftFoot.fixture = love.physics.newFixture(parts.leftFoot.body, parts.leftFoot.shape, 1)
+    parts.leftFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
+    parts.leftFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.leftFoot.fixture:setFriction(self.friction)
+    leftFootjoint = love.physics.newRevoluteJoint( parts.leftFoot.body, parts.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.leftFoot.body:setUserData(parts.leftFoot)
+
+    self.body_parts = parts
 
     self.puppeteer = {}
     puppeteerX = x
     puppeteerY = y - torsoHeight/2 - 2*headRadius - 400
     self.puppeteer.body = love.physics.newBody(
       game.world, puppeteerX, puppeteerY, "kinematic")
-    self.puppeteer.joint = love.physics.newDistanceJoint( self.head.body, self.puppeteer.body, x, y - torsoHeight/2-headRadius, puppeteerX, puppeteerY, false )
+    self.puppeteer.joint = love.physics.newDistanceJoint( 
+        parts.head.body, self.puppeteer.body, 
+        x, y - torsoHeight/2-headRadius, 
+        puppeteerX, puppeteerY, false )
 
     self.puppeteer.speed = 1
     self.puppeteer.bounce = 150
@@ -223,7 +229,6 @@ local Dude = Class({
     }
     self.puppeteer.currentPoint = 1
     self.puppeteer.currentT = 0
-
 
   end,
 })
@@ -243,7 +248,9 @@ Game loop
 --]]--
 
 function Dude:update(dt)
-	self.x, self.y = self.torso.body:getX(), self.torso.body:getY()
+
+	local p = self.body_parts
+	self.x, self.y = p.torso.body:getX(), p.torso.body:getY()
 
   if (self.puppeteer ~= nil and self.puppeteer.currentPoint < #self.puppeteer.points) then
     self.puppeteer.currentT = self.puppeteer.currentT + dt * self.puppeteer.speed;
