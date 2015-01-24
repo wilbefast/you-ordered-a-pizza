@@ -149,7 +149,7 @@ return {
 	
 	Adidas_1_Left  = {
 	body_parts = {
-		groin = {"leftFoot_1"},
+		leftFoot = {"leftFoot_1"},
 		},
 		
 		orgy = -1
@@ -157,7 +157,7 @@ return {
 	
 	Adidas_1_Right  = {
 	body_parts = {
-		groin = {"rightFoot_1"},
+		rightFoot = {"rightFoot_1"},
 		},
 		
 		orgy = -1
