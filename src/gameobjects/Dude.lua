@@ -70,7 +70,7 @@ local Dude = Class({
     parts.head.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.head.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.head.fixture:setFriction(self.friction)
-    parts.head.joint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2-headRadius, x, y - torsoHeight/2, true )
+    parts.head.joint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2- 0.1*headRadius, x, y - torsoHeight/2, true )
     parts.head.body:setUserData(parts.head)
 
     parts.rightArm = { dude = self, part = "rightArm" }
