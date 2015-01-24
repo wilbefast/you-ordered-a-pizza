@@ -445,6 +445,50 @@ return {
 		},
 		
 		orgy = -1
+	},
+	
+	Ours_1 = {
+	body_parts = {
+		head = {"head_Ours"},
+		torso = {"torso_Ours"},
+		rightArm = {"arm_Ours"},
+		rightForearm = {"arm_Ours"},
+		rightHand = {"rightHand_Ours"},
+		leftArm = {"arm_Ours"},
+		leftForearm = {"arm_Ours"},
+		leftHand = {"leftHand_Ours"},
+		groin = {"groin_Ours"},
+		rightLeg = {"leg_Ours"},
+		rightForeleg = {"leg_Ours"},
+		rightFoot = {"right_foot_Ours"},
+		leftLeg = {"leg_Ours"},
+		leftForeleg = {"leg_Ours"},
+		leftFoot = {"left_foot_Ours"},
+		},
+		
+		orgy = -1
+	},
+	
+		Ours_2 = {
+	body_parts = {
+		head = {"head_Ours2"},
+		torso = {"torso_Ours2"},
+		rightArm = {"arm_Ours2"},
+		rightForearm = {"arm_Ours2"},
+		rightHand = {"rightHand_Ours2"},
+		leftArm = {"arm_Ours2"},
+		leftForearm = {"arm_Ours2"},
+		leftHand = {"leftHand_Ours2"},
+		groin = {"groin_Ours2"},
+		rightLeg = {"leg_Ours2"},
+		rightForeleg = {"leg_Ours2"},
+		rightFoot = {"right_foot_Ours2"},
+		leftLeg = {"leg_Ours2"},
+		leftForeleg = {"leg_Ours2"},
+		leftFoot = {"left_foot_Ours2"},
+		},
+		
+		orgy = -1
 	}
 
 	

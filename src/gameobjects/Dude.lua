@@ -43,7 +43,7 @@ local Dude = Class({
   init = function(self, x, y, character)
 
   	-- hello!
-  	audio:play_sound("HelloMale")
+  	audio:play_sound(character.hello_sound)
 
     -- semantic object
     GameObject.init(self, x, y)
@@ -386,8 +386,8 @@ Dude.pickingPriority = {
 	leftArm = 1,
 	rightForearm = 1,
 	leftForearm = 1,
-	rightHand = 0,
-	leftHand = 0,
+	rightHand = 4,
+	leftHand = 4,
 	head = 0
 }
 
