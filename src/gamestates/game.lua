@@ -290,7 +290,7 @@ function state:update(dt)
   if (self.timer < 0) then
     self.timer = 0
 
-    if (not self.epilogue) then
+    if (not self.epilogue and count == 0) then
 	    self.epilogue = 0
 	  end
   end
