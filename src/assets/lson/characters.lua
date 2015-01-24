@@ -13,11 +13,11 @@ return {
 
 	Woman1 = {
 	
-		"Adidas_1_Left",
-		"Adidas_1_Right",
+		"Adidas_3_Left",
+		"Adidas_3_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Culotte_1",
+		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
@@ -25,8 +25,8 @@ return {
 	
 	Man2 = {
 	
-		"Adidas_1_Left",
-		"Adidas_1_Right",
+		"Adidas_2_Left",
+		"Adidas_2_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
@@ -37,11 +37,11 @@ return {
 
 	Woman2 = {
 	
-		"Adidas_1_Left",
-		"Adidas_1_Right",
+		"Adidas_5_Left",
+		"Adidas_5_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Culotte_1",
+		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
@@ -49,8 +49,8 @@ return {
 	
 	Man3 = {
 	
-		"Adidas_1_Left",
-		"Adidas_1_Right",
+		"Adidas_4_Left",
+		"Adidas_4_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
@@ -61,11 +61,11 @@ return {
 
 	Woman3 = {
 	
-		"Adidas_1_Left",
-		"Adidas_1_Right",
+		"Adidas_6_Left",
+		"Adidas_6_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Culotte_1",
+		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
