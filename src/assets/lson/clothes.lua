@@ -49,7 +49,7 @@ return {
 	Nude_Man_Black_1= {
 		body_parts = {
 		
-		head = {"head_3","head_RoundEye","head_Blond_Hair"},
+		head = {"head_3","head_RoundEye","head_Red_Hair"},
 		torso = {"torso_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
@@ -72,7 +72,7 @@ return {
 		Nude_Woman_Black_1= {
 		body_parts = {
 		
-		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Blond_Hair"},
+		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Black_Hair"},
 		torso = {"torsoW_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
@@ -96,11 +96,11 @@ return {
 		Nude_Man_Yellow_1= {
 		body_parts = {
 		
-		head = {"head_2","head_AsiatEye","head_Blond_Hair"},
+		head = {"head_2","head_AsiatEye","head_Black_Hair"},
 		torso = {"torso_2"},
 		rightArm = {"arm_2"},
 		rightForearm = {"arm_2"},
-		rightHand = {"arm_2"},
+		rightHand = {"rightHand_2"},
 		leftArm = {"arm_2"},
 		leftForearm = {"arm_2"},
 		leftHand = {"leftHand_2"},
@@ -119,7 +119,7 @@ return {
 		Nude_Woman_Yellow_1= {
 		body_parts = {
 		
-		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_Blond_Hair"},
+		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_Black_Hair"},
 		torso = {"torsoW_2"},
 		rightArm = {"arm_2"},
 		rightForearm = {"arm_2"},
@@ -147,6 +147,7 @@ return {
 		orgy = -1
 	},
 	
+	
 	Adidas_1_Left  = {
 	body_parts = {
 		leftFoot = {"leftFoot_1"},
@@ -163,7 +164,23 @@ return {
 		orgy = -1
 	},
 	
-		Culotte_1  = {
+		Culotte_Pink  = {
+	body_parts = {
+		groin = {"Culotte_1"},
+		},
+		
+		orgy = -1
+	},
+	
+			Culotte_Yellow  = {
+	body_parts = {
+		groin = {"Culotte_1"},
+		},
+		
+		orgy = -1
+	},
+	
+			Culotte_Black  = {
 	body_parts = {
 		groin = {"Culotte_1"},
 		},
