@@ -73,7 +73,7 @@ Dude = require("gameobjects/Dude")
 -- DEFINES
 -------------------------------------------------------------------------------
 
-DEBUG = false
+DEBUG = true
 
 FONT_SMALL = nil
 FONT_MEDIUM = nil

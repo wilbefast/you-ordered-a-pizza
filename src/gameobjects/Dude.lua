@@ -30,8 +30,8 @@ local Dude = Class({
 
      self.testguy = {}
 
-  torsoX = WORLD_W/2
-  torsoY = 70
+  torsoX = x
+  torsoY = y
   torsoWidth = 50
   torsoHeight = 100
   headRadius = 20
