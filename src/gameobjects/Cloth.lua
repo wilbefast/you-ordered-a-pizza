@@ -111,12 +111,6 @@ Game loop
 --]]--
 
 function Cloth:update(dt)
-
-	for i, b in ipairs(self.bodies) do
-		local bx, by = b:getPosition()
-		self.mesh:setVertex(i, bx, by)
-	end
-
 	self.x, self.y = self.bodies[1]:getPosition()
 
   if self.y > 2*WORLD_H then
@@ -125,7 +119,15 @@ function Cloth:update(dt)
 end
 
 function Cloth:draw_cloth(x, y)
-	love.graphics.draw(self.mesh)
+
+	local vertices = {}
+	for i, b in ipairs(self.bodies) do
+		local bx, by = b:getPosition()
+		table.insert(vertices, bx)
+		table.insert(vertices, by)
+	end
+	love.graphics.polygon("fill", vertices)
+
 end
 
 
