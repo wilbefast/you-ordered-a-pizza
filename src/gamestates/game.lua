@@ -27,8 +27,8 @@ end
 
 
 function state:enter()
-  -- set up the world
-  self.world = love.physics.newWorld(0, 9.81, true)
+  -- create the world
+  self.world = love.physics.newWorld(0, 9.81)
   self.world:setCallbacks(
     self.beginContact, 
     self.endContact, 
@@ -36,19 +36,43 @@ function state:enter()
     self.postSolve)
   love.physics.setMeter(100) -- 100 pixels per meter
 
+  -- floor
+  local floor = {}
+  floor.body = love.physics.newBody(
+    self.world, WORLD_W*0.5, WORLD_H + 16)
+  floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
+  floor.fixture = love.physics.newFixture(floor.body, floor.shape)
+  
+  -- roof
+  local roof = {}
+  roof.body = love.physics.newBody(
+    self.world, WORLD_W*0.5, -16)
+  roof.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
+  roof.fixture = love.physics.newFixture(roof.body, roof.shape)
 
-  -- populate the world
-  self.floor = {}
-  self.floor.body = love.physics.newBody(
-    self.world, WORLD_W/2, WORLD_H - 32)
-  self.floor.shape = love.physics.newRectangleShape(WORLD_W*1.5, 64)
-  self.floor.fixture = love.physics.newFixture(self.floor.body, self.floor.shape)
-  self.dude = Dude(200, 200)
+  -- left wall
+  local leftWall = {}
+  leftWall.body = love.physics.newBody(
+    self.world, -16, WORLD_H*0.5)
+  leftWall.shape = love.physics.newRectangleShape(64, WORLD_H)
+  leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
+ 
+  -- right wall
+  local rightWall = {}
+  rightWall.body = love.physics.newBody(
+    self.world, WORLD_W + 16, WORLD_H*0.5)
+  rightWall.shape = love.physics.newRectangleShape(64, WORLD_H)
+  rightWall.fixture = love.physics.newFixture(rightWall.body, rightWall.shape)
+
+
+
+  self.dude = Dude(WORLD_W/2, WORLD_H/2)
 end
 
 
 function state:leave()
 	GameObject.purgeAll()
+  self.world:destroy()
 end
 
 --[[------------------------------------------------------------
