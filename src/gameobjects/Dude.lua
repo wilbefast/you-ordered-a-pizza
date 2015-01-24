@@ -226,7 +226,7 @@ local Dude = Class({
       {puppeteerX-150, puppeteerY},
       {puppeteerX-200, puppeteerY},
       {puppeteerX-300, puppeteerY},
-      {puppeteerX-350, puppeteerY},
+      {puppeteerX-350, puppeteerY-50},
     }
     self.puppeteer.currentPoint = 1
     self.puppeteer.currentT = 0

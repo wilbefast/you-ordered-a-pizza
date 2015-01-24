@@ -205,6 +205,7 @@ function state:update(dt)
     	if dude.x > 0 then
     		dude.purge = true
         audio:play_sound("DefenestrationMan")
+        audio:play_sound("Cat")
     	end
     end
   end
