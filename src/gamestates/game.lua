@@ -322,7 +322,8 @@ function state:draw()
   local minutes = math.floor(timerInt/60)
   local seconds = timerInt - minutes * 60
   love.graphics.setFont(FONT_MEDIUM)
-  love.graphics.printf(tostring(minutes)..":"..seconds, 
+  local format = string.format("%02d : %02d", minutes, seconds)
+  love.graphics.printf(format, 
     TIMER_X, TIMER_Y, TIMER_TEXT_LENGTH, "center")
 
   foregroundb.batch:clear()
