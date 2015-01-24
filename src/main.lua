@@ -115,7 +115,7 @@ love.load = function()
 	love.graphics.setDefaultFilter("nearest", "nearest", 1)
 
   fudge.set({ monkey = true })
-  --foregroundb = fudge.new("assets/foreground", { npot = false })
+  foregroundb = fudge.new("assets/foreground", { npot = false })
 
 	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)
 	FONT_SMALL:setFilter("nearest", "nearest", 1)
