@@ -242,23 +242,25 @@ local Dude = Class({
     	self.clothes[i] = clothes[clothName]
     end
 
+    for _, part in pairs(self.body_parts) do
+    	part.textures = {}
+    end
 
 		for partName, part in pairs(self.body_parts) do
-			if not part.texture then
+			if #part.textures == 0 then
 				for _, cloth in ipairs(self.clothes) do
-					if not part.texture then
+					if #part.textures == 0 then
 						local partTextureNames = cloth.body_parts[partName]
 
 						if partTextureNames then 
-							local textureName = partTextureNames[1]
-							local t = foregroundb:getPiece(textureName)
-							
-							if not t then
-								error("no sprite called '" .. textureName .. "' in foreground atlas")
-							else
-								part.texture = t
+							for __, textureName in ipairs(partTextureNames) do
+								local t = foregroundb:getPiece(textureName)
+								if not t then
+									error("no sprite called '" .. textureName .. "' in foreground atlas")
+								else
+									table.insert(part.textures, t)
+								end
 							end
-							print("using", textureName, "for", partName)
 						end
 					end
 				end
@@ -316,7 +318,10 @@ function Dude:draw(x, y)
 	for partName, part in pairs(self.body_parts) do
 		b = part.body
 		px, py = b:getPosition()
-		foregroundb:addb_centered(part.texture, px, py, b:getAngle())
+		pa = b:getAngle()
+		for _, texture in ipairs(part.textures) do
+			foregroundb:addb_centered(texture, px, py, pa)
+		end
 	end
 
   love.graphics.circle("line", x, y, 32)
