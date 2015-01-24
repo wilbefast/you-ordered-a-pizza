@@ -39,36 +39,36 @@ function state:enter()
   -- floor
   local floor = {}
   floor.body = love.physics.newBody(
-    self.world, WORLD_W, WORLD_H + 16)
+    self.world, 0, WORLD_H + 16)
   floor.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
   floor.fixture = love.physics.newFixture(floor.body, floor.shape)
   
   -- roof
   local roof = {}
   roof.body = love.physics.newBody(
-    self.world, WORLD_W, -16)
+    self.world, 0, -16)
   roof.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
   roof.fixture = love.physics.newFixture(roof.body, roof.shape)
 
-  -- left wall
+  -- far left wall
   local leftWall = {}
   leftWall.body = love.physics.newBody(
-    self.world, -16, WORLD_H*0.5)
-  leftWall.shape = love.physics.newRectangleShape(64, WORLD_H)
+    self.world, -WORLD_W, WORLD_H*0.5)
+  leftWall.shape = love.physics.newRectangleShape(32, WORLD_H)
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
  
   -- middle wall
   local middleWall = {}
   middleWall.body = love.physics.newBody(
-    self.world, WORLD_W + 16, WORLD_H*0.25)
-  middleWall.shape = love.physics.newRectangleShape(64, WORLD_H*0.5)
+    self.world, 0, WORLD_H*0.25)
+  middleWall.shape = love.physics.newRectangleShape(32, WORLD_H*0.5)
   middleWall.fixture = love.physics.newFixture(middleWall.body, middleWall.shape)
 
   -- right wall
   local rightWall = {}
   rightWall.body = love.physics.newBody(
-    self.world, 2*WORLD_W + 16, WORLD_H*0.5)
-  rightWall.shape = love.physics.newRectangleShape(64, WORLD_H)
+    self.world, WORLD_W, WORLD_H*0.5)
+  rightWall.shape = love.physics.newRectangleShape(32, WORLD_H)
   rightWall.fixture = love.physics.newFixture(rightWall.body, rightWall.shape)
 
   -- create a dude
@@ -131,7 +131,7 @@ function state:update(dt)
     local new_ep = math.min(1, self.epilogue + dt)
     local del_ep = new_ep - self.epilogue
     self.epilogue = new_ep
-    self.world:translateOrigin(WORLD_W*del_ep, 0)
+    self.world:translateOrigin(-WORLD_W*del_ep, 0)
 
   else
     -- control physics
