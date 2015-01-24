@@ -276,15 +276,29 @@ function Dude:update(dt)
 
 end
 
+local _spriteNames = {
+	torso = "torso",
+	head = "head",
+	leftHand = "leftHand",
+	rightHand = "rightHand",
+	leftForeleg = "leg",
+	rightForeleg = "leg",
+	leftLeg = "leg",
+	rightLeg = "leg",
+	leftFoot = "foot",
+	rightFoot = "foot",
+	leftForearm = "arm",
+	rightForearm = "arm",
+	leftArm = "arm",
+	rightArm = "arm"
+}
 
 function Dude:draw(x, y)
 
 	for partName, part in pairs(self.body_parts) do
-		if partName == "torso" or partName == "head" then
-			b = part.body
-			px, py = b:getPosition()
-			foregroundb:addb_centered(partName .. "_1", px, py, b:getAngle())
-		end
+		b = part.body
+		px, py = b:getPosition()
+		foregroundb:addb_centered(_spriteNames[partName] .. "_1", px, py, b:getAngle())
 	end
 
   love.graphics.circle("line", x, y, 32)

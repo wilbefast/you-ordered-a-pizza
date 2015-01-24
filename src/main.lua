@@ -78,7 +78,7 @@ Door = require("gameobjects/Door")
 -- DEFINES
 -------------------------------------------------------------------------------
 
-DEBUG = true
+--DEBUG = true
 
 FONT_SMALL = nil
 FONT_MEDIUM = nil
