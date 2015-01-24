@@ -276,10 +276,16 @@ function Dude:update(dt)
 
 end
 
+
 function Dude:draw(x, y)
 
-	foregroundb:addb("icon", x, y, 0, 1, 1, 25, 25)
-
+	for partName, part in pairs(self.body_parts) do
+		if partName == "torso" or partName == "head" then
+			b = part.body
+			px, py = b:getPosition()
+			foregroundb:addb_centered(partName .. "_1", px, py, b:getAngle())
+		end
+	end
 
   love.graphics.circle("line", x, y, 32)
 end
