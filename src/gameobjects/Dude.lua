@@ -231,6 +231,40 @@ local Dude = Class({
     self.puppeteer.currentPoint = 1
     self.puppeteer.currentT = 0
 
+
+    self.character = characters.bear
+
+    self.clothes = {}
+    for i, clothName in ipairs(self.character) do
+    	if not clothes[clothName] then
+    		error("No cloth called '" .. clothName .. "' defined in clothes.lua")
+    	end
+    	self.clothes[i] = clothes[clothName]
+    end
+
+
+		for partName, part in pairs(self.body_parts) do
+			if not part.texture then
+				for _, cloth in ipairs(self.clothes) do
+					if not part.texture then
+						local partTextureNames = cloth.body_parts[partName]
+
+						if partTextureNames then 
+							local textureName = partTextureNames[1]
+							local t = foregroundb:getPiece(textureName)
+							
+							if not t then
+								error("no sprite called '" .. textureName .. "' in foreground atlas")
+							else
+								part.texture = t
+							end
+							print("using", textureName, "for", partName)
+						end
+					end
+				end
+			end
+		end
+
   end,
 })
 
@@ -276,29 +310,13 @@ function Dude:update(dt)
 
 end
 
-local _spriteNames = {
-	torso = "torso",
-	head = "head",
-	leftHand = "leftHand",
-	rightHand = "rightHand",
-	leftForeleg = "leg",
-	rightForeleg = "leg",
-	leftLeg = "leg",
-	rightLeg = "leg",
-	leftFoot = "foot",
-	rightFoot = "foot",
-	leftForearm = "arm",
-	rightForearm = "arm",
-	leftArm = "arm",
-	rightArm = "arm"
-}
 
 function Dude:draw(x, y)
 
 	for partName, part in pairs(self.body_parts) do
 		b = part.body
 		px, py = b:getPosition()
-		foregroundb:addb_centered(_spriteNames[partName] .. "_1", px, py, b:getAngle())
+		foregroundb:addb_centered(part.texture, px, py, b:getAngle())
 	end
 
   love.graphics.circle("line", x, y, 32)
