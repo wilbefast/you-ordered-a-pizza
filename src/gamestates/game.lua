@@ -122,7 +122,13 @@ function state:mousepressed(x, y)
 
   -- drag around bodies
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
+    local dude = fixture:getBody():getUserData()["dude"]
 
+    if (dude ~= nil and dude.puppeteer ~= nil) then
+      dude.puppeteer.joint:destroy()
+      dude.puppeteer.body:destroy()
+      dude.puppeteer = nil
+    end
     if self.mouseJoint then
       self.mouseJoint:destroy()
     end
