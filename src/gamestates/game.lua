@@ -111,6 +111,9 @@ function state:keypressed(key, uni)
 end
 
 function state:mousepressed(x, y)
+  if x < 0 or x > WORLD_W or y < 0 or y > WORLD_H then
+    return
+  end
 
   -- open doors
   GameObject.mapToType("Door", 
