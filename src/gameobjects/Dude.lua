@@ -46,6 +46,7 @@ local Dude = Class({
     GameObject.init(self, x, y)
 
     self.friction = 1000000
+    self.canBeGrabbed = false
 
     -- rag doll
     self.torso = { dude = self, part = "torso" }
@@ -263,6 +264,7 @@ function Dude:update(dt)
   else
 
   end
+  self.canBeGrabbed = true
 
 end
 
