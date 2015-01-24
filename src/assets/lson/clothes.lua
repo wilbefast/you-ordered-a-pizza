@@ -147,6 +147,22 @@ return {
 		orgy = -1
 	},
 	
+	Adidas_1_Left  = {
+	body_parts = {
+		groin = {"leftFoot_1"},
+		},
+		
+		orgy = -1
+	},
+	
+	Adidas_1_Right  = {
+	body_parts = {
+		groin = {"rightFoot_1"},
+		},
+		
+		orgy = -1
+	},
+	
 		Culotte_1  = {
 	body_parts = {
 		groin = {"Culotte_1"},
