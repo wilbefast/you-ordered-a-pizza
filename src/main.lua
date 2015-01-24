@@ -23,6 +23,7 @@ fudge = require("fudge/src/fudge")
 gamestate = require("hump/gamestate")
 Class = require("hump/class")
 Vector = require("hump/vector-light")
+camera = require("hump/camera")
 
 -- 'unrequited' is my game library for LOVE
 useful = require("unrequited/useful")

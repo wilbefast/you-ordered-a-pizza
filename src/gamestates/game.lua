@@ -19,6 +19,8 @@ local TIMER_Y = 0.05*WORLD_H
 
 local state = gamestate.new()
 
+local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
+
 --[[------------------------------------------------------------
 Workspace, local to this file
 --]]--
@@ -33,6 +35,8 @@ end
 
 function state:enter()
   audio.swap_music()
+
+  --camera:attach()
 
   self.timer = GAME_TIME
 
@@ -109,6 +113,7 @@ end
 
 function state:leave()
   audio.swap_music()
+  --camera:detach()
   
 	GameObject.purgeAll()
   self.world:destroy()
@@ -172,6 +177,7 @@ function state:update(dt)
     local del_ep = new_ep - self.epilogue
     self.epilogue = new_ep
     self.world:translateOrigin(-WORLD_W*del_ep, 0)
+    camera:move(-WORLD_W*del_ep, 0)
 
   else
     -- control physics
@@ -243,9 +249,11 @@ function state:draw()
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
 	GameObject.drawAll(self.view)
-  foregroundb:addb("light", 0, 0, 0, 1, 1)
+	
+  --foregroundb:addb("light", 0, 0, 0, 1, 1)
 
   love.graphics.draw(foregroundb)
+  love.graphics.draw(lightImage, 0, 0)
 
 
   --timer
