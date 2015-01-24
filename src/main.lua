@@ -70,6 +70,7 @@ end
 
 clothes = require("assets/lson/clothes")
 characters = require("assets/lson/characters")
+endings = require("assets/lson/endings")
 characterNames = {}
 for name, char in pairs(characters) do
 	table.insert(characterNames, name)
