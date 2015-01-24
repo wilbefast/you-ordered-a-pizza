@@ -24,6 +24,8 @@ local ENDTEXT_Y = 0.25*WORLD_H
 local state = gamestate.new()
 
 local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
+local cursorDownImage = love.graphics.newImage( "assets/foreground/cursor_down.png" )
+local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" )
 
 local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
@@ -44,6 +46,9 @@ function state:enter()
   audio.swap_music()
 
   self.timer = GAME_TIME
+	self.cursorImage = cursorUpImage
+
+	love.mouse.setVisible(false)
   camera:lookAt(WORLD_W/2, WORLD_H/2)
   camera:zoomTo(1)
 
@@ -129,6 +134,7 @@ end
 
 function state:leave()
   audio.swap_music()
+	love.mouse.setVisible(true)
   
   if self.mouseJoint then
     self.mouseJoint:destroy()
@@ -158,6 +164,8 @@ function state:mousepressed(x, y)
   if x < 0 or x > WORLD_W or y < 0 or y > WORLD_H then
     return
   end
+
+	self.cursorImage = cursorDownImage
 
   -- drag around bodies
   local grabbedBody, best = nil, -math.huge
@@ -203,6 +211,8 @@ function state:mousepressed(x, y)
 end
 
 function state:mousereleased()
+
+	self.cursorImage = cursorUpImage
   if self.mouseJoint then
     self.mouseJoint:destroy()
   end
@@ -356,6 +366,10 @@ function state:draw()
 		  local format = string.format("%02d : %02d", minutes, seconds)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+
+  		love.graphics.draw(self.cursorImage, mx, my)
+
+
 		end
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
 	  love.graphics.setFont(FONT_BIG)
