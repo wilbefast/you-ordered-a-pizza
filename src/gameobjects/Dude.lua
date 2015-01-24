@@ -187,12 +187,12 @@ local Dude = Class({
     self.leftFoot.body:setUserData(self.leftFoot)
 
     self.puppeteer = {}
-    puppeteerX = torsoX
-    puppeteerY = torsoY - torsoHeight/2 - 2*headRadius - 400
+    puppeteerX = x
+    puppeteerY = y - torsoHeight/2 - 2*headRadius - 400
     self.puppeteer.body = love.physics.newBody(
       game.world, puppeteerX, puppeteerY, "kinematic")
     puppeteerJoint = love.physics.newDistanceJoint
-    puppeteerJoint = love.physics.newDistanceJoint( self.head.body, self.puppeteer.body, torsoX, torsoY - torsoHeight/2-headRadius, puppeteerX, puppeteerY, false )
+    puppeteerJoint = love.physics.newDistanceJoint( self.head.body, self.puppeteer.body, x, y - torsoHeight/2-headRadius, puppeteerX, puppeteerY, false )
 
     self.puppeteer.speed = 1
     self.puppeteer.bounce = 150
