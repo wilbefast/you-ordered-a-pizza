@@ -192,6 +192,9 @@ end
 
 function Dude:draw(x, y)
 
+	foregroundb:addb("icon", x, y, 0, 1, 1, 25, 25)
+
+
   love.graphics.circle("line", x, y, 32)
 end
 
