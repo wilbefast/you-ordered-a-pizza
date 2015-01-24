@@ -308,6 +308,9 @@ function Dude:tearClothingOffPart(partName)
 		if cloth.body_parts[partName] then
 			table.remove(self.clothes, i)
 			self:updateTextures()
+
+
+
 			return true
 		end
 	end
@@ -369,13 +372,29 @@ function Dude:update(dt)
 
 end
 
-
+local partDrawOrder = {
+	"rightLeg",
+	"leftLeg",
+	"groin",
+	"leftForeleg",
+	"rightForeleg",
+	"rightFoot",
+	"leftFoot",
+	"torso",
+	"rightArm",
+	"leftArm",
+	"rightForearm",
+	"leftForearm",
+	"rightHand",
+	"leftHand",
+	"head",
+}
 function Dude:draw(x, y)
-
-	for partName, part in pairs(self.body_parts) do
-		b = part.body
-		px, py = b:getPosition()
-		pa = b:getAngle()
+	for _, partName in ipairs(partDrawOrder) do
+		local part = self.body_parts[partName]
+		local b = part.body
+		local px, py = b:getPosition()
+		local pa = b:getAngle()
 		for _, texture in ipairs(part.textures) do
 			foregroundb:addb_centered(texture, px, py, pa)
 		end
