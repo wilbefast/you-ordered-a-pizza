@@ -12,7 +12,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
 --]]
 
-local GAME_TIME = 10
+local GAME_TIME = 180
 local TIMER_TEXT_LENGTH = 0.6*WORLD_W
 local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
 local TIMER_Y = 0.05*WORLD_H
@@ -202,6 +202,13 @@ function state:update(dt)
     if isonscreen then
       count = count + 1
     else
+    	if dude.x > 0 then
+    		dude.purge = true
+        audio:play_sound("DefenestrationMan")
+        audio:play_sound("Cat")
+      else
+
+    	end
     end
   end
   --log:write(derp)
@@ -213,7 +220,10 @@ function state:update(dt)
   self.timer = self.timer - dt;
   if (self.timer < 0) then
     self.timer = 0
-	  gamestate.switch(gameover)
+
+    if (not self.epilogue) then
+	    self.epilogue = 0
+	  end
   end
 
 
@@ -231,8 +241,9 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
-
 	GameObject.drawAll(self.view)
+  foregroundb:addb("light", 0, 0, 0, 1, 1)
+  
   love.graphics.draw(foregroundb)
 
 
