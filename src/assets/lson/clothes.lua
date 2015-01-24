@@ -295,6 +295,90 @@ return {
 		},
 		
 		orgy = -1
+	},
+	
+		Shirt_01 = {
+	body_parts = {
+		torso = {"torso_Shirt01"},
+		rightArm = {"rightArm_Shirt01"},
+		rightForearm = {"rightForeArm_Shirt01"},
+		leftArm = {"leftArm_Shirt01"},
+		leftForearm = {"leftForeArm_Shirt01"},
+		},
+		
+		orgy = -1
+	},
+	
+		Shirt_02 = {
+	body_parts = {
+		torso = {"torso_Shirt02"},
+		rightArm = {"rightArm_Shirt02"},
+		rightForearm = {"rightForeArm_Shirt02"},
+		leftArm = {"leftArm_Shirt02"},
+		leftForearm = {"leftForeArm_Shirt02"},
+		},
+		
+		orgy = -1
+	},
+	
+		Shirt_03 = {
+	body_parts = {
+		torso = {"torso_Shirt03"},
+		rightArm = {"rightArm_Shirt03"},
+		rightForearm = {"rightForeArm_Shirt03"},
+		leftArm = {"leftArm_Shirt03"},
+		leftForearm = {"leftForeArm_Shirt03"},
+		},
+		
+		orgy = -1
+	},
+	
+		Shirt_04 = {
+	body_parts = {
+		torso = {"torso_Shirt04"},
+		rightArm = {"rightArm_Shirt04"},
+		rightForearm = {"rightForeArm_Shirt04"},
+		leftArm = {"leftArm_Shirt04"},
+		leftForearm = {"leftForeArm_Shirt04"},
+		},
+		
+		orgy = -1
+	},
+	
+		Shirt_05 = {
+	body_parts = {
+		torso = {"torso_Shirt05"},
+		rightArm = {"rightArm_Shirt05"},
+		rightForearm = {"rightForeArm_Shirt05"},
+		leftArm = {"leftArm_Shirt05"},
+		leftForearm = {"leftForeArm_Shirt05"},
+		},
+		
+		orgy = -1
+	},
+	
+			Bra_Pink_01 = {
+	body_parts = {
+		torso = {"torsoW_1","torso_Bra_03"},
+		},
+		
+		orgy = -1
+	},
+	
+				Bra_Yellow_01 = {
+	body_parts = {
+		torso = {"torsoW_2","torso_Bra_01"},
+		},
+		
+		orgy = -1
+	},
+	
+				Bra_Black_01 = {
+	body_parts = {
+		torso = {"torsoW_3","torso_Bra_02"},
+		},
+		
+		orgy = -1
 	}
 
 	

@@ -3,7 +3,7 @@ return {
 
 		"Adidas_1_Left",
 		"Adidas_1_Right",
-		"Shirt_Liberty",
+		"Shirt_01",
 		"Jeans",
 		"Slip",
 		"Nude_Man_Pink_1",
@@ -16,6 +16,7 @@ return {
 		"Adidas_3_Left",
 		"Adidas_3_Right",
 		"Shirt_Liberty",
+		"Bra_Pink_01",
 		"Jeans",
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
@@ -27,7 +28,7 @@ return {
 	
 		"Adidas_2_Left",
 		"Adidas_2_Right",
-		"Shirt_Liberty",
+		"Shirt_02",
 		"Jeans",
 		"Slip",
 		"Nude_Man_Yellow_1",
@@ -39,7 +40,8 @@ return {
 	
 		"Adidas_5_Left",
 		"Adidas_5_Right",
-		"Shirt_Liberty",
+		"Shirt_03",
+		"Bra_Yellow_01",
 		"Jeans",
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
@@ -51,7 +53,7 @@ return {
 	
 		"Adidas_4_Left",
 		"Adidas_4_Right",
-		"Shirt_Liberty",
+		"Shirt_04",
 		"Jeans",
 		"Slip",
 		"Nude_Man_Black_1",
@@ -63,7 +65,8 @@ return {
 	
 		"Adidas_6_Left",
 		"Adidas_6_Right",
-		"Shirt_Liberty",
+		"Shirt_05",
+		"Bra_Black_01",
 		"Jeans",
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
