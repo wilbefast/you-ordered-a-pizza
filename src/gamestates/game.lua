@@ -30,7 +30,7 @@ function state:enter()
   audio.swap_music()
 
   -- create the world
-  self.world = love.physics.newWorld(0, 200)
+  self.world = love.physics.newWorld(0, 500)
   self.world:setCallbacks(
     self.beginContact, 
     self.endContact, 

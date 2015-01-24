@@ -47,6 +47,7 @@ local Dude = Class({
 
     self.friction = 1000000
     self.canBeGrabbed = false
+    self.density = 100
 
     -- rag doll
     self.torso = { dude = self, part = "torso" }
@@ -54,7 +55,7 @@ local Dude = Class({
       game.world, x, y, "dynamic")
     self.torso.body:setUserData(self.torso)
     self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
-    self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
+    self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, self.density)
     self.torso.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.torso.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.torso.fixture:setFriction(self.friction)
@@ -64,7 +65,7 @@ local Dude = Class({
     self.head.body = love.physics.newBody(
       game.world, x, y - torsoHeight/2-headRadius, "dynamic") 
     self.head.shape = love.physics.newCircleShape(headRadius)
-    self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 1)
+    self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, self.density)
     self.head.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.head.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.head.fixture:setFriction(self.friction)
@@ -75,7 +76,7 @@ local Dude = Class({
     self.rightArm.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight / 2, "dynamic")
     self.rightArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1)
+    self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, self.density)
     self.rightArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.rightArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightArm.fixture:setFriction(self.friction)
@@ -86,7 +87,7 @@ local Dude = Class({
     self.rightForearm.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 3*armHeight / 2, "dynamic")
     self.rightForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.rightForearm.fixture = love.physics.newFixture(self.rightForearm.body, self.rightForearm.shape, 1)
+    self.rightForearm.fixture = love.physics.newFixture(self.rightForearm.body, self.rightForearm.shape, self.density)
     self.rightForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.rightForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightForearm.fixture:setFriction(self.friction)
@@ -97,7 +98,7 @@ local Dude = Class({
     self.rightHand.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight + handHeight/2, "dynamic")
     self.rightHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
-    self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, 1)
+    self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, self.density)
     self.rightHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.rightHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightHand.fixture:setFriction(self.friction)
@@ -108,7 +109,7 @@ local Dude = Class({
     self.leftArm.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight / 2, "dynamic")
     self.leftArm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1)
+    self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, self.density)
     self.leftArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.leftArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftArm.fixture:setFriction(self.friction)
@@ -119,7 +120,7 @@ local Dude = Class({
     self.leftForearm.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 3*armHeight / 2, "dynamic")
     self.leftForearm.shape = love.physics.newRectangleShape(0, 0, armWidth, armHeight)
-    self.leftForearm.fixture = love.physics.newFixture(self.leftForearm.body, self.leftForearm.shape, 1)
+    self.leftForearm.fixture = love.physics.newFixture(self.leftForearm.body, self.leftForearm.shape, self.density)
     self.leftForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.leftForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftForearm.fixture:setFriction(self.friction)
@@ -130,7 +131,7 @@ local Dude = Class({
     self.leftHand.body = love.physics.newBody(
       game.world, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight + handHeight/2, "dynamic")
     self.leftHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
-    self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, 1)
+    self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, self.density)
     self.leftHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     self.leftHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftHand.fixture:setFriction(self.friction)
@@ -141,7 +142,7 @@ local Dude = Class({
     self.rightLeg.body = love.physics.newBody(
       game.world, x + legspacing, y + torsoHeight/2 + legHeight / 2 + memberDistance, "dynamic")
     self.rightLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 1)
+    self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, self.density)
     self.rightLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.rightLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightLeg.fixture:setFriction(self.friction)
@@ -152,7 +153,7 @@ local Dude = Class({
     self.rightForeleg.body = love.physics.newBody(
       game.world, x + legspacing, y + torsoHeight/2 + 3*legHeight / 2 + 2*memberDistance, "dynamic")
     self.rightForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.rightForeleg.fixture = love.physics.newFixture(self.rightForeleg.body, self.rightForeleg.shape, 1)
+    self.rightForeleg.fixture = love.physics.newFixture(self.rightForeleg.body, self.rightForeleg.shape, self.density)
     self.rightForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.rightForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightForeleg.fixture:setFriction(self.friction)
@@ -163,7 +164,7 @@ local Dude = Class({
     self.rightFoot.body = love.physics.newBody(
       game.world, x + legspacing + footXDecal, y + torsoHeight/2 + 2*legHeight + 3*memberDistance, "dynamic")
     self.rightFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
-    self.rightFoot.fixture = love.physics.newFixture(self.rightFoot.body, self.rightFoot.shape, 1)
+    self.rightFoot.fixture = love.physics.newFixture(self.rightFoot.body, self.rightFoot.shape, self.density)
     self.rightFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.rightFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.rightFoot.fixture:setFriction(self.friction)
@@ -174,7 +175,7 @@ local Dude = Class({
     self.leftLeg.body = love.physics.newBody(
       game.world, x - legspacing, y + torsoHeight/2 + legHeight / 2 + memberDistance, "dynamic")
     self.leftLeg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 1)
+    self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, self.density)
     self.leftLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.leftLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftLeg.fixture:setFriction(self.friction)
@@ -185,7 +186,7 @@ local Dude = Class({
     self.leftForeleg.body = love.physics.newBody(
       game.world, x - legspacing, y + torsoHeight/2 + 3*legHeight / 2 + 2*memberDistance, "dynamic")
     self.leftForeleg.shape = love.physics.newRectangleShape(0, 0, legWidth, legHeight)
-    self.leftForeleg.fixture = love.physics.newFixture(self.leftForeleg.body, self.leftForeleg.shape, 1)
+    self.leftForeleg.fixture = love.physics.newFixture(self.leftForeleg.body, self.leftForeleg.shape, self.density)
     self.leftForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.leftForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftForeleg.fixture:setFriction(self.friction)
@@ -196,7 +197,7 @@ local Dude = Class({
     self.leftFoot.body = love.physics.newBody(
       game.world, x - legspacing - footXDecal, y + torsoHeight/2 + 2*legHeight + 3*memberDistance, "dynamic")
     self.leftFoot.shape = love.physics.newRectangleShape(0, 0, footWidth, footHeight)
-    self.leftFoot.fixture = love.physics.newFixture(self.leftFoot.body, self.leftFoot.shape, 1)
+    self.leftFoot.fixture = love.physics.newFixture(self.leftFoot.body, self.leftFoot.shape, self.density)
     self.leftFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.leftFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.leftFoot.fixture:setFriction(self.friction)
