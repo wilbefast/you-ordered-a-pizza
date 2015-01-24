@@ -77,6 +77,7 @@ for name, char in pairs(characters) do
 	table.insert(characterNames, name)
 end
 
+Cloth = require("gameobjects/Cloth")
 Dude = require("gameobjects/Dude")
 Door = require("gameobjects/Door")
 
@@ -89,6 +90,10 @@ Door = require("gameobjects/Door")
 FONT_SMALL = nil
 FONT_MEDIUM = nil
 FONT_BIG = nil
+
+COLLIDE_WALLS = 1
+COLLIDE_DUDES = 2
+COLLIDE_CLOTHES = 3
 
 --MUTE = true
 

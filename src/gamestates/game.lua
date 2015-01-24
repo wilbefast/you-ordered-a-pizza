@@ -70,6 +70,7 @@ function state:enter()
     self.world, WORLD_W/2, WORLD_H + 16)
   floor.shape = love.physics.newRectangleShape(WORLD_W, 64)
   floor.fixture = love.physics.newFixture(floor.body, floor.shape)
+  floor.fixture:setCategory(COLLIDE_WALLS)
   floor.body:setUserData("floor")
 
   -- roof
@@ -78,6 +79,7 @@ function state:enter()
     self.world, -WORLD_W/2, -16)
   roof.shape = love.physics.newRectangleShape(WORLD_W*3, 64)
   roof.fixture = love.physics.newFixture(roof.body, roof.shape)
+  roof.fixture:setCategory(COLLIDE_WALLS)
   roof.body:setUserData("roof")
 
   -- far left wall
@@ -86,6 +88,7 @@ function state:enter()
     self.world, -WORLD_W*2, WORLD_H*2)
   leftWall.shape = love.physics.newRectangleShape(64, WORLD_H*4)
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
+  leftWall.fixture:setCategory(COLLIDE_WALLS)
   leftWall.body:setUserData("leftWall")
 
 
@@ -95,6 +98,7 @@ function state:enter()
     self.world, -WORLD_W, WORLD_H*4)
   leftBottomWall.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
   leftBottomWall.fixture = love.physics.newFixture(leftBottomWall.body, leftBottomWall.shape)
+  leftBottomWall.fixture:setCategory(COLLIDE_WALLS)
   leftBottomWall.body:setUserData("leftBottomWall")
 
   -- middle wall
@@ -103,6 +107,7 @@ function state:enter()
     self.world, 0, (50 + 6*WORLD_H)/2)
   middleWallTop.shape = love.physics.newRectangleShape(32, (50 + 3*WORLD_H))
   middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
+  middleWallTop.fixture:setCategory(COLLIDE_WALLS)
   middleWallTop.body:setUserData("middleWallTop")
 
   local middleWallBottom = {}
@@ -110,6 +115,7 @@ function state:enter()
     self.world, 0, WORLD_H - 80/2)
   middleWallBottom.shape = love.physics.newRectangleShape(32, 80)
   middleWallBottom.fixture = love.physics.newFixture(middleWallBottom.body, middleWallBottom.shape)
+  middleWallBottom.fixture:setCategory(COLLIDE_WALLS)
   middleWallBottom.body:setUserData("middleWallBottom")
 
   -- right wall
@@ -118,6 +124,7 @@ function state:enter()
     self.world, WORLD_W, 111/2)
   rightWallTop.shape = love.physics.newRectangleShape(32, 111)
   rightWallTop.fixture = love.physics.newFixture(rightWallTop.body, rightWallTop.shape)
+  rightWallTop.fixture:setCategory(COLLIDE_WALLS)
   rightWallTop.body:setUserData("rightWallTop")
   
   local rightWallBottom = {}
@@ -125,6 +132,7 @@ function state:enter()
     self.world, WORLD_W, WORLD_H - 320/2)
   rightWallBottom.shape = love.physics.newRectangleShape(32, 320)
   rightWallBottom.fixture = love.physics.newFixture(rightWallBottom.body, rightWallBottom.shape)
+  rightWallBottom.fixture:setCategory(COLLIDE_WALLS)
   rightWallBottom.body:setUserData("rightWallBottom")
 
   -- create a door
@@ -175,7 +183,7 @@ function state:mousepressed(x, y)
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
   	local body = fixture:getBody()
   	local userdata = body:getUserData()
-    if userdata.dude then
+    if userdata and userdata.dude then
     	local val = Dude.pickingPriority[userdata.part]
     	if val > best then
     		grabbedBody = body
@@ -238,9 +246,11 @@ function state:update(dt)
 
 	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt*GRAB_HIT_POINTS_TEAR)
 	  	if self.grabHitpoints == 0 then
-	  		if self.grabDude:tearClothingOffPart(self.grabPart) then
+	  		local cloth = self.grabDude:tearClothingOffPart(self.grabPart) 
+	  		if cloth then
 			  	self.mouseJoint:destroy()
-			  	self.mouseJoint = nil
+			  	self.mouseJoint = love.physics.newMouseJoint(cloth.bodies[1], mx, my)
+					self.mouseJoint:setDampingRatio(0.1) 
 			  end
 		  	
 		  else
