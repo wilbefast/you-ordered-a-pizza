@@ -1,6 +1,8 @@
 return {
 	Man1 = {
 
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
@@ -10,7 +12,9 @@ return {
 	},
 
 	Woman1 = {
-
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Culotte_1",
@@ -20,7 +24,9 @@ return {
 	},
 	
 	Man2 = {
-
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
@@ -30,7 +36,9 @@ return {
 	},
 
 	Woman2 = {
-
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Culotte_1",
@@ -40,7 +48,9 @@ return {
 	},
 	
 	Man3 = {
-
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
@@ -50,7 +60,9 @@ return {
 	},
 
 	Woman3 = {
-
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
 		"Culotte_1",
