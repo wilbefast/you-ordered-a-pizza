@@ -302,6 +302,7 @@ Clothing
 --]]--
 
 function Dude:tearClothingOffPart(partName)
+	log:write("tearing off", partName)
 	for i = 1, #self.clothes - 1 do
 		local cloth = self.clothes[i]
 

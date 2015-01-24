@@ -234,7 +234,7 @@ function state:update(dt)
 	local mx, my = love.mouse.getPosition()
 
   -- un-cloth
-  if self.mouseJoint then
+  if self.mouseJoint and self.grabDude then
 
   	local p = self.grabDude.body_parts[self.grabPart]
   	local dx, dy = p.body:getLinearVelocity()
@@ -251,12 +251,14 @@ function state:update(dt)
 			  	self.mouseJoint:destroy()
 			  	self.mouseJoint = love.physics.newMouseJoint(cloth.bodies[1], mx, my)
 					self.mouseJoint:setDampingRatio(0.1) 
+					self.grabPart = nil
+					self.grabDude = nil
+					self.grabHitpoints = 0
 			  end
 		  	
 		  else
 		  	self.grabHitpoints = math.min(1, self.grabHitpoints + GRAB_HIT_POINTS_REFILL*dt)
 		  end
-		  log:write(self.grabHitpoints)
 		end
 	end
 
@@ -360,6 +362,9 @@ function state:draw()
   love.graphics.draw(lightImage, 0, 0)
 
   foregroundb.batch:clear()
+
+  GameObject:mapToType("Cloth", function(obj) obj:draw_cloth() end)
+
 
   -- debug
   if DEBUG then

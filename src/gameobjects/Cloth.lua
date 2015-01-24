@@ -86,6 +86,8 @@ local Cloth = Class({
 
 		local joint = love.physics.newRopeJoint(
 			body, self.bodies[1], bx, by, mx, my, 100, true)
+
+		self.mesh = love.graphics.newMesh( #self.bodies )
   end,
 })
 
@@ -109,13 +111,21 @@ Game loop
 --]]--
 
 function Cloth:update(dt)
+
+	for i, b in ipairs(self.bodies) do
+		local bx, by = b:getPosition()
+		self.mesh:setVertex(i, bx, by)
+	end
+
 	self.x, self.y = self.bodies[1]:getPosition()
+
   if self.y > 2*WORLD_H then
   	self.purge = true
   end
 end
 
-function Cloth:draw(x, y)
+function Cloth:draw_cloth(x, y)
+	love.graphics.draw(self.mesh)
 end
 
 
