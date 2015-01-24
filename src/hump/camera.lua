@@ -31,7 +31,7 @@ local camera = {}
 camera.__index = camera
 
 local function new(x,y, zoom, rot)
-	x,y  = x or love.graphics.getWidth()/2, y or love.graphics.getHeight()/2
+	x,y  = x or WORLD_W/2, y or WORLD_H/2
 	zoom = zoom or 1
 	rot  = rot or 0
 	return setmetatable({x = x, y = y, scale = zoom, rot = rot}, camera)
@@ -72,7 +72,7 @@ function camera:zoomTo(zoom)
 end
 
 function camera:attach()
-	local cx,cy = love.graphics.getWidth()/(2*self.scale), love.graphics.getHeight()/(2*self.scale)
+	local cx,cy = WORLD_W/(2*self.scale), WORLD_H/(2*self.scale)
 	love.graphics.push()
 	love.graphics.scale(self.scale)
 	love.graphics.translate(cx, cy)
@@ -92,7 +92,7 @@ end
 
 function camera:cameraCoords(x,y)
 	-- x,y = ((x,y) - (self.x, self.y)):rotated(self.rot) * self.scale + center
-	local w,h = love.graphics.getWidth(), love.graphics.getHeight()
+	local w,h = WORLD_W, WORLD_H
 	local c,s = cos(self.rot), sin(self.rot)
 	x,y = x - self.x, y - self.y
 	x,y = c*x - s*y, s*x + c*y
@@ -101,7 +101,7 @@ end
 
 function camera:worldCoords(x,y)
 	-- x,y = (((x,y) - center) / self.scale):rotated(-self.rot) + (self.x,self.y)
-	local w,h = love.graphics.getWidth(), love.graphics.getHeight()
+	local w,h = WORLD_W, WORLD_H
 	local c,s = cos(-self.rot), sin(-self.rot)
 	x,y = (x - w/2) / self.scale, (y - h/2) / self.scale
 	x,y = c*x - s*y, s*x + c*y
