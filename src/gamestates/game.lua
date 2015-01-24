@@ -179,6 +179,7 @@ function state:draw()
   -- debug
   if DEBUG then
     debugWorldDraw(self.world, 0, 0, WORLD_W, WORLD_H)
+    useful.bindWhite()
   end
 end
 

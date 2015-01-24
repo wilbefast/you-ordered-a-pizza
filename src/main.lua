@@ -102,6 +102,7 @@ gameover = require("gamestates/gameover")
 love.load = function()
 
 	-- view scaling
+	WORLD_CANVAS = love.graphics.newCanvas(WORLD_W, WORLD_H)
 	WINDOW_W = love.graphics.getWidth()
 	WINDOW_H = love.graphics.getHeight()
   VIEW_W = WORLD_W
@@ -147,13 +148,17 @@ end
 
 love.draw = function()
 
+	useful.pushCanvas(WORLD_CANVAS)
+		gamestate.draw()
+	useful.popCanvas()
+
 	love.graphics.push()
     love.graphics.translate(
       (WINDOW_W - VIEW_W)*0.5 + useful.signedRand(shake), 
       (WINDOW_H - VIEW_H)*0.5 + useful.signedRand(shake))
     love.graphics.scale(VIEW_SCALE, VIEW_SCALE)
-    gamestate.draw()
-		useful.recordGIF("x")
+    love.graphics.draw(WORLD_CANVAS)
+    useful.recordGIF("x")
 	love.graphics.pop()
 
 	if DEBUG then

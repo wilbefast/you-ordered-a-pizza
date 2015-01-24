@@ -54,7 +54,7 @@ dingdong = {
 }
 opened = {
   update = function(self, dt)
-    self.t = self.t + 0.4*dt
+    self.t = self.t + 0.5*dt
     if self.t > 1 then
       self.state = closed
       self.t = 0
