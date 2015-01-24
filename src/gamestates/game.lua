@@ -13,6 +13,9 @@ Lesser General Public License for more details.
 --]]
 
 local GAME_TIME = 10
+local TIMER_TEXT_LENGTH = 0.6*WORLD_W
+local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
+local TIMER_Y = 0.05*WORLD_H
 
 local state = gamestate.new()
 
@@ -239,7 +242,7 @@ function state:draw()
   local seconds = timerInt - minutes * 60
   love.graphics.setFont(FONT_MEDIUM)
   love.graphics.printf(tostring(minutes)..":"..seconds, 
-    WORLD_W*0.5 - WORLD_W*0.3, WORLD_H*0.1, WORLD_W*0.6, "center")
+    TIMER_X, TIMER_Y, TIMER_TEXT_LENGTH, "center")
 
   foregroundb.batch:clear()
 
