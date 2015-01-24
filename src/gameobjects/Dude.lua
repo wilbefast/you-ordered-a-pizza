@@ -288,9 +288,10 @@ Clothing
 --]]--
 
 function Dude:tearClothingOffPart()
-	if #self.clothes > 0 then
+	if #self.clothes > 1 then
 		table.remove(self.clothes, 1)
 		self:updateTextures()
+		log:write(#self.clothes)
 	end
 end
 

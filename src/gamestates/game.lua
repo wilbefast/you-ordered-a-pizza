@@ -140,19 +140,23 @@ function state:mousepressed(x, y)
   -- drag around bodies
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
     local dude = fixture:getBody():getUserData()["dude"]
-    if (dude ~= nil and dude.puppeteer ~= nil and dude.canBeGrabbed == true) then
-      dude.puppeteer.joint:destroy()
-      dude.puppeteer.body:destroy()
-      dude.puppeteer = nil
+    if dude then
+    	-- un-puppet
+	    if dude.puppeteer and dude.canBeGrabbed then
+	      dude.puppeteer.joint:destroy()
+	      dude.puppeteer.body:destroy()
+	      dude.puppeteer = nil
+	    end
+	    -- un-cloth
+	    dude:tearClothingOffPart()
+	  end
 
-      dude:tearClothingOffPart()
-    end
     if self.mouseJoint then
       self.mouseJoint:destroy()
     end
     self.mouseJoint = love.physics.newMouseJoint(fixture:getBody(), x, y)
     self.mouseJoint:setDampingRatio(0.1)
-    return true
+    return false
   end)
 end
 
