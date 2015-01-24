@@ -241,37 +241,30 @@ local Dude = Class({
     	end
     	self.clothes[i] = clothes[clothName]
     end
-
-    for _, part in pairs(self.body_parts) do
-    	part.textures = {}
-    end
+    self:updateTextures()
 
 		for partName, part in pairs(self.body_parts) do
-			if #part.textures == 0 then
-				for _, cloth in ipairs(self.clothes) do
-					if #part.textures == 0 then
-						local partTextureNames = cloth.body_parts[partName]
+			part.textures = {}
+			for _, cloth in ipairs(self.clothes) do
+				if #part.textures == 0 then
+					local partTextureNames = cloth.body_parts[partName]
 
-						if partTextureNames then 
-							for __, textureName in ipairs(partTextureNames) do
-								local t = foregroundb:getPiece(textureName)
-								if not t then
-									error("no sprite called '" .. textureName .. "' in foreground atlas")
-								else
-									table.insert(part.textures, t)
-								end
+					if partTextureNames then 
+						for __, textureName in ipairs(partTextureNames) do
+							local t = foregroundb:getPiece(textureName)
+							if not t then
+								error("no sprite called '" .. textureName .. "' in foreground atlas")
+							else
+								table.insert(part.textures, t)
 							end
 						end
 					end
 				end
 			end
 		end
-
-  end,
+	end
 })
-
 Dude:include(GameObject)
-
 
 --[[------------------------------------------------------------
 Destruction
@@ -289,6 +282,40 @@ function Dude.onPurge(self)
 
     self.body_parts = {}
 end
+
+--[[------------------------------------------------------------
+Clothing
+--]]--
+
+function Dude:tearClothingOffPart()
+	if #self.clothes > 0 then
+		table.remove(self.clothes, 1)
+		self:updateTextures()
+	end
+end
+
+function Dude:updateTextures()
+	for partName, part in pairs(self.body_parts) do
+		part.textures = {}
+		for _, cloth in ipairs(self.clothes) do
+			if #part.textures == 0 then
+				local partTextureNames = cloth.body_parts[partName]
+
+				if partTextureNames then 
+					for __, textureName in ipairs(partTextureNames) do
+						local t = foregroundb:getPiece(textureName)
+						if not t then
+							error("no sprite called '" .. textureName .. "' in foreground atlas")
+						else
+							table.insert(part.textures, t)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
 
 --[[------------------------------------------------------------
 Game loop

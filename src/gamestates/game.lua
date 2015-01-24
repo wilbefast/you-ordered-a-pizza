@@ -144,6 +144,8 @@ function state:mousepressed(x, y)
       dude.puppeteer.joint:destroy()
       dude.puppeteer.body:destroy()
       dude.puppeteer = nil
+
+      dude:tearClothingOffPart()
     end
     if self.mouseJoint then
       self.mouseJoint:destroy()
