@@ -8,7 +8,7 @@ return {
 	{
 		type = djihad,
 		trigger = 50,
-		text = "a DJIHAD !",
+		text = "a JIHAD !",
 		sound = "Cat"
 	}
 	
