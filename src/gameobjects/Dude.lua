@@ -385,8 +385,8 @@ Dude.pickingPriority = {
 	leftArm = 1,
 	rightForearm = 1,
 	leftForearm = 1,
-	rightHand = 0,
-	leftHand = 0,
+	rightHand = 4,
+	leftHand = 4,
 	head = 0
 }
 
