@@ -14,7 +14,7 @@ Lesser General Public License for more details.
 
 local camera = Camera(0, 0, 1, 0)
 
-local GAME_TIME = 180
+local GAME_TIME = 30
 local TIMER_TEXT_LENGTH = 0.6*WORLD_W
 local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
 local TIMER_Y = 0.05*WORLD_H
@@ -53,32 +53,41 @@ function state:enter()
   -- floor
   local floor = {}
   floor.body = love.physics.newBody(
-    self.world, 0, WORLD_H + 16)
-  floor.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
+    self.world, WORLD_W/2, WORLD_H + 16)
+  floor.shape = love.physics.newRectangleShape(WORLD_W, 64)
   floor.fixture = love.physics.newFixture(floor.body, floor.shape)
   floor.body:setUserData("floor")
 
   -- roof
   local roof = {}
   roof.body = love.physics.newBody(
-    self.world, 0, -16)
-  roof.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
+    self.world, -WORLD_W/2, -16)
+  roof.shape = love.physics.newRectangleShape(WORLD_W*3, 64)
   roof.fixture = love.physics.newFixture(roof.body, roof.shape)
   roof.body:setUserData("roof")
 
   -- far left wall
   local leftWall = {}
   leftWall.body = love.physics.newBody(
-    self.world, -WORLD_W, WORLD_H*0.5)
-  leftWall.shape = love.physics.newRectangleShape(32, WORLD_H)
+    self.world, -WORLD_W*2, WORLD_H*2)
+  leftWall.shape = love.physics.newRectangleShape(64, WORLD_H*4)
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
   leftWall.body:setUserData("leftWall")
+
+
+  -- far left bottom wall
+  local leftBottomWall = {}
+  leftBottomWall.body = love.physics.newBody(
+    self.world, -WORLD_W, WORLD_H*4)
+  leftBottomWall.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
+  leftBottomWall.fixture = love.physics.newFixture(leftBottomWall.body, leftBottomWall.shape)
+  leftBottomWall.body:setUserData("leftBottomWall")
 
   -- middle wall
   local middleWallTop = {}
   middleWallTop.body = love.physics.newBody(
-    self.world, 0, 50/2)
-  middleWallTop.shape = love.physics.newRectangleShape(32, 50)
+    self.world, 0, (50 + 6*WORLD_H)/2)
+  middleWallTop.shape = love.physics.newRectangleShape(32, (50 + 3*WORLD_H))
   middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
   middleWallTop.body:setUserData("middleWallTop")
 
@@ -225,7 +234,8 @@ function state:update(dt)
     local del_ep = new_ep - self.epilogue
     self.epilogue = new_ep
     --self.world:translateOrigin(-WORLD_W*del_ep, 0)
-    camera:move(-WORLD_W*del_ep, 0)
+    camera:move(-3*WORLD_W/2*del_ep, 5*WORLD_H/2*del_ep)
+    camera:zoomTo(1-0.5*new_ep)
 
   else
     -- control physics
