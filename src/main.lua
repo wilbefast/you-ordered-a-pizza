@@ -40,8 +40,8 @@ debugWorldDraw = require("debugWorldDraw")
 -- SCALING
 -------------------------------------------------------------------------------
 
-WORLD_W = 640	
-WORLD_H = 480
+WORLD_W = 1024	
+WORLD_H = 768
 
 WINDOW_W = 0
 WINDOW_H = 0

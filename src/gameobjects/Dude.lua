@@ -17,20 +17,22 @@ Initialisation
 --]]--
 
 local torsoX = WORLD_W/2
-local torsoY = 70
-local torsoWidth = 50
-local torsoHeight = 100
-local headRadius = 20
-local armWidth = 15
-local armHeight = 45
-local handWidth = 20
-local handHeight = 25
-local legWidth = 15
-local legHeight = 35
-local footWidth = 35
-local footHeight = 10
+local torsoY = WORLD_H/2
+local torsoWidth = 111
+local torsoHeight = 148
+local headRadius = 56
+local armWidth = 11
+local armHeight = 89
+local handWidth = 59
+local handHeight = 72
+local legWidth = 16
+local legHeight = 120
+local footWidth = 42
+local footHeight = 17
 local footXDecal = 5
 local legspacing = 15
+local dickWidth = 13
+local dickHeight = 49
 local memberDistance = 10
 
 local COLLIDABLE_CATEGORY = 1
