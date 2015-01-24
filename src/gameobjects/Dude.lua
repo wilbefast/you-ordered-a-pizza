@@ -248,7 +248,6 @@ function Dude.onPurge(self)
             part.join:destroy()
         end
         part.fixture:destroy()
-        --part.shape:destroy()
         part.body:destroy()
     end
 
