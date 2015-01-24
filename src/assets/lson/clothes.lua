@@ -164,6 +164,77 @@ return {
 		orgy = -1
 	},
 	
+		Adidas_2_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_2"},
+		},
+		
+		orgy = -1
+	},
+	
+	Adidas_2_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_2"},
+		},
+		
+		orgy = -1
+	},
+	
+		Adidas_3_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_3"},
+		},
+		
+		orgy = -1
+	},
+	
+	Adidas_3_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_3"},
+		},
+		
+		orgy = -1
+	},
+	
+		Adidas_4_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_4"},
+		},
+		
+		orgy = -1
+	},
+	
+	Adidas_4_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_4"},
+		},
+		
+		orgy = -1
+	},
+	
+		Adidas_5_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_5"},
+		},
+		
+		orgy = -1
+	},
+	
+	Adidas_5_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_5"},
+		},
+		
+		orgy = -1
+	},
+	
+	
+	
+	
+	
+	
+	
+	
 		Culotte_Pink  = {
 	body_parts = {
 		groin = {"groinW_1","Culotte_1"},
