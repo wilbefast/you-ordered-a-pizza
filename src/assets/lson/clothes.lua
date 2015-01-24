@@ -166,7 +166,7 @@ return {
 	
 		Culotte_Pink  = {
 	body_parts = {
-		groin = {"Culotte_1"},
+		groin = {"groinW_1","Culotte_1"},
 		},
 		
 		orgy = -1
@@ -174,7 +174,7 @@ return {
 	
 			Culotte_Yellow  = {
 	body_parts = {
-		groin = {"Culotte_1"},
+		groin = {"groinW_2","Culotte_1"},
 		},
 		
 		orgy = -1
@@ -182,7 +182,7 @@ return {
 	
 			Culotte_Black  = {
 	body_parts = {
-		groin = {"Culotte_1"},
+		groin = {"groinW_3","Culotte_1"},
 		},
 		
 		orgy = -1
