@@ -29,8 +29,8 @@ local footWidth = 42
 local footHeight = 17
 local footXDecal = 5
 local legspacing = 15
-local dickWidth = 13
-local dickHeight = 49
+local groinWidth = 81
+local groinHeight = 53
 local memberDistance = 10
 
 local COLLIDABLE_CATEGORY = 1
@@ -72,6 +72,17 @@ local Dude = Class({
     parts.head.fixture:setFriction(self.friction)
     parts.head.joint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2- 0.1*headRadius, x, y - torsoHeight/2, true )
     parts.head.body:setUserData(parts.head)
+
+    parts.groin = { dude = self, part = "groin" }
+    parts.groin.body = love.physics.newBody(
+      game.world, x , y + torsoHeight/2 + groinHeight / 2, "dynamic")
+    parts.groin.shape = love.physics.newRectangleShape(0, 0, groinWidth, groinHeight)
+    parts.groin.fixture = love.physics.newFixture(parts.groin.body, parts.groin.shape, self.density)
+    parts.groin.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
+    parts.groin.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    parts.groin.fixture:setFriction(self.friction)
+    parts.groin.joint = love.physics.newWeldJoint( parts.groin.body, parts.torso.body, x, y + torsoHeight/2 + groinHeight / 2, false )
+    parts.groin.body:setUserData(parts.groin)
 
     parts.rightArm = { dude = self, part = "rightArm" }
     parts.rightArm.body = love.physics.newBody(
