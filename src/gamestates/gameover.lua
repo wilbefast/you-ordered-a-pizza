@@ -25,6 +25,8 @@ end
 
 function state:enter()	
 	t = 0
+
+  audio:play_sound(ending.sound)
 end
 
 function state:leave()
@@ -50,14 +52,19 @@ end
 
 function state:draw()
 
+  -- background
+  love.graphics.setColor(255, 0, 0)
+  love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
+  useful.bindWhite()
+
 	local offset = 8*math.sin(2*t)
 
-	love.graphics.setFont(FONT_MEDIUM)
-	love.graphics.printf("Score", 
+	love.graphics.setFont(FONT_BIG)
+	love.graphics.printf(ending.text, 
 		(VIEW_W*0.5 - VIEW_W*0.1)/VIEW_SCALE, (VIEW_H*0.2 + offset)/VIEW_SCALE, VIEW_W*0.2/VIEW_SCALE, "center")
 
-	love.graphics.setFont(FONT_BIG)
-	love.graphics.printf("GAME OVER!", 
+	love.graphics.setFont(FONT_SMALL)
+	love.graphics.printf("try again ?", 
 		(VIEW_W*0.5 - VIEW_W*0.2)/VIEW_SCALE, (VIEW_H*0.5 + offset)/VIEW_SCALE, VIEW_W*0.4/VIEW_SCALE, "center")
 
 	love.graphics.setFont(FONT_SMALL)

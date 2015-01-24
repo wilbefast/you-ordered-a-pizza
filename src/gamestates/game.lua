@@ -256,7 +256,6 @@ function state:update(dt)
 	    local new_ep = math.min(1, self.epilogue + dt)
 	    local del_ep = new_ep - self.epilogue
 	    self.epilogue = new_ep
-	    --self.world:translateOrigin(-WORLD_W*del_ep, 0)
 	    camera:move(-3*WORLD_W/2*del_ep, 5*WORLD_H/2*del_ep)
 	    camera:zoomTo(1-0.5*new_ep)
 	  else
@@ -366,11 +365,8 @@ function state:draw()
 		  local format = string.format("%02d : %02d", minutes, seconds)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
-
-  		love.graphics.draw(self.cursorImage, mx, my)
-
-
 		end
+  		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
 	  love.graphics.setFont(FONT_BIG)
 	  love.graphics.printf("What do we do now ?", 
