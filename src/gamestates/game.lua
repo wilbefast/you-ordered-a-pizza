@@ -147,8 +147,10 @@ function state:mousepressed(x, y)
   -- drag around bodies
   local grabbed =  false
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
-    local dude = fixture:getBody():getUserData()["dude"]
+  	local userdata = fixture:getBody():getUserData() 
+    local dude = userdata["dude"]
     if dude then
+    	self.grabPart = userdata["part"]
     	-- un-puppet
 	    if dude.puppeteer and dude.canBeGrabbed then
 	      dude.puppeteer.joint:destroy()
@@ -156,7 +158,7 @@ function state:mousepressed(x, y)
 	      dude.puppeteer = nil
 	    end
 	    -- un-cloth
-	    dude:tearClothingOffPart("torso")
+	    dude:tearClothingOffPart(self.grabPart)
 	    -- match
 	    grabbed = true
 	  end
@@ -174,7 +176,7 @@ function state:mousepressed(x, y)
 	  GameObject.mapToType("Door", 
 	    function(obj) obj:onclick() end, 
 	    function(obj) return obj:isCollidingPoint(x, y) end)
- end
+ 	end
 
 end
 
@@ -232,6 +234,9 @@ function state:update(dt)
     		dude.purge = true
         audio:play_sound("DefenestrationMan")
         audio:play_sound("Cat")
+        if self.mouseJoint then
+        	self.mouseJoint = nil
+        end
       else
 
     	end
