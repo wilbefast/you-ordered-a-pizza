@@ -57,19 +57,19 @@ function state:enter()
   leftWall.shape = love.physics.newRectangleShape(64, WORLD_H)
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
  
+  -- middle wall
+  local middleWall = {}
+  middleWall.body = love.physics.newBody(
+    self.world, WORLD_W + 16, WORLD_H*0.25)
+  middleWall.shape = love.physics.newRectangleShape(64, WORLD_H*0.5)
+  middleWall.fixture = love.physics.newFixture(middleWall.body, middleWall.shape)
+
   -- right wall
   local rightWall = {}
   rightWall.body = love.physics.newBody(
-    self.world, WORLD_W + 16, WORLD_H*0.5)
+    self.world, 2*WORLD_W + 16, WORLD_H*0.5)
   rightWall.shape = love.physics.newRectangleShape(64, WORLD_H)
   rightWall.fixture = love.physics.newFixture(rightWall.body, rightWall.shape)
-
-  -- far right wall
-  local farRightWall = {}
-  farRightWall.body = love.physics.newBody(
-    self.world, 2*WORLD_W + 16, WORLD_H*0.5)
-  farRightWall.shape = love.physics.newRectangleShape(64, WORLD_H)
-  farRightWall.fixture = love.physics.newFixture(farRightWall.body, farRightWall.shape)
 
   -- create a dude
   -- TEMP test
