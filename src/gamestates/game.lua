@@ -144,12 +144,8 @@ function state:mousepressed(x, y)
     return
   end
 
-  -- open doors
-  GameObject.mapToType("Door", 
-    function(obj) obj:onclick() end, 
-    function(obj) return obj:isCollidingPoint(x, y) end)
-
   -- drag around bodies
+  local grabbed =  false
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
     local dude = fixture:getBody():getUserData()["dude"]
     if dude then
@@ -160,7 +156,9 @@ function state:mousepressed(x, y)
 	      dude.puppeteer = nil
 	    end
 	    -- un-cloth
-	    dude:tearClothingOffPart()
+	    dude:tearClothingOffPart("torso")
+	    -- match
+	    grabbed = true
 	  end
 
     if self.mouseJoint then
@@ -170,6 +168,14 @@ function state:mousepressed(x, y)
     self.mouseJoint:setDampingRatio(0.1)
     return false
   end)
+
+  -- open doors
+  if not grabbed then
+	  GameObject.mapToType("Door", 
+	    function(obj) obj:onclick() end, 
+	    function(obj) return obj:isCollidingPoint(x, y) end)
+ end
+
 end
 
 function state:mousereleased()

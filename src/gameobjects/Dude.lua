@@ -287,11 +287,15 @@ end
 Clothing
 --]]--
 
-function Dude:tearClothingOffPart()
-	if #self.clothes > 1 then
-		table.remove(self.clothes, 1)
-		self:updateTextures()
-		log:write(#self.clothes)
+function Dude:tearClothingOffPart(partName)
+	for i = 1, #self.clothes - 1 do
+		local cloth = self.clothes[i]
+
+		if cloth.body_parts[partName] then
+			table.remove(self.clothes, i)
+			self:updateTextures()
+			return
+		end
 	end
 end
 
