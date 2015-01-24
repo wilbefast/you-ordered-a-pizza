@@ -1,14 +1,17 @@
 return {
 	Man1 = {
 
-		"Adidas_1_Left",
-		"Adidas_1_Right",
-		"Shirt_01",
-		"Jeans",
-		"Slip",
-		"Nude_Man_Pink_1",
+	"Ours_1",
+	"Ours_2",
+		-- "Adidas_1_Left",
+		-- "Adidas_1_Right",
+		-- "Shirt_01",
+		-- "Jeans",
+		-- "Slip",
+		-- "Nude_Man_Pink_1",
 		
-		sex = man
+		hello_sound ="HelloMale_1" ,
+		rejected_sound ="DefenestrationMan"   
 	},
 
 	Woman1 = {
@@ -22,7 +25,8 @@ return {
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
-		sex = woman
+		hello_sound ="HelloFemale_1" ,
+		rejected_sound ="DefenestrationWoman" 
 	},
 	
 	Man2 = {
@@ -34,7 +38,8 @@ return {
 		"Slip",
 		"Nude_Man_Yellow_1",
 		
-		sex = man
+		hello_sound ="HelloMale_2" ,
+		rejected_sound ="DefenestrationMan"  
 	},
 
 	Woman2 = {
@@ -47,7 +52,8 @@ return {
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
-		sex = woman
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
 	},
 	
 	Man3 = {
@@ -59,7 +65,8 @@ return {
 		"Slip",
 		"Nude_Man_Black_1",
 		
-		sex = man
+		hello_sound ="HelloMale_3" ,
+		rejected_sound ="DefenestrationMan"  
 	},
 
 	Woman3 = {
@@ -72,7 +79,8 @@ return {
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
-		sex = woman
+		hello_sound ="HelloFemale_3" ,
+		rejected_sound ="DefenestrationWoman" 
 	}
 	
 }
