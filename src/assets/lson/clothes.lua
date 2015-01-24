@@ -1,6 +1,7 @@
 return {
 	
 	Nude_Man1= {
+		body_parts = {
 		
 		head = {"head_1","head_RoundEye","head_BlondHair"},
 		torso = {"torso_1",},
@@ -17,11 +18,13 @@ return {
 		leftLeg = {"leg_1",},
 		leftForeleg = {"leg_1",},
 		leftFoot = {"foot_1",},
-
+		
+		},
 		orgy = 5
 	},
 	
 		Nude_Woman1= {
+		body_parts = {
 		
 		head = {"head_1","lipstick_Red","head_RoundEye","eyelash","head_Long_BlondHair",},
 		torso = {"torso_1",},
@@ -38,33 +41,40 @@ return {
 		leftLeg = {"leg_1",},
 		leftForeleg = {"leg_1",},
 		leftFoot = {"foot_1",},
-
+		},
+		
 		orgy = 5
 	},
 	
 	Slip  = {
+	body_parts = {
 		groin = {"groin_Slip","astro"},
-
+		},
+		
 		orgy = -1
 	},
 	
 	Jeans  = {
+	body_parts = {
 		groin = {"groin_Jeans",},
 		rightLeg = {"leg_Jeans",},
 		rightForeleg = {"leg_Jeans",},
 		leftLeg = {"leg_Jeans",},
 		leftForeleg = {"leg_Jeans",},
+		},
 		
 		orgy = -1
 	},
 	
 	Shirt_Liberty = {
+	body_parts = {
 		torso = {"torso_Liberty",},
 		rightArm = {"rightArm_Liberty",},
 		rightForearm = {"rightForeArm_Liberty",},
 		leftArm = {"leftArm_Liberty",},
 		leftForearm = {"leftForeArm_Liberty",},
-
+		},
+		
 		orgy = -1
 	}
 
