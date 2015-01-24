@@ -14,10 +14,10 @@ return {
 		groin = {"groin_1"},
 		rightLeg = {"leg_1"},
 		rightForeleg = {"leg_1"},
-		rightFoot = {"foot_1"},
+		rightFoot = {"right_foot_1"},
 		leftLeg = {"leg_1"},
 		leftForeleg = {"leg_1"},
-		leftFoot = {"foot_1"},
+		leftFoot = {"left_foot_1"},
 		
 		},
 		orgy = 5
@@ -37,10 +37,10 @@ return {
 		groin = {"groinW_1"},
 		rightLeg = {"leg_1"},
 		rightForeleg = {"leg_1"},
-		rightFoot = {"foot_1"},
+		rightFoot = {"right_foot_1"},
 		leftLeg = {"leg_1"},
 		leftForeleg = {"leg_1"},
-		leftFoot = {"foot_1"},
+		leftFoot = {"left_foot_1"},
 		},
 		
 		orgy = 5
@@ -60,10 +60,10 @@ return {
 		groin = {"groin_3"},
 		rightLeg = {"leg_3"},
 		rightForeleg = {"leg_3"},
-		rightFoot = {"foot_3"},
+		rightFoot = {"right_foot_3"},
 		leftLeg = {"leg_3"},
 		leftForeleg = {"leg_3"},
-		leftFoot = {"foot_3"},
+		leftFoot = {"left_foot_3"},
 		
 		},
 		orgy = 5
@@ -83,10 +83,10 @@ return {
 		groin = {"groinW_3"},
 		rightLeg = {"leg_3"},
 		rightForeleg = {"leg_3"},
-		rightFoot = {"foot_3"},
+		rightFoot = {"right_foot_3"},
 		leftLeg = {"leg_3"},
 		leftForeleg = {"leg_3"},
-		leftFoot = {"foot_3"},
+		leftFoot = {"left_foot_3"},
 		},
 		
 		orgy = 5
@@ -107,10 +107,10 @@ return {
 		groin = {"groin_2"},
 		rightLeg = {"leg_2"},
 		rightForeleg = {"leg_2"},
-		rightFoot = {"foot_2"},
+		rightFoot = {"right_foot_2"},
 		leftLeg = {"leg_2"},
 		leftForeleg = {"leg_2"},
-		leftFoot = {"foot_2"},
+		leftFoot = {"left_foot_2"},
 		
 		},
 		orgy = 5
@@ -130,10 +130,10 @@ return {
 		groin = {"groinW_2"},
 		rightLeg = {"leg_2"},
 		rightForeleg = {"leg_2"},
-		rightFoot = {"foot_2"},
+		rightFoot = {"right_foot_2"},
 		leftLeg = {"leg_2"},
 		leftForeleg = {"leg_2"},
-		leftFoot = {"foot_2"},
+		leftFoot = {"left_foot_2"},
 		},
 		
 		orgy = 5
