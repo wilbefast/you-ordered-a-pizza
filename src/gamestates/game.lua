@@ -149,6 +149,7 @@ function state:mousepressed(x, y)
       self.mouseJoint:destroy()
     end
     self.mouseJoint = love.physics.newMouseJoint(fixture:getBody(), x, y)
+    self.mouseJoint:setDampingRatio(0.1)
     return true
   end)
 end
@@ -243,7 +244,7 @@ function state:draw()
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
 	GameObject.drawAll(self.view)
   foregroundb:addb("light", 0, 0, 0, 1, 1)
-  
+
   love.graphics.draw(foregroundb)
 
 
