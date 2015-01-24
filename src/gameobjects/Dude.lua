@@ -19,15 +19,15 @@ Initialisation
 local torsoWidth = 111
 local torsoHeight = 148
 local headRadius = 56
-local armWidth = 11
+local armWidth = 25
 local armHeight = 89
 local handWidth = 59
 local handHeight = 72
-local legWidth = 16
+local legWidth = 30
 local legHeight = 120
-local footWidth = 42
-local footHeight = 17
-local footXDecal = 5
+local footWidth = 70
+local footHeight = 35
+local footXDecal = 20
 local legspacing = 15
 local groinWidth = 81
 local groinHeight = 53
@@ -183,7 +183,7 @@ local Dude = Class({
     parts.rightFoot.fixture:setCategory(COLLIDE_DUDES)
     parts.rightFoot.fixture:setMask(COLLIDE_CLOTHES)
     parts.rightFoot.fixture:setFriction(self.friction)
-    parts.rightFoot.joint = love.physics.newRevoluteJoint( parts.rightFoot.body, parts.rightForeleg.body, x + legspacing + footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.rightFoot.joint = love.physics.newRevoluteJoint( parts.rightFoot.body, parts.rightForeleg.body, x + legspacing, y + torsoHeight/2 + 2*memberDistance + 2*legHeight, true )
     parts.rightFoot.body:setUserData(parts.rightFoot)
 
     parts.leftLeg = { dude = self, part = "leftLeg" }
@@ -216,7 +216,7 @@ local Dude = Class({
     parts.leftFoot.fixture:setCategory(COLLIDE_DUDES)
     parts.leftFoot.fixture:setMask(COLLIDE_CLOTHES)
     parts.leftFoot.fixture:setFriction(self.friction)
-    parts.leftFoot.joint = love.physics.newRevoluteJoint( parts.leftFoot.body, parts.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.leftFoot.joint = love.physics.newRevoluteJoint( parts.leftFoot.body, parts.leftForeleg.body, x - legspacing, y + torsoHeight/2 + 2*memberDistance + 2*legHeight, true )
     parts.leftFoot.body:setUserData(parts.leftFoot)
 
     self.body_parts = parts

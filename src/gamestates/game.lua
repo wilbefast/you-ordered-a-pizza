@@ -21,9 +21,14 @@ local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
+local GRAB_HIT_POINTS_TEAR = 1/10000
+local GRAB_HIT_POINTS_REFILL = 10
+
 local state = gamestate.new()
 
 local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
+local cursorDownImage = love.graphics.newImage( "assets/foreground/cursor_down.png" )
+local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" )
 
 local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
@@ -44,6 +49,9 @@ function state:enter()
   audio.swap_music()
 
   self.timer = GAME_TIME
+	self.cursorImage = cursorUpImage
+
+	love.mouse.setVisible(false)
   camera:lookAt(WORLD_W/2, WORLD_H/2)
   camera:zoomTo(1)
 
@@ -137,6 +145,7 @@ end
 
 function state:leave()
   audio.swap_music()
+	love.mouse.setVisible(true)
   
   if self.mouseJoint then
     self.mouseJoint:destroy()
@@ -166,6 +175,8 @@ function state:mousepressed(x, y)
   if x < 0 or x > WORLD_W or y < 0 or y > WORLD_H then
     return
   end
+
+	self.cursorImage = cursorDownImage
 
   -- drag around bodies
   local grabbedBody, best = nil, -math.huge
@@ -211,6 +222,8 @@ function state:mousepressed(x, y)
 end
 
 function state:mousereleased()
+
+	self.cursorImage = cursorUpImage
   if self.mouseJoint then
     self.mouseJoint:destroy()
   end
@@ -226,12 +239,12 @@ function state:update(dt)
   	local p = self.grabDude.body_parts[self.grabPart]
   	local dx, dy = p.body:getLinearVelocity()
   	local vx, vy = p.body:getPosition()
-  	vx, vy = mx - vx, my - vy 
+  	vx, vy = mx - vx, my - vy
 
 		local d = Vector.det(dx, dy, vx, vy)
 	  if d < 0 then
 
-	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt/10000)
+	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt*GRAB_HIT_POINTS_TEAR)
 	  	if self.grabHitpoints == 0 then
 	  		local cloth = self.grabDude:tearClothingOffPart(self.grabPart) 
 	  		if cloth then
@@ -241,7 +254,7 @@ function state:update(dt)
 			  end
 		  	
 		  else
-		  	self.grabHitpoints = math.min(1, self.grabHitpoints + 10*dt)
+		  	self.grabHitpoints = math.min(1, self.grabHitpoints + GRAB_HIT_POINTS_REFILL*dt)
 		  end
 		  log:write(self.grabHitpoints)
 		end
@@ -256,7 +269,6 @@ function state:update(dt)
 	    local new_ep = math.min(1, self.epilogue + dt)
 	    local del_ep = new_ep - self.epilogue
 	    self.epilogue = new_ep
-	    --self.world:translateOrigin(-WORLD_W*del_ep, 0)
 	    camera:move(-3*WORLD_W/2*del_ep, 5*WORLD_H/2*del_ep)
 	    camera:zoomTo(1-0.5*new_ep)
 	  else
@@ -358,13 +370,16 @@ function state:draw()
 
   --ui
   if not self.epilogue then
-	  local timerInt = math.floor(self.timer)
-	  local minutes = math.floor(timerInt/60)
-	  local seconds = timerInt - minutes * 60
-	  love.graphics.setFont(FONT_MEDIUM)
-	  local format = string.format("%02d : %02d", minutes, seconds)
-	  love.graphics.printf(format, 
-	    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+  	if self.timer > 0 then
+		  local timerInt = math.floor(self.timer)
+		  local minutes = math.floor(timerInt/60)
+		  local seconds = timerInt - minutes * 60
+		  love.graphics.setFont(FONT_MEDIUM)
+		  local format = string.format("%02d : %02d", minutes, seconds)
+		  love.graphics.printf(format, 
+		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+		end
+  		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
 	  love.graphics.setFont(FONT_BIG)
 	  love.graphics.printf("What do we do now ?", 
