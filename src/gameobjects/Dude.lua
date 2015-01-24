@@ -48,16 +48,16 @@ local Dude = Class({
     self.friction = 1000000
 
     -- rag doll
-    self.torso = { dude = self }
+    self.torso = { dude = self, part = "torso" }
     self.torso.body = love.physics.newBody(
       game.world, x, y, "dynamic")
     self.torso.body:setUserData(self.torso)
-
     self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
     self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
     self.torso.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.torso.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     self.torso.fixture:setFriction(self.friction)
+    self.torso.body:setUserData(self.torso)
 
     self.head = { dude = self, part = "head" }
     self.head.body = love.physics.newBody(
