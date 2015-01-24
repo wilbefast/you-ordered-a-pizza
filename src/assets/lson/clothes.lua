@@ -3,7 +3,7 @@ return {
 	Nude_Man_Pink_1= {
 		body_parts = {
 		
-		head = {"head_1","head_RoundEye","head_BlondHair"},
+		head = {"head_1","head_RoundEye","head_Blond_Hair"},
 		torso = {"torso_1"},
 		rightArm = {"arm_1"},
 		rightForearm = {"arm_1"},
@@ -26,7 +26,7 @@ return {
 		Nude_Woman_Pink_1= {
 		body_parts = {
 		
-		head = {"head_1","lipstick_Red","head_RoundEye","eyelash_1","head_Long_BlondHair"},
+		head = {"head_1","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Blond_Hair"},
 		torso = {"torsoW_1"},
 		rightArm = {"arm_1"},
 		rightForearm = {"arm_1"},
@@ -49,7 +49,7 @@ return {
 	Nude_Man_Black_1= {
 		body_parts = {
 		
-		head = {"head_3","head_RoundEye","head_BlondHair"},
+		head = {"head_3","head_RoundEye","head_Blond_Hair"},
 		torso = {"torso_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
@@ -72,7 +72,7 @@ return {
 		Nude_Woman_Black_1= {
 		body_parts = {
 		
-		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_BlondHair"},
+		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Blond_Hair"},
 		torso = {"torsoW_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
@@ -96,7 +96,7 @@ return {
 		Nude_Man_Yellow_1= {
 		body_parts = {
 		
-		head = {"head_2","head_AsiatEye","head_BlondHair"},
+		head = {"head_2","head_AsiatEye","head_Blond_Hair"},
 		torso = {"torso_2"},
 		rightArm = {"arm_2"},
 		rightForearm = {"arm_2"},
@@ -119,7 +119,7 @@ return {
 		Nude_Woman_Yellow_1= {
 		body_parts = {
 		
-		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_BlondHair"},
+		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_Blond_Hair"},
 		torso = {"torsoW_2"},
 		rightArm = {"arm_2"},
 		rightForearm = {"arm_2"},
