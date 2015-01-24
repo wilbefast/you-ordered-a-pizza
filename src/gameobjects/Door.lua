@@ -119,6 +119,14 @@ function Door:enqueue(onOpenDoor)
   table.insert(self.queue, onOpenDoor)
 end
 
+function Door:anyQueued()
+  return (#self.queue > 0)
+end
+
+function Door:isClosed()
+  return (self.state == closed)
+end
+
 --[[------------------------------------------------------------
 Collisions
 --]]--
