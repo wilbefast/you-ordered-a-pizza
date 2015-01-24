@@ -21,6 +21,9 @@ local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
+local GRAB_HIT_POINTS_TEAR = 1/10000
+local GRAB_HIT_POINTS_REFILL = 10
+
 local state = gamestate.new()
 
 local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
@@ -228,12 +231,12 @@ function state:update(dt)
   	local p = self.grabDude.body_parts[self.grabPart]
   	local dx, dy = p.body:getLinearVelocity()
   	local vx, vy = p.body:getPosition()
-  	vx, vy = mx - vx, my - vy 
+  	vx, vy = mx - vx, my - vy
 
 		local d = Vector.det(dx, dy, vx, vy)
 	  if d < 0 then
 
-	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt/10000)
+	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt*GRAB_HIT_POINTS_TEAR)
 	  	if self.grabHitpoints == 0 then
 	  		if self.grabDude:tearClothingOffPart(self.grabPart) then
 			  	self.mouseJoint:destroy()
@@ -241,7 +244,7 @@ function state:update(dt)
 			  end
 		  	
 		  else
-		  	self.grabHitpoints = math.min(1, self.grabHitpoints + 10*dt)
+		  	self.grabHitpoints = math.min(1, self.grabHitpoints + GRAB_HIT_POINTS_REFILL*dt)
 		  end
 		  log:write(self.grabHitpoints)
 		end
