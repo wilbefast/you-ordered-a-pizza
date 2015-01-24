@@ -172,13 +172,18 @@ love.load = function()
 
 	-- sound
 	audio:load_sound("CloseDoor", 1, 3)
-	audio:load_sound("DefenestrationMan", 1, 2)
-	audio:load_sound("DefenestrationWoman", 1, 2)
 	audio:load_sound("Cat", 1, 2)
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
-	audio:load_sounds("HelloMale", 6, 1, 3)
-	audio:load_sounds("HelloFemale", 6, 1, 3)
+
+	-- preload character sounds
+	for character_name, character in pairs(characters) do
+		for character_field_name, character_field in pairs(character) do
+			if character_field_name == "hello_sound" or character_field_name == "rejected_sound" then
+				audio:load_sound(character_field, 1, 2)
+			end
+		end
+	end
 
 
 	-- mouse cursor
