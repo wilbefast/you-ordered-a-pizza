@@ -21,6 +21,27 @@ return {
 		orgy = 5
 	},
 	
+		Nude_Woman1= {
+		
+		head = {"head_1","lipstick_Red","head_RoundEye","eyelash","head_Long_BlondHair",},
+		torso = {"torso_1",},
+		rightArm = {"arm_1",},
+		rightForearm = {"arm_1",},
+		rightHand = {"arm_1",},
+		leftArm = {"arm_1",},
+		leftForearm = {"arm_1",},
+		leftHand = {"leftHand_1",},
+		groin = {"groinW_1",},
+		rightLeg = {"leg_1",},
+		rightForeleg = {"leg_1",},
+		rightFoot = {"foot_1",},
+		leftLeg = {"leg_1",},
+		leftForeleg = {"leg_1",},
+		leftFoot = {"foot_1",},
+
+		orgy = 5
+	},
+	
 	Slip  = {
 		groin = {"groin_Slip","astro"},
 
