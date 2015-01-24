@@ -348,13 +348,15 @@ function state:draw()
 
   --ui
   if not self.epilogue then
-	  local timerInt = math.floor(self.timer)
-	  local minutes = math.floor(timerInt/60)
-	  local seconds = timerInt - minutes * 60
-	  love.graphics.setFont(FONT_MEDIUM)
-	  local format = string.format("%02d : %02d", minutes, seconds)
-	  love.graphics.printf(format, 
-	    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+  	if self.timer > 0 then
+		  local timerInt = math.floor(self.timer)
+		  local minutes = math.floor(timerInt/60)
+		  local seconds = timerInt - minutes * 60
+		  love.graphics.setFont(FONT_MEDIUM)
+		  local format = string.format("%02d : %02d", minutes, seconds)
+		  love.graphics.printf(format, 
+		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+		end
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
 	  love.graphics.setFont(FONT_BIG)
 	  love.graphics.printf("What do we do now ?", 
