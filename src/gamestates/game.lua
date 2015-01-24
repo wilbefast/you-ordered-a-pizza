@@ -122,16 +122,12 @@ function state:mousepressed(x, y)
 
   -- drag around bodies
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
-
     if self.mouseJoint then
       self.mouseJoint:destroy()
     end
     self.mouseJoint = love.physics.newMouseJoint(fixture:getBody(), x, y)
-
     return true
   end)
-
-
 end
 
 function state:mousereleased()
@@ -162,6 +158,35 @@ function state:update(dt)
 
   -- update logic
   GameObject.updateAll(dt)
+
+  -- check if dudes have left the screen
+  local onscreen = {}
+  GameObject.mapToType("Dude", function(dude)
+    onscreen[dude] = false
+  end)
+  self.world:queryBoundingBox(0, 0, WORLD_W, WORLD_H, function(fixture)
+    local userdata = fixture:getBody():getUserData()
+    if userdata then
+      if userdata.dude then
+        onscreen[userdata.dude] = true
+      end
+    end
+  end)
+  local count = 0
+  for dude, isonscreen in pairs(onscreen) do
+    -- TODO - do stuff do the dude when he/she goes off screen
+    if isonscreen then
+      --log:write(dude, "inside")
+      count = count + 1
+    else
+      --log:write(dude, "outside")
+    end
+  end
+  if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
+    log:write("ENQUEUE")
+    self.door:enqueue(function(x, y) Dude(x, y) end)
+  end
+  --log:write(#self.door.queue)
 end
 
 

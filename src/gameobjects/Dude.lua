@@ -46,15 +46,15 @@ local Dude = Class({
     GameObject.init(self, x, y)
 
     -- rag doll
-    self.torso = { dude = self }
+    self.torso = { dude = self, part = "torso" }
     self.torso.body = love.physics.newBody(
       game.world, x, y, "dynamic")
     self.torso.body:setUserData(self.torso)
-
     self.torso.shape = love.physics.newRectangleShape(0, 0, torsoWidth, torsoHeight)
     self.torso.fixture = love.physics.newFixture(self.torso.body, self.torso.shape, 5)
     self.torso.fixture:setCategory(COLLIDABLE_CATEGORY)
     self.torso.fixture:setMask(UNCOLLIDABLE_CATEGORY)
+    self.torso.body:setUserData(self.torso)
 
     self.head = { dude = self, part = "head" }
     self.head.body = love.physics.newBody(
