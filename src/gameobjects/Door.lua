@@ -81,7 +81,7 @@ local Door = Class({
 
     self.state = closed
     self.t = 0
-    self.queue = { function(x, y) Dude(x, y) end }
+    self.queue = { }
   end,
 })
 

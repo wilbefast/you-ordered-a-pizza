@@ -242,9 +242,10 @@ function state:update(dt)
     	end
     end
   end
-  --log:write(derp)
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
-    self.door:enqueue(function(x, y) Dude(x, y) end)
+    self.door:enqueue(function(x, y) 
+    	Dude(x, y, characters[useful.randIn(characterNames)])
+    end)
   end
 
   -- update timer

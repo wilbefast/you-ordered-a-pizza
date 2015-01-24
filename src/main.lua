@@ -70,7 +70,10 @@ end
 
 clothes = require("assets/lson/clothes")
 characters = require("assets/lson/characters")
-
+characterNames = {}
+for name, char in pairs(characters) do
+	table.insert(characterNames, name)
+end
 
 Dude = require("gameobjects/Dude")
 Door = require("gameobjects/Door")

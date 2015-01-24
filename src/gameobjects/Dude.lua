@@ -40,7 +40,7 @@ local Dude = Class({
 
   type = GameObject.newType("Dude"),
 
-  init = function(self, x, y)
+  init = function(self, x, y, character)
 
     -- semantic object
     GameObject.init(self, x, y)
@@ -232,7 +232,7 @@ local Dude = Class({
     self.puppeteer.currentT = 0
 
 
-    self.character = characters.Man1
+    self.character = character
 
     self.clothes = {}
     for i, clothName in ipairs(self.character) do

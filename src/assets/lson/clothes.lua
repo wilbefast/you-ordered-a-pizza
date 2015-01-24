@@ -53,7 +53,7 @@ return {
 		torso = {"torso_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
-		rightHand = {"arm_3"},
+		rightHand = {"rightHand_3"},
 		leftArm = {"arm_3"},
 		leftForearm = {"arm_3"},
 		leftHand = {"leftHand_3"},
