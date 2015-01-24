@@ -18,6 +18,50 @@ Initialisation
 
 local height = WORLD_H*0.7
 
+local close, dingdong, opened
+
+closed = {
+  update = function(self, dt)
+    self.t = self.t + dt
+    if self.t > 1 then
+      self.state = dingdong
+      self.t = 0
+      audio:play_sound("DoorBell")
+    end
+  end,
+  onclick = function(self)
+  end,
+  draw = function(self, x, y)
+    self.DEBUG_VIEW:draw(self)
+  end
+}
+dingdong = {
+  update = function(self, dt)
+  end,
+  onclick = function(self)
+    audio:play_sound("OpenDoor")
+    self.state = opened
+    Dude(self.x, self.y - 64)
+  end,
+  draw = function(self, x, y)
+    useful.bindBlack()
+    self.DEBUG_VIEW:draw(self)
+    useful.bindWhite()
+  end
+}
+opened = {
+  update = function(self, dt)
+  end,
+  onclick = function(self)
+  end,
+  draw = function(self, x, y)
+    love.graphics.setColor(0, 0, 255)
+    self.DEBUG_VIEW:draw(self)
+    useful.bindWhite()
+  end
+
+}
+
 local Door = Class({
 
   type = GameObject.newType("Door"),
@@ -27,8 +71,8 @@ local Door = Class({
 
     GameObject.init(self, x, WORLD_H - 0.5*height - 16, WORLD_W*0.2, height)
 
-    self.dingdong = false
-    self.dingdong_t = 0
+    self.state = closed
+    self.t = 0
   end,
 })
 
@@ -47,32 +91,19 @@ Game loop
 --]]--
 
 function Door:update(dt)
-  if not self.dingdong then
-    self.dingdong_t = self.dingdong_t + dt
-    if self.dingdong_t > 1 then
-      self.dingdong = true
-      self.dingdong_t = 0
-      audio:play_sound("DoorBell")
-    end
-  end
+  self.state.update(self, dt)
 end
 
 function Door:draw(x, y)
-  if self.dingdong then
-    self.DEBUG_VIEW:draw(self)
-  end
+  self.state.draw(self, x, y)
 end
 
 --[[------------------------------------------------------------
 Open and shut
 --]]--
 
-function Door:open()
-  log:write("OPEN")
-  if self.dingdong then
-    self.dingdong = false
-    Dude(self.x, self.y)
-  end
+function Door:onclick()
+  self.state.onclick(self)
 end
 
 

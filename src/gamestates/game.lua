@@ -114,7 +114,7 @@ function state:mousepressed(x, y)
 
   -- open doors
   GameObject.mapToType("Door", 
-    function(obj) log:write("DERP") obj:open() end, 
+    function(obj) obj:onclick() end, 
     function(obj) return obj:isCollidingPoint(x, y) end)
 
   -- drag around bodies
