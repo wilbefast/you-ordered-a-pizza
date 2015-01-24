@@ -311,7 +311,8 @@ function state:update(dt)
     		dude.purge = true
         audio:play_sound(dude.character.rejected_sound)
         audio:play_sound("Cat")
-        if self.mouseJoint then
+        if self.mouseJoint and (self.grabDude == dude) then
+        	self.mouseJoint:destroy()
         	self.mouseJoint = nil
         end
       else
