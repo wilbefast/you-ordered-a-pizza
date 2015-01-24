@@ -147,6 +147,14 @@ return {
 		orgy = -1
 	},
 	
+		Culotte_1  = {
+	body_parts = {
+		groin = {"Culotte_1",},
+		},
+		
+		orgy = -1
+	},
+	
 	Jeans  = {
 	body_parts = {
 		groin = {"groin_Jeans",},
