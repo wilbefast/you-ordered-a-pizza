@@ -14,7 +14,7 @@ Lesser General Public License for more details.
 
 local camera = Camera(0, 0, 1, 0)
 
-local GAME_TIME = 5
+local GAME_TIME = 180
 local TEXT_LENGTH = 2*WORLD_W
 local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
 local TIMER_Y = 0.05*WORLD_H
