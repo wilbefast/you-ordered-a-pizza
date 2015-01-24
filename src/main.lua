@@ -68,6 +68,7 @@ end
 -------------------------------------------------------------------------------
 
 Dude = require("gameobjects/Dude")
+Door = require("gameobjects/Door")
 
 -------------------------------------------------------------------------------
 -- DEFINES
@@ -78,6 +79,8 @@ DEBUG = true
 FONT_SMALL = nil
 FONT_MEDIUM = nil
 FONT_BIG = nil
+
+MUTE = true
 
 -------------------------------------------------------------------------------
 -- SCREEN SHAKE !
@@ -98,35 +101,44 @@ gameover = require("gamestates/gameover")
 -------------------------------------------------------------------------------
 love.load = function()
 
+	-- view scaling
 	WINDOW_W = love.graphics.getWidth()
 	WINDOW_H = love.graphics.getHeight()
-
   VIEW_W = WORLD_W
   VIEW_H = WORLD_H
   VIEW_SCALE = 1
-
 	while (VIEW_W < WINDOW_W) and (VIEW_H < WINDOW_H) do
 		VIEW_SCALE = VIEW_SCALE + 0.0001
     VIEW_W = WORLD_W*VIEW_SCALE
     VIEW_H = WORLD_H*VIEW_SCALE
 	end
 	VIEW_SCALE = VIEW_SCALE - 0.0001
-
 	love.graphics.setDefaultFilter("nearest", "nearest", 1)
 
+	-- sprite atlas
   fudge.set({ monkey = true })
   foregroundb = fudge.new("assets/foreground", { npot = false })
 
+  -- fonts
 	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)
 	FONT_SMALL:setFilter("nearest", "nearest", 1)
 	love.graphics.setFont(FONT_SMALL)
-
 	FONT_MEDIUM = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 48)
 	FONT_MEDIUM:setFilter("nearest", "nearest", 1)
-
 	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 64)
 	FONT_BIG:setFilter("nearest", "nearest", 1)
 
+	-- audio
+	audio.mute = MUTE
+	-- music
+	audio:load_music("Music01")
+	audio:play_music("Music01")
+	-- sound
+	audio:load_sound("CloseDoor")
+	audio:load_sound("OpenDoor")
+	audio:load_sound("DoorBell")
+
+	-- mouse cursor
 	love.mouse.setVisible(true)
 
 	gamestate.registerEvents{ 'quit', 'keypressed', 'keyreleased' }
@@ -174,5 +186,7 @@ end
 love.keypressed = function(key)
 	if key == "o" then
 		DEBUG = (not DEBUG)
+	elseif key == "m" then
+		audio.mute = (not audio.mute)
 	end
 end

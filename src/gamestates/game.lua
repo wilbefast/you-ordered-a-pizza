@@ -67,13 +67,12 @@ function state:enter()
   -- right wall
   local rightWall = {}
   rightWall.body = love.physics.newBody(
-    self.world, WORLD_W, WORLD_H*0.5)
-  rightWall.shape = love.physics.newRectangleShape(32, WORLD_H)
+    self.world, WORLD_W, WORLD_H*0.75)
+  rightWall.shape = love.physics.newRectangleShape(32, WORLD_H*0.5)
   rightWall.fixture = love.physics.newFixture(rightWall.body, rightWall.shape)
 
-  -- create a dude
-  -- TEMP test
-  self.dude = Dude(WORLD_W/2, WORLD_H/2)
+  -- create a door
+  self.door = Door(WORLD_W*0.7)
 
   -- reset state variables
   self.epilogue = nil
@@ -100,7 +99,12 @@ end
 
 function state:mousepressed(x, y)
 
+  -- open doors
+  GameObject.mapToType("Door", 
+    function(obj) log:write("DERP") obj:open() end, 
+    function(obj) return obj:isCollidingPoint(x, y) end)
 
+  -- drag around bodies
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
 
     if self.mouseJoint then
@@ -156,8 +160,6 @@ function state:draw()
 
 	-- objects
 	GameObject.drawAll(self.view)
-
-
   love.graphics.draw(foregroundb)
   foregroundb.batch:clear()
 
