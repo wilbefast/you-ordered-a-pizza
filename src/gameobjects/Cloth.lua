@@ -46,6 +46,8 @@ local Cloth = Class({
 		end
 		size = math.max(3, size)
 
+		self.r, self.g, self.b = math.random()*255, math.random()*255, math.random()*255
+
     GameObject.init(self, x, y)
 
 		local mx, my = love.mouse.getPosition()
@@ -119,7 +121,7 @@ function Cloth:update(dt)
 end
 
 function Cloth:draw_cloth(x, y)
-
+	love.graphics.setColor(self.r, self.g, self.b)
 	local vertices = {}
 	for i, b in ipairs(self.bodies) do
 		local bx, by = b:getPosition()
@@ -127,6 +129,7 @@ function Cloth:draw_cloth(x, y)
 		table.insert(vertices, by)
 	end
 	love.graphics.polygon("fill", vertices)
+	useful.bindWhite()
 
 end
 
