@@ -267,7 +267,7 @@ function state:update(dt)
     if isonscreen then
       count = count + 1
     else
-    	if dude.x > 0 then
+    	if dude.x > WORLD_W/2 then
     		dude.purge = true
         audio:play_sound("DefenestrationMan")
         audio:play_sound("Cat")
