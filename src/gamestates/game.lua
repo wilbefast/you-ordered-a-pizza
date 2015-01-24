@@ -303,7 +303,7 @@ function state:draw()
 	local mx, my = love.mouse.getPosition()
 
   -- background
-  love.graphics.setColor(200, 50, 200)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
   useful.bindWhite()
 
@@ -311,6 +311,7 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
+  foregroundb:addb("bgFin", -2*WORLD_W, 2*WORLD_H, 0, 1, 1)
 	GameObject.drawAll(self.view)
 
   love.graphics.draw(foregroundb)
