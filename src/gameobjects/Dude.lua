@@ -70,7 +70,7 @@ local Dude = Class({
     parts.head.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.head.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.head.fixture:setFriction(self.friction)
-    headTorsojoint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2-headRadius, x, y - torsoHeight/2, true )
+    parts.head.joint = love.physics.newDistanceJoint( parts.head.body, parts.torso.body, x, y - torsoHeight/2-headRadius, x, y - torsoHeight/2, true )
     parts.head.body:setUserData(parts.head)
 
     parts.rightArm = { dude = self, part = "rightArm" }
@@ -81,7 +81,7 @@ local Dude = Class({
     parts.rightArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.rightArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightArm.fixture:setFriction(self.friction)
-    rightArmjoint = love.physics.newRevoluteJoint( parts.rightArm.body, parts.torso.body, x + torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
+    parts.rightArm.joint = love.physics.newRevoluteJoint( parts.rightArm.body, parts.torso.body, x + torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
     parts.rightArm.body:setUserData(parts.rightArm)
 
     parts.rightForearm = { dude = self, part = "rightForearm" }
@@ -92,7 +92,7 @@ local Dude = Class({
     parts.rightForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.rightForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightForearm.fixture:setFriction(self.friction)
-    rightForearmjoint = love.physics.newRevoluteJoint( parts.rightForearm.body, parts.rightArm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
+    parts.rightForearm.joint = love.physics.newRevoluteJoint( parts.rightForearm.body, parts.rightArm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
     parts.rightForearm.body:setUserData(parts.rightForearm)
 
     parts.rightHand = { dude = self, part = "rightHand" }
@@ -103,7 +103,7 @@ local Dude = Class({
     parts.rightHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.rightHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightHand.fixture:setFriction(self.friction)
-    rightHandjoint = love.physics.newRevoluteJoint( parts.rightHand.body, parts.rightForearm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
+    parts.rightHand.joint = love.physics.newRevoluteJoint( parts.rightHand.body, parts.rightForearm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
     parts.rightHand.body:setUserData(parts.rightHand)
 
     parts.leftArm = { dude = self, part = "leftArm" }
@@ -114,7 +114,7 @@ local Dude = Class({
     parts.leftArm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.leftArm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftArm.fixture:setFriction(self.friction)
-    leftArmjoint = love.physics.newRevoluteJoint( parts.leftArm.body, parts.torso.body, x - torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
+    parts.leftArm.joint = love.physics.newRevoluteJoint( parts.leftArm.body, parts.torso.body, x - torsoWidth/2, y - (torsoHeight-armWidth)/2, false )
     parts.leftArm.body:setUserData(parts.leftArm)
 
     parts.leftForearm = { dude = self, part = "leftForearm" }
@@ -125,7 +125,7 @@ local Dude = Class({
     parts.leftForearm.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.leftForearm.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftForearm.fixture:setFriction(self.friction)
-    leftForearmjoint = love.physics.newRevoluteJoint( parts.leftForearm.body, parts.leftArm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
+    parts.leftForearm.joint = love.physics.newRevoluteJoint( parts.leftForearm.body, parts.leftArm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
     parts.leftForearm.body:setUserData(parts.leftForearm)
 
     parts.leftHand = { dude = self, part = "leftHand" }
@@ -136,7 +136,7 @@ local Dude = Class({
     parts.leftHand.fixture:setCategory(UNCOLLIDABLE_CATEGORY)
     parts.leftHand.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftHand.fixture:setFriction(self.friction)
-    leftHandjoint = love.physics.newRevoluteJoint( parts.leftHand.body, parts.leftForearm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
+    parts.leftHand.joint = love.physics.newRevoluteJoint( parts.leftHand.body, parts.leftForearm.body, x - (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight, false )
     parts.leftHand.body:setUserData(parts.leftHand)
 
     parts.rightLeg = { dude = self, part = "rightLeg" }
@@ -147,7 +147,7 @@ local Dude = Class({
     parts.rightLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.rightLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightLeg.fixture:setFriction(self.friction)
-    rightLegjoint = love.physics.newRevoluteJoint( parts.rightLeg.body, parts.torso.body, x + legspacing, y + torsoHeight/2 + memberDistance, true )
+    parts.rightLeg.joint = love.physics.newRevoluteJoint( parts.rightLeg.body, parts.torso.body, x + legspacing, y + torsoHeight/2 + memberDistance, true )
     parts.rightLeg.body:setUserData(parts.rightLeg)
 
     parts.rightForeleg = { dude = self, part = "rightForeleg" }
@@ -158,7 +158,7 @@ local Dude = Class({
     parts.rightForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.rightForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightForeleg.fixture:setFriction(self.friction)
-    rightForelegjoint = love.physics.newRevoluteJoint( parts.rightForeleg.body, parts.rightLeg.body, x + legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
+    parts.rightForeleg.joint = love.physics.newRevoluteJoint( parts.rightForeleg.body, parts.rightLeg.body, x + legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
     parts.rightForeleg.body:setUserData(parts.rightForeleg)
 
     parts.rightFoot = { dude = self, part = "rightFoot" }
@@ -169,7 +169,7 @@ local Dude = Class({
     parts.rightFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.rightFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.rightFoot.fixture:setFriction(self.friction)
-    rightFootjoint = love.physics.newRevoluteJoint( parts.rightFoot.body, parts.rightForeleg.body, x + legspacing + footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.rightFoot.joint = love.physics.newRevoluteJoint( parts.rightFoot.body, parts.rightForeleg.body, x + legspacing + footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
     parts.rightFoot.body:setUserData(parts.rightFoot)
 
     parts.leftLeg = { dude = self, part = "leftLeg" }
@@ -180,7 +180,7 @@ local Dude = Class({
     parts.leftLeg.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.leftLeg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftLeg.fixture:setFriction(self.friction)
-    leftLegjoint = love.physics.newRevoluteJoint( parts.leftLeg.body, parts.torso.body, x - legspacing, y + torsoHeight/2 + memberDistance, true )
+    parts.leftLeg.joint = love.physics.newRevoluteJoint( parts.leftLeg.body, parts.torso.body, x - legspacing, y + torsoHeight/2 + memberDistance, true )
     parts.leftLeg.body:setUserData(parts.leftLeg)
 
     parts.leftForeleg = { dude = self, part = "leftForeleg" }
@@ -191,7 +191,7 @@ local Dude = Class({
     parts.leftForeleg.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.leftForeleg.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftForeleg.fixture:setFriction(self.friction)
-    leftForelegjoint = love.physics.newRevoluteJoint( parts.leftForeleg.body, parts.leftLeg.body, x - legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
+    parts.leftForeleg.joint = love.physics.newRevoluteJoint( parts.leftForeleg.body, parts.leftLeg.body, x - legspacing, y + torsoHeight/2 + memberDistance + legHeight, true )
     parts.leftForeleg.body:setUserData(parts.leftForeleg)
 
     parts.leftFoot = { dude = self, part = "leftFoot" }
@@ -202,7 +202,7 @@ local Dude = Class({
     parts.leftFoot.fixture:setCategory(COLLIDABLE_CATEGORY)
     parts.leftFoot.fixture:setMask(UNCOLLIDABLE_CATEGORY)
     parts.leftFoot.fixture:setFriction(self.friction)
-    leftFootjoint = love.physics.newRevoluteJoint( parts.leftFoot.body, parts.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
+    parts.leftFoot.joint = love.physics.newRevoluteJoint( parts.leftFoot.body, parts.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
     parts.leftFoot.body:setUserData(parts.leftFoot)
 
     self.body_parts = parts
@@ -242,6 +242,17 @@ Destruction
 --]]--
 
 function Dude.onPurge(self)
+
+    for partName, part in pairs (self.body_parts) do
+        if part.join ~= nil then
+            part.join:destroy()
+        end
+        part.fixture:destroy()
+        --part.shape:destroy()
+        part.body:destroy()
+    end
+
+    self.body_parts = {}
 end
 
 --[[------------------------------------------------------------

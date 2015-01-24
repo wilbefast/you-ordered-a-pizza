@@ -161,6 +161,7 @@ love.load = function()
 
 	-- sound
 	audio:load_sound("CloseDoor", 1, 3)
+	audio:load_sound("DefenestrationMan", 1, 2)
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
 
