@@ -4,7 +4,8 @@ return {
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
-		"Nude_Man1"
+		"Nude_Man1",
+		
 		orgy = -100 -- orgies are unlikely if there are bears
 	}
 

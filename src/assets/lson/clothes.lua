@@ -19,13 +19,13 @@ return {
 		leftFoot = {"foot_1",},
 
 		orgy = 5
-	}
+	},
 	
 	Slip  = {
 		groin = {"groin_Slip",},
 
 		orgy = -1
-	}
+	},
 	
 	Jeans  = {
 		groin = {"groin_Jeans",},
@@ -35,7 +35,7 @@ return {
 		leftForeleg = {"leg_Jeans",},
 		
 		orgy = -1
-	}
+	},
 	
 	Shirt_Liberty = {
 		torso = {"torso_Liberty",},
