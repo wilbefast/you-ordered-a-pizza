@@ -67,6 +67,10 @@ end
 -- GAME INCLUDES
 -------------------------------------------------------------------------------
 
+clothes = require("assets/lson/clothes")
+characters = require("assets/lson/characters")
+
+
 Dude = require("gameobjects/Dude")
 Door = require("gameobjects/Door")
 
