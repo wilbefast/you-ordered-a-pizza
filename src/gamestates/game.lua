@@ -206,6 +206,8 @@ function state:update(dt)
     		dude.purge = true
         audio:play_sound("DefenestrationMan")
         audio:play_sound("Cat")
+      else
+
     	end
     end
   end
@@ -239,8 +241,9 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
-
 	GameObject.drawAll(self.view)
+  foregroundb:addb("light", 0, 0, 0, 1, 1)
+  
   love.graphics.draw(foregroundb)
 
 
