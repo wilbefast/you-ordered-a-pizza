@@ -28,7 +28,7 @@ end
 
 function state:enter()
   -- create the world
-  self.world = love.physics.newWorld(0, 9.81)
+  self.world = love.physics.newWorld(0, 200)
   self.world:setCallbacks(
     self.beginContact, 
     self.endContact, 
