@@ -22,11 +22,13 @@ local close, dingdong, opened
 
 closed = {
   update = function(self, dt)
-    self.t = self.t + dt
-    if self.t > 1 then
-      self.state = dingdong
-      self.t = 0
-      audio:play_sound("DoorBell")
+    if #self.queue > 0 then
+      self.t = self.t + dt
+      if self.t > 1 then
+        self.state = dingdong
+        self.t = 0
+        audio:play_sound("DoorBell")
+      end
     end
   end,
   onclick = function(self)
@@ -41,7 +43,8 @@ dingdong = {
   onclick = function(self)
     audio:play_sound("OpenDoor")
     self.state = opened
-    Dude(self.x, self.y - 64)
+    self.queue[1](self.x, self.y - 32)
+    table.remove(self.queue, 1)
   end,
   draw = function(self, x, y)
     useful.bindBlack()
@@ -51,6 +54,12 @@ dingdong = {
 }
 opened = {
   update = function(self, dt)
+    self.t = self.t + 0.4*dt
+    if self.t > 1 then
+      self.state = closed
+      self.t = 0
+      audio:play_sound("CloseDoor")
+    end
   end,
   onclick = function(self)
   end,
@@ -68,11 +77,11 @@ local Door = Class({
 
   init = function(self, x)
 
-
     GameObject.init(self, x, WORLD_H - 0.5*height - 16, WORLD_W*0.2, height)
 
     self.state = closed
     self.t = 0
+    self.queue = { function(x, y) Dude(x, y) end }
   end,
 })
 
@@ -106,6 +115,9 @@ function Door:onclick()
   self.state.onclick(self)
 end
 
+function Door:enqueue(onOpenDoor)
+  table.insert(self.queue, onOpenDoor)
+end
 
 --[[------------------------------------------------------------
 Collisions

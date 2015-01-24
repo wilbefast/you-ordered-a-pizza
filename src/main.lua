@@ -134,9 +134,9 @@ love.load = function()
 	audio:load_music("Music01")
 	audio:play_music("Music01")
 	-- sound
-	audio:load_sound("CloseDoor")
-	audio:load_sound("OpenDoor")
-	audio:load_sound("DoorBell")
+	audio:load_sound("CloseDoor", 1, 3)
+	audio:load_sound("OpenDoor", 1, 3)
+	audio:load_sound("DoorBell", 1, 5)
 
 	-- mouse cursor
 	love.mouse.setVisible(true)
