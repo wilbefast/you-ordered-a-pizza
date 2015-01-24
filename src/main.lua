@@ -84,7 +84,7 @@ FONT_SMALL = nil
 FONT_MEDIUM = nil
 FONT_BIG = nil
 
-MUTE = true
+--MUTE = true
 
 -------------------------------------------------------------------------------
 -- SCREEN SHAKE !
@@ -136,8 +136,29 @@ love.load = function()
 	-- audio
 	audio.mute = MUTE
 	-- music
-	audio:load_music("Music01")
-	audio:play_music("Music01")
+	local music_menu = love.audio.newSource("assets/audio/Menu.ogg")
+	local music_game = love.audio.newSource("assets/audio/Music01.ogg")
+	music_menu:setVolume(1)
+	music_game:setVolume(1)
+	music_menu:setLooping(true)
+	music_game:setLooping(true)
+	music_menu:play()
+	local playing_music_menu = true
+	audio.swap_music = function()
+		if playing_music_menu then
+			music_game:play()
+			music_game:seek(music_menu:tell())
+			music_menu:pause()
+			playing_music_menu = false
+		else
+			music_menu:play()
+			music_menu:seek(music_game:tell())
+			music_game:pause()
+			playing_music_menu = true
+		end
+	end
+
+
 	-- sound
 	audio:load_sound("CloseDoor", 1, 3)
 	audio:load_sound("OpenDoor", 1, 3)

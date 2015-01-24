@@ -27,6 +27,8 @@ end
 
 
 function state:enter()
+  audio.swap_music()
+
   -- create the world
   self.world = love.physics.newWorld(0, 200)
   self.world:setCallbacks(
@@ -99,6 +101,8 @@ end
 
 
 function state:leave()
+  audio.swap_music()
+  
 	GameObject.purgeAll()
   self.world:destroy()
 end
