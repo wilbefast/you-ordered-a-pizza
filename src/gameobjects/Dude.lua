@@ -94,7 +94,7 @@ local Dude = Class({
     rightForearmjoint = love.physics.newRevoluteJoint( self.rightForearm.body, self.rightArm.body, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + armHeight, false )
     self.rightForearm.body:setUserData(self.rightForearm)
 
-    self.rightHand = { dude = self, part = "rightArm" }
+    self.rightHand = { dude = self, part = "rightHand" }
     self.rightHand.body = love.physics.newBody(
       game.world, x + (torsoWidth+armWidth)/2, y - torsoHeight/2 + 2*armHeight + handHeight/2, "dynamic")
     self.rightHand.shape = love.physics.newRectangleShape(0, 0, handWidth, handHeight)
