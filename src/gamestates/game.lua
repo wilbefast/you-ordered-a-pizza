@@ -12,6 +12,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
 --]]
 
+local camera = Camera(0, 0, 1, 0)
+
 local GAME_TIME = 180
 local TIMER_TEXT_LENGTH = 0.6*WORLD_W
 local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
@@ -36,9 +38,8 @@ end
 function state:enter()
   audio.swap_music()
 
-  --camera:attach()
-
   self.timer = GAME_TIME
+  camera:lookAt(WORLD_W/2, WORLD_H/2)
 
   -- create the world
   self.world = love.physics.newWorld(0, 500)
@@ -113,7 +114,6 @@ end
 
 function state:leave()
   audio.swap_music()
-  --camera:detach()
   
   if self.mouseJoint then
     self.mouseJoint:destroy()
@@ -197,7 +197,7 @@ function state:update(dt)
     local new_ep = math.min(1, self.epilogue + dt)
     local del_ep = new_ep - self.epilogue
     self.epilogue = new_ep
-    self.world:translateOrigin(-WORLD_W*del_ep, 0)
+    --self.world:translateOrigin(-WORLD_W*del_ep, 0)
     camera:move(-WORLD_W*del_ep, 0)
 
   else
@@ -265,16 +265,17 @@ function state:draw()
 	-- clear
 	local mx, my = love.mouse.getPosition()
 
+
   -- background
   love.graphics.setColor(200, 50, 200)
   love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
   useful.bindWhite()
 
+  camera:attach()
+
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
 	GameObject.drawAll(self.view)
-	
-  --foregroundb:addb("light", 0, 0, 0, 1, 1)
 
   love.graphics.draw(foregroundb)
   love.graphics.draw(lightImage, 0, 0)
@@ -295,6 +296,7 @@ function state:draw()
     debugWorldDraw(self.world, 0, 0, WORLD_W, WORLD_H)
     useful.bindWhite()
   end
+  camera:detach()
 end
 
 --[[------------------------------------------------------------
