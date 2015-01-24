@@ -372,6 +372,24 @@ function Dude:update(dt)
 
 end
 
+Dude.pickingPriority = {
+	rightLeg = 0,
+	leftLeg = 0,
+	groin = 3,
+	leftForeleg = 0,
+	rightForeleg = 0,
+	rightFoot = 2,
+	leftFoot = 2,
+	torso = 0,
+	rightArm = 0,
+	leftArm = 0,
+	rightForearm = 0,
+	leftForearm = 0,
+	rightHand = 0,
+	leftHand = 0,
+	head = 1
+}
+
 local partDrawOrder = {
 	"rightLeg",
 	"leftLeg",

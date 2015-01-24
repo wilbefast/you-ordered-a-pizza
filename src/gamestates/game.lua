@@ -160,34 +160,41 @@ function state:mousepressed(x, y)
   end
 
   -- drag around bodies
-  local grabbed =  false
+  local grabbedBody, best = nil, -math.huge
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
-  	local userdata = fixture:getBody():getUserData() 
-    local dude = userdata["dude"]
-    if dude then
-    	self.grabDude = dude
-    	self.grabPart = userdata["part"]
-    	self.grabHitpoints = 1
-    	-- un-puppet
-	    if dude.puppeteer and dude.canBeGrabbed then
-	      dude.puppeteer.joint:destroy()
-	      dude.puppeteer.body:destroy()
-	      dude.puppeteer = nil
-	    end
-	    -- match
-	    grabbed = true
-	  end
-
-    if self.mouseJoint then
-      self.mouseJoint:destroy()
+  	local body = fixture:getBody()
+  	local userdata = body:getUserData()
+    if userdata.dude then
+    	local val = Dude.pickingPriority[userdata.part]
+    	if val > best then
+    		grabbedBody = body
+    		best = val
+    	end
     end
-    self.mouseJoint = love.physics.newMouseJoint(fixture:getBody(), x, y)
-    self.mouseJoint:setDampingRatio(0.1)
-    return false
+    return true
   end)
 
-  -- open doors
-  if not grabbed then
+  if grabbedBody then
+  	local userdata = grabbedBody:getUserData()
+  	local dude = userdata.dude
+		self.grabDude = userdata.dude
+		self.grabPart = userdata.part
+		self.grabHitpoints = 1
+		-- un-puppet
+	  if dude.puppeteer and dude.canBeGrabbed then
+	    dude.puppeteer.joint:destroy()
+	    dude.puppeteer.body:destroy()
+	    dude.puppeteer = nil
+	  end
+	  -- remove previous grab
+		if self.mouseJoint then
+		  self.mouseJoint:destroy()
+		end
+		self.mouseJoint = love.physics.newMouseJoint(grabbedBody, x, y)
+		self.mouseJoint:setDampingRatio(0.1)
+
+  else
+  	-- open doors
 	  GameObject.mapToType("Door", 
 	    function(obj) obj:onclick() end, 
 	    function(obj) return obj:isCollidingPoint(x, y) end)
