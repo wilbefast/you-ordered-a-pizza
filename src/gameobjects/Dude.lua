@@ -188,18 +188,22 @@ local Dude = Class({
 
     self.puppeteer = {}
     puppeteerX = torsoX
-    puppeteerY = torsoY - torsoHeight/2 - 2*headRadius - 10
+    puppeteerY = torsoY - torsoHeight/2 - 2*headRadius - 400
     self.puppeteer.body = love.physics.newBody(
       game.world, puppeteerX, puppeteerY, "kinematic")
     puppeteerJoint = love.physics.newDistanceJoint
     puppeteerJoint = love.physics.newDistanceJoint( self.head.body, self.puppeteer.body, torsoX, torsoY - torsoHeight/2-headRadius, puppeteerX, puppeteerY, false )
 
     self.puppeteer.speed = 1
-    self.puppeteer.bounce = 50
+    self.puppeteer.bounce = 150
     self.puppeteer.points = {
       {puppeteerX, puppeteerY},
-      {puppeteerX-50, puppeteerY-30},
-      {puppeteerX-400, puppeteerY-60},
+      {puppeteerX-50, puppeteerY},
+      {puppeteerX-100, puppeteerY},
+      {puppeteerX-150, puppeteerY},
+      {puppeteerX-200, puppeteerY},
+      {puppeteerX-300, puppeteerY},
+      {puppeteerX-350, puppeteerY},
     }
     self.puppeteer.currentPoint = 1
     self.puppeteer.currentT = 0
@@ -233,7 +237,7 @@ function Dude:update(dt)
     -- TODO : update pos
 
     xPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][1] + (self.puppeteer.points[self.puppeteer.currentPoint+1][1] - self.puppeteer.points[self.puppeteer.currentPoint][1]) * self.puppeteer.currentT
-    yPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][2] + (self.puppeteer.points[self.puppeteer.currentPoint+1][2] - self.puppeteer.points[self.puppeteer.currentPoint][2]) * self.puppeteer.currentT
+    yPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][2] + (self.puppeteer.points[self.puppeteer.currentPoint+1][2] - self.puppeteer.points[self.puppeteer.currentPoint][2]) * self.puppeteer.currentT - 4*self.puppeteer.bounce * (self.puppeteer.currentT - self.puppeteer.currentT*self.puppeteer.currentT)
 
     log:write("puppeteer", xPuppeteer, yPuppeteer)
 
