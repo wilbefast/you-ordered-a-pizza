@@ -142,8 +142,8 @@ love.load = function()
 	-- music
 	local music_menu = love.audio.newSource("assets/audio/Menu.ogg")
 	local music_game = love.audio.newSource("assets/audio/Music01.ogg")
-	music_menu:setVolume(1)
-	music_game:setVolume(1)
+	music_menu:setVolume(0.3)
+	music_game:setVolume(0.3)
 	music_menu:setLooping(true)
 	music_game:setLooping(true)
 	music_menu:play()
@@ -166,9 +166,13 @@ love.load = function()
 	-- sound
 	audio:load_sound("CloseDoor", 1, 3)
 	audio:load_sound("DefenestrationMan", 1, 2)
+	audio:load_sound("DefenestrationWoman", 1, 2)
 	audio:load_sound("Cat", 1, 2)
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
+	audio:load_sounds("HelloMale", 6, 1, 3)
+	audio:load_sounds("HelloFemale", 6, 1, 3)
+
 
 	-- mouse cursor
 	love.mouse.setVisible(true)
