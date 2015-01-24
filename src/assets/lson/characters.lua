@@ -5,7 +5,7 @@ return {
 		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Slip_Pink",
+		"Slip",
 		"Nude_Man_Pink_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
@@ -29,7 +29,7 @@ return {
 		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Slip_Yellow",
+		"Slip",
 		"Nude_Man_Yellow_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
@@ -53,7 +53,7 @@ return {
 		"Adidas_1_Right",
 		"Shirt_Liberty",
 		"Jeans",
-		"Slip_Black",
+		"Slip",
 		"Nude_Man_Black_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
