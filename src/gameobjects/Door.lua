@@ -34,7 +34,7 @@ closed = {
   onclick = function(self)
   end,
   draw = function(self, x, y)
-    self.DEBUG_VIEW:draw(self)
+  	foregroundb:addb("doorClose", 0, -1)
   end
 }
 dingdong = {
@@ -43,13 +43,11 @@ dingdong = {
   onclick = function(self)
     audio:play_sound("OpenDoor")
     self.state = opened
-    self.queue[1](self.x, self.y - 32)
+    self.queue[1](self.x, self.y + 32)
     table.remove(self.queue, 1)
   end,
   draw = function(self, x, y)
-    useful.bindBlack()
-    self.DEBUG_VIEW:draw(self)
-    useful.bindWhite()
+  	foregroundb:addb("doorClose", 0, -1)
   end
 }
 opened = {
@@ -64,10 +62,8 @@ opened = {
   onclick = function(self)
   end,
   draw = function(self, x, y)
-    love.graphics.setColor(0, 0, 255)
-    self.DEBUG_VIEW:draw(self)
-    useful.bindWhite()
-  end
+  	foregroundb:addb("doorOpen", 0, -1)
+	end
 
 }
 
@@ -77,7 +73,7 @@ local Door = Class({
 
   init = function(self, x)
 
-    GameObject.init(self, x, WORLD_H - 0.5*height - 16, WORLD_W*0.2, height)
+    GameObject.init(self, x, WORLD_H*0.75 - 0.5*height, WORLD_W*0.2, height)
 
     self.state = closed
     self.t = 0
