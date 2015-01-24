@@ -239,7 +239,7 @@ function Dude:update(dt)
     xPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][1] + (self.puppeteer.points[self.puppeteer.currentPoint+1][1] - self.puppeteer.points[self.puppeteer.currentPoint][1]) * self.puppeteer.currentT
     yPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][2] + (self.puppeteer.points[self.puppeteer.currentPoint+1][2] - self.puppeteer.points[self.puppeteer.currentPoint][2]) * self.puppeteer.currentT - 4*self.puppeteer.bounce * (self.puppeteer.currentT - self.puppeteer.currentT*self.puppeteer.currentT)
 
-    log:write("puppeteer", xPuppeteer, yPuppeteer)
+    --log:write("puppeteer", xPuppeteer, yPuppeteer)
 
     self.puppeteer.body:setPosition(xPuppeteer, yPuppeteer)
 

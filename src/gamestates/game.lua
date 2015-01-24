@@ -42,13 +42,15 @@ function state:enter()
     self.world, 0, WORLD_H + 16)
   floor.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
   floor.fixture = love.physics.newFixture(floor.body, floor.shape)
-  
+  floor.body:setUserData("floor")
+
   -- roof
   local roof = {}
   roof.body = love.physics.newBody(
     self.world, 0, -16)
   roof.shape = love.physics.newRectangleShape(WORLD_W*2, 64)
   roof.fixture = love.physics.newFixture(roof.body, roof.shape)
+  roof.body:setUserData("roof")
 
   -- far left wall
   local leftWall = {}
@@ -56,21 +58,22 @@ function state:enter()
     self.world, -WORLD_W, WORLD_H*0.5)
   leftWall.shape = love.physics.newRectangleShape(32, WORLD_H)
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
- 
+  leftWall.body:setUserData("leftWall")
+
   -- middle wall
   local middleWallTop = {}
   middleWallTop.body = love.physics.newBody(
     self.world, 0, 50/2)
   middleWallTop.shape = love.physics.newRectangleShape(32, 50)
   middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
-
+  middleWallTop.body:setUserData("middleWallTop")
 
   local middleWallBottom = {}
   middleWallBottom.body = love.physics.newBody(
     self.world, 0, WORLD_H - 80/2)
   middleWallBottom.shape = love.physics.newRectangleShape(32, 80)
   middleWallBottom.fixture = love.physics.newFixture(middleWallBottom.body, middleWallBottom.shape)
-
+  middleWallBottom.body:setUserData("middleWallBottom")
 
   -- right wall
   local rightWallTop = {}
@@ -78,11 +81,14 @@ function state:enter()
     self.world, WORLD_W, 111/2)
   rightWallTop.shape = love.physics.newRectangleShape(32, 111)
   rightWallTop.fixture = love.physics.newFixture(rightWallTop.body, rightWallTop.shape)
+  rightWallTop.body:setUserData("rightWallTop")
+  
   local rightWallBottom = {}
   rightWallBottom.body = love.physics.newBody(
     self.world, WORLD_W, WORLD_H - 320/2)
   rightWallBottom.shape = love.physics.newRectangleShape(32, 320)
   rightWallBottom.fixture = love.physics.newFixture(rightWallBottom.body, rightWallBottom.shape)
+  rightWallBottom.body:setUserData("rightWallBottom")
 
   -- create a door
   self.door = Door(WORLD_W*0.7)
@@ -171,22 +177,20 @@ function state:update(dt)
         onscreen[userdata.dude] = true
       end
     end
+    return true
   end)
   local count = 0
   for dude, isonscreen in pairs(onscreen) do
     -- TODO - do stuff do the dude when he/she goes off screen
     if isonscreen then
-      --log:write(dude, "inside")
       count = count + 1
     else
-      --log:write(dude, "outside")
     end
   end
+  --log:write(derp)
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
-    log:write("ENQUEUE")
     self.door:enqueue(function(x, y) Dude(x, y) end)
   end
-  --log:write(#self.door.queue)
 end
 
 
