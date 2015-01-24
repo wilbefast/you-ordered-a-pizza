@@ -18,6 +18,8 @@ Initialisation
 
 local height = WORLD_H*0.7
 
+local DING_DONG_SPEED = 1
+
 local close, dingdong, opened
 
 closed = {
@@ -26,6 +28,8 @@ closed = {
       self.t = self.t + dt
       if self.t > 1 then
         self.state = dingdong
+
+			  self.dingdongTimer = 0;
         self.t = 0
         audio:play_sound("DoorBell")
       end
@@ -39,6 +43,13 @@ closed = {
 }
 dingdong = {
   update = function(self, dt)
+  	if self.dingdongTimer >= 0 then
+		  self.dingdongTimer = self.dingdongTimer + dt* DING_DONG_SPEED;
+		  if self.dingdongTimer >= 5 then
+		  	self.dingdongTimer = 0
+        audio:play_sound("DoorBell")
+		  end
+		end
   end,
   onclick = function(self)
     audio:play_sound("OpenDoor")
@@ -48,6 +59,9 @@ dingdong = {
   end,
   draw = function(self, x, y)
   	foregroundb:addb("doorClose", 0, -1)
+  	if self.dingdongTimer >= 0 and self.dingdongTimer < 1 then
+  		foregroundb:addb("dingdong", WORLD_W * 0.65, WORLD_H*0.1)
+  	end
   end
 }
 opened = {
@@ -76,6 +90,8 @@ local Door = Class({
     GameObject.init(self, x, WORLD_H*0.75 - 0.5*height, WORLD_W*0.2, height)
 
     self.state = closed
+
+		self.dingdongTimer = -1;
     self.t = 0
     self.queue = { }
   end,
