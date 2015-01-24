@@ -58,18 +58,31 @@ function state:enter()
   leftWall.fixture = love.physics.newFixture(leftWall.body, leftWall.shape)
  
   -- middle wall
-  local middleWall = {}
-  middleWall.body = love.physics.newBody(
-    self.world, 0, WORLD_H*0.25)
-  middleWall.shape = love.physics.newRectangleShape(32, WORLD_H*0.5)
-  middleWall.fixture = love.physics.newFixture(middleWall.body, middleWall.shape)
+  local middleWallTop = {}
+  middleWallTop.body = love.physics.newBody(
+    self.world, 0, 50/2)
+  middleWallTop.shape = love.physics.newRectangleShape(32, 50)
+  middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
+
+
+  local middleWallBottom = {}
+  middleWallBottom.body = love.physics.newBody(
+    self.world, 0, WORLD_H - 80/2)
+  middleWallBottom.shape = love.physics.newRectangleShape(32, 80)
+  middleWallBottom.fixture = love.physics.newFixture(middleWallBottom.body, middleWallBottom.shape)
+
 
   -- right wall
-  local rightWall = {}
-  rightWall.body = love.physics.newBody(
-    self.world, WORLD_W, WORLD_H*0.75)
-  rightWall.shape = love.physics.newRectangleShape(32, WORLD_H*0.5)
-  rightWall.fixture = love.physics.newFixture(rightWall.body, rightWall.shape)
+  local rightWallTop = {}
+  rightWallTop.body = love.physics.newBody(
+    self.world, WORLD_W, 111/2)
+  rightWallTop.shape = love.physics.newRectangleShape(32, 111)
+  rightWallTop.fixture = love.physics.newFixture(rightWallTop.body, rightWallTop.shape)
+  local rightWallBottom = {}
+  rightWallBottom.body = love.physics.newBody(
+    self.world, WORLD_W, WORLD_H - 320/2)
+  rightWallBottom.shape = love.physics.newRectangleShape(32, 320)
+  rightWallBottom.fixture = love.physics.newFixture(rightWallBottom.body, rightWallBottom.shape)
 
   -- create a door
   self.door = Door(WORLD_W*0.7)
