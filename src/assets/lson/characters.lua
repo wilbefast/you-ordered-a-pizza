@@ -4,7 +4,7 @@ return {
 		"Shirt_Liberty",
 		"Jeans",
 		"Slip",
-		"Nude_Man1",
+		"Nude_ManRose",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
 	},
@@ -14,7 +14,7 @@ return {
 		"Shirt_Liberty",
 		"Jeans",
 		"Culotte",
-		"Nude_Woman1",
+		"Nude_WomanRose_1",
 		
 		orgy = -100 -- orgies are unlikely if there are bears
 	}

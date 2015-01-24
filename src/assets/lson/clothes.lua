@@ -1,6 +1,6 @@
 return {
 	
-	Nude_Man1= {
+	Nude_ManRose_1= {
 		body_parts = {
 		
 		head = {"head_1","head_RoundEye","head_BlondHair"},
@@ -23,7 +23,7 @@ return {
 		orgy = 5
 	},
 	
-		Nude_Woman1= {
+		Nude_WomanRose_1= {
 		body_parts = {
 		
 		head = {"head_1","lipstick_Red","head_RoundEye","eyelash","head_Long_BlondHair",},
@@ -48,7 +48,7 @@ return {
 	
 	Slip  = {
 	body_parts = {
-		groin = {"groin_Slip","astro"},
+		groin = {"groin_Slip",},
 		},
 		
 		orgy = -1
