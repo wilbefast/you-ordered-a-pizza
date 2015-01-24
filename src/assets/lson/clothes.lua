@@ -10,7 +10,7 @@ return {
 		leftArm = {"arm_1",},
 		leftForearm = {"arm_1",},
 		leftHand = {"leftHand_1",},
-		groin = {"rightHand_1",},
+		groin = {"groin_1",},
 		rightLeg = {"leg_1",},
 		rightForeleg = {"leg_1",},
 		rightFoot = {"foot_1",},
@@ -22,7 +22,7 @@ return {
 	},
 	
 	Slip  = {
-		groin = {"groin_Slip",},
+		groin = {"groin_Slip","astro"},
 
 		orgy = -1
 	},
