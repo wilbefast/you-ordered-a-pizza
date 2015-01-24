@@ -5,7 +5,7 @@ return {
 	"Ours_1",
 	"Ours_2",
 		
-		hello_sound ="HelloMale_1" ,
+		hello_sound ="HelloOurs" ,
 		rejected_sound ="DefenestrationMan"   
 	},
 
@@ -40,7 +40,7 @@ return {
 		"Burka_Yellow",
 		"Adidas_6_Left",
 		"Adidas_6_Right",
-		"Bra_Pink_01",
+		"Bra_Yellow_01",
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
@@ -53,7 +53,7 @@ return {
 		"Burka_Black",
 		"Adidas_6_Left",
 		"Adidas_6_Right",
-		"Bra_Pink_01",
+		"Bra_Black_01",
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
