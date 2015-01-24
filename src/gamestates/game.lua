@@ -115,8 +115,15 @@ function state:leave()
   audio.swap_music()
   --camera:detach()
   
+  if self.mouseJoint then
+    self.mouseJoint:destroy()
+  end
+  self.mouseJoint = nil
+
 	GameObject.purgeAll()
   self.world:destroy()
+
+
 end
 
 --[[------------------------------------------------------------
