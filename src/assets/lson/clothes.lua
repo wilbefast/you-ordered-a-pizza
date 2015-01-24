@@ -26,11 +26,11 @@ return {
 		Nude_Woman_Pink_1= {
 		body_parts = {
 		
-		head = {"head_1","lipstick_Red","head_RoundEye","eyelash","head_Long_BlondHair"},
-		torso = {"torso_1"},
+		head = {"head_1","lipstick_Red","head_RoundEye","eyelash_1","head_Long_BlondHair"},
+		torso = {"torsoW_1"},
 		rightArm = {"arm_1"},
 		rightForearm = {"arm_1"},
-		rightHand = {"arm_1"},
+		rightHand = {"rightHand_1"},
 		leftArm = {"arm_1"},
 		leftForearm = {"arm_1"},
 		leftHand = {"leftHand_1"},
@@ -72,11 +72,11 @@ return {
 		Nude_Woman_Black_1= {
 		body_parts = {
 		
-		head = {"head_3","lipstick_Red","head_RoundEye","eyelash","head_Long_BlondHair"},
-		torso = {"torso_3"},
+		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_BlondHair"},
+		torso = {"torsoW_3"},
 		rightArm = {"arm_3"},
 		rightForearm = {"arm_3"},
-		rightHand = {"arm_3"},
+		rightHand = {"rightHand_3"},
 		leftArm = {"arm_3"},
 		leftForearm = {"arm_3"},
 		leftHand = {"leftHand_3"},
@@ -120,10 +120,10 @@ return {
 		body_parts = {
 		
 		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_BlondHair"},
-		torso = {"torso_2"},
+		torso = {"torsoW_2"},
 		rightArm = {"arm_2"},
 		rightForearm = {"arm_2"},
-		rightHand = {"arm_2"},
+		rightHand = {"rightHand_2"},
 		leftArm = {"arm_2"},
 		leftForearm = {"arm_2"},
 		leftHand = {"leftHand_2"},
