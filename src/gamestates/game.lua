@@ -14,7 +14,7 @@ Lesser General Public License for more details.
 
 local camera = Camera(0, 0, 1, 0)
 
-local GAME_TIME = 180
+local GAME_TIME = 5
 local TEXT_LENGTH = 2*WORLD_W
 local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
 local TIMER_Y = 0.05*WORLD_H
@@ -230,6 +230,28 @@ function state:mousereleased()
   self.mouseJoint = nil
 end
 
+function state:setEnding()
+
+	endingTypes = {}
+	for i,endi in ipairs(endings) do
+		table.insert(endingTypes, endi.type)
+		log:write("coucou1")
+	end
+	for i,endi in ipairs(endingTypes) do
+		log:write(i, endi)
+		log:write("coucou2")
+	end
+		log:write("coucou")
+
+	GameObject.mapToType("Dude", function(dude)
+    
+    
+
+  end)
+
+  ending = endings[2]
+end
+
 function state:update(dt)
 	local mx, my = love.mouse.getPosition()
 
@@ -337,6 +359,7 @@ function state:update(dt)
 
   -- check end
   if self.epilogue and self.epilogue >= (1 + END_TRANSITION_DURATION + END_TEXT_DURATION) then
+  	self.setEnding()
   	gamestate.switch(gameover)
   end
 
