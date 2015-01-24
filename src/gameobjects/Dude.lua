@@ -294,9 +294,10 @@ function Dude:tearClothingOffPart(partName)
 		if cloth.body_parts[partName] then
 			table.remove(self.clothes, i)
 			self:updateTextures()
-			return
+			return true
 		end
 	end
+	return false
 end
 
 function Dude:updateTextures()

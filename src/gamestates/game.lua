@@ -150,15 +150,15 @@ function state:mousepressed(x, y)
   	local userdata = fixture:getBody():getUserData() 
     local dude = userdata["dude"]
     if dude then
+    	self.grabDude = dude
     	self.grabPart = userdata["part"]
+    	self.grabHitpoints = 1
     	-- un-puppet
 	    if dude.puppeteer and dude.canBeGrabbed then
 	      dude.puppeteer.joint:destroy()
 	      dude.puppeteer.body:destroy()
 	      dude.puppeteer = nil
 	    end
-	    -- un-cloth
-	    dude:tearClothingOffPart(self.grabPart)
 	    -- match
 	    grabbed = true
 	  end
@@ -188,6 +188,33 @@ function state:mousereleased()
 end
 
 function state:update(dt)
+	local mx, my = love.mouse.getPosition()
+
+  -- un-cloth
+  if self.mouseJoint then
+
+  	local p = self.grabDude.body_parts[self.grabPart]
+  	local dx, dy = p.body:getLinearVelocity()
+  	local vx, vy = p.body:getPosition()
+  	vx, vy = mx - vx, my - vy 
+
+		local d = Vector.det(dx, dy, vx, vy)
+	  if d < 0 then
+
+	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt/10000)
+	  	if self.grabHitpoints == 0 then
+	  		if self.grabDude:tearClothingOffPart(self.grabPart) then
+			  	self.mouseJoint:destroy()
+			  	self.mouseJoint = nil
+			  end
+		  	
+		  else
+		  	self.grabHitpoints = math.min(1, self.grabHitpoints + 10*dt)
+		  end
+		  log:write(self.grabHitpoints)
+		end
+	end
+
   -- update physics
   self.world:update(dt)
 
@@ -263,9 +290,7 @@ end
 
 
 function state:draw()
-	-- clear
 	local mx, my = love.mouse.getPosition()
-
 
   -- background
   love.graphics.setColor(200, 50, 200)
