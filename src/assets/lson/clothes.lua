@@ -228,7 +228,21 @@ return {
 		orgy = -1
 	},
 	
+		Adidas_6_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_6"},
+		},
+		
+		orgy = -1
+	},
 	
+	Adidas_6_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_6"},
+		},
+		
+		orgy = -1
+	},
 	
 	
 	
