@@ -14,14 +14,19 @@ Lesser General Public License for more details.
 
 local camera = Camera(0, 0, 1, 0)
 
-local GAME_TIME = 30
-local TIMER_TEXT_LENGTH = 0.6*WORLD_W
-local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
+local GAME_TIME = 5
+local TEXT_LENGTH = 2*WORLD_W
+local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
 local TIMER_Y = 0.05*WORLD_H
+local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
+local ENDTEXT_Y = 0.25*WORLD_H
 
 local state = gamestate.new()
 
 local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
+
+local END_TRANSITION_DURATION = 2;
+local END_TEXT_DURATION = 3;
 
 --[[------------------------------------------------------------
 Workspace, local to this file
@@ -40,6 +45,7 @@ function state:enter()
 
   self.timer = GAME_TIME
   camera:lookAt(WORLD_W/2, WORLD_H/2)
+  camera:zoomTo(1)
 
   -- create the world
   self.world = love.physics.newWorld(0, 500)
@@ -228,14 +234,17 @@ function state:update(dt)
   self.world:update(dt)
 
   if self.epilogue then
-
-    -- epilogue
-    local new_ep = math.min(1, self.epilogue + dt)
-    local del_ep = new_ep - self.epilogue
-    self.epilogue = new_ep
-    --self.world:translateOrigin(-WORLD_W*del_ep, 0)
-    camera:move(-3*WORLD_W/2*del_ep, 5*WORLD_H/2*del_ep)
-    camera:zoomTo(1-0.5*new_ep)
+  	if self.epilogue < 1 then
+    	-- epilogue
+	    local new_ep = math.min(1, self.epilogue + dt)
+	    local del_ep = new_ep - self.epilogue
+	    self.epilogue = new_ep
+	    --self.world:translateOrigin(-WORLD_W*del_ep, 0)
+	    camera:move(-3*WORLD_W/2*del_ep, 5*WORLD_H/2*del_ep)
+	    camera:zoomTo(1-0.5*new_ep)
+	  else
+	    self.epilogue = self.epilogue + dt
+  	end
 
   else
     -- control physics
@@ -295,6 +304,10 @@ function state:update(dt)
 	  end
   end
 
+  -- check end
+  if self.epilogue and self.epilogue >= (1 + END_TRANSITION_DURATION + END_TEXT_DURATION) then
+  	gamestate.switch(gameover)
+  end
 
 end
 
@@ -317,16 +330,6 @@ function state:draw()
   love.graphics.draw(foregroundb)
   love.graphics.draw(lightImage, 0, 0)
 
-
-  --timer
-  local timerInt = math.floor(self.timer)
-  local minutes = math.floor(timerInt/60)
-  local seconds = timerInt - minutes * 60
-  love.graphics.setFont(FONT_MEDIUM)
-  local format = string.format("%02d : %02d", minutes, seconds)
-  love.graphics.printf(format, 
-    TIMER_X, TIMER_Y, TIMER_TEXT_LENGTH, "center")
-
   foregroundb.batch:clear()
 
   -- debug
@@ -335,6 +338,21 @@ function state:draw()
     useful.bindWhite()
   end
   camera:detach()
+
+  --ui
+  if not self.epilogue then
+	  local timerInt = math.floor(self.timer)
+	  local minutes = math.floor(timerInt/60)
+	  local seconds = timerInt - minutes * 60
+	  love.graphics.setFont(FONT_MEDIUM)
+	  local format = string.format("%02d : %02d", minutes, seconds)
+	  love.graphics.printf(format, 
+	    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
+	  love.graphics.setFont(FONT_BIG)
+	  love.graphics.printf("What do we do now ?", 
+	    ENDTEXT_X, ENDTEXT_Y, TEXT_LENGTH, "center")
+	end
 end
 
 --[[------------------------------------------------------------
