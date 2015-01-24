@@ -365,6 +365,14 @@ return {
 		orgy = -1
 	},
 	
+		Bra_Pape = {
+	body_parts = {
+		torso = {"torso_1","torso_Bra_03"},
+		},
+		
+		orgy = -1
+	},
+	
 	Bra_Yellow_01 = {
 	body_parts = {
 		torso = {"torsoW_2","torso_Bra_01"},
@@ -486,6 +494,35 @@ return {
 		leftLeg = {"leg_Ours2"},
 		leftForeleg = {"leg_Ours2"},
 		leftFoot = {"left_foot_Ours2"},
+		},
+		
+		orgy = -1
+	},
+	
+	Mitre = {
+	body_parts = {
+		head = {"head_1","head_RoundEye","eyelash_1","head_pape"},
+		},
+		
+		orgy = -1
+	},
+	
+	Mitre = {
+	body_parts = {
+		head = {"head_1","head_RoundEye","eyelash_1","head_pape"},
+		},
+		
+		orgy = -1
+	},
+	
+		Robe_Pape = {
+	body_parts = {
+		torso = {"torso_pape"},
+		rightArm = {"arm_Burka"},
+		rightForearm = {"rightForeArm_pape"},
+		leftArm = {"arm_Burka"},
+		leftForearm = {"leftForeArm_pape"},
+		groin = {"groin_pape"},	
 		},
 		
 		orgy = -1

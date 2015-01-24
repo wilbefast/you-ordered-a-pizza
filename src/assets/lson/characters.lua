@@ -1,27 +1,73 @@
 return {
-	Man1 = {
+
+	Ours = {
 
 	"Ours_1",
 	"Ours_2",
-		-- "Adidas_1_Left",
-		-- "Adidas_1_Right",
-		-- "Shirt_01",
-		-- "Jeans",
-		-- "Slip",
-		-- "Nude_Man_Pink_1",
 		
 		hello_sound ="HelloMale_1" ,
 		rejected_sound ="DefenestrationMan"   
 	},
 
-	Woman1 = {
+	Man1 = {
+
+		 "Adidas_1_Left",
+		 "Adidas_1_Right",
+		 "Shirt_01",
+		 "Jeans",
+		 "Slip",
+		 "Nude_Man_Pink_1",
+		
+		hello_sound ="HelloMale_1" ,
+		rejected_sound ="DefenestrationMan"   
+	},
+
+	BurkaWomanPink = {
 	
 		"Burka_Pink",
-	--	"Adidas_3_Left",
-	--	"Adidas_3_Right",
-	--	"Shirt_Liberty",
+		"Adidas_6_Left",
+		"Adidas_6_Right",
 		"Bra_Pink_01",
-	--	"Jeans",
+		"Culotte_Pink",
+		"Nude_Woman_Pink_1",
+		
+		hello_sound ="HelloFemale_3" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		BurkaWomanYellow = {
+	
+		"Burka_Yellow",
+		"Adidas_6_Left",
+		"Adidas_6_Right",
+		"Bra_Pink_01",
+		"Culotte_Yellow",
+		"Nude_Woman_Yellow_1",
+		
+		hello_sound ="HelloFemale_4" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		BurkaWomanBlack = {
+	
+		"Burka_Black",
+		"Adidas_6_Left",
+		"Adidas_6_Right",
+		"Bra_Pink_01",
+		"Culotte_Black",
+		"Nude_Woman_Black_1",
+		
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+	Woman1 = {
+	
+		"Adidas_3_Left",
+		"Adidas_3_Right",
+		"Shirt_Liberty",
+		"Bra_Pink_01",
+		"Jeans",
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
@@ -81,6 +127,20 @@ return {
 		
 		hello_sound ="HelloFemale_3" ,
 		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		Pape = {
+	
+		"Mitre",
+		"Robe_Pape",
+		"Adidas_2_Right",
+		"Adidas_2_Left",
+		"Bra_Pape",
+		"Slip",
+		"Nude_Man_Pink_1",
+		
+		hello_sound ="HelloMale_3" ,
+		rejected_sound ="DefenestrationMan" 
 	}
 	
 }
