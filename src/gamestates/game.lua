@@ -214,6 +214,8 @@ function state:draw()
   useful.bindWhite()
 
 	-- objects
+  foregroundb:addb("bg", 0, 0, 0, 1, 1)
+
 	GameObject.drawAll(self.view)
   love.graphics.draw(foregroundb)
   foregroundb.batch:clear()
