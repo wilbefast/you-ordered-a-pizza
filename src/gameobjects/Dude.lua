@@ -186,6 +186,25 @@ local Dude = Class({
     leftFootjoint = love.physics.newRevoluteJoint( self.leftFoot.body, self.leftForeleg.body, x - legspacing - footXDecal, y + torsoHeight/2 + 2*(memberDistance + legHeight), true )
     self.leftFoot.body:setUserData(self.leftFoot)
 
+    self.puppeteer = {}
+    puppeteerX = torsoX
+    puppeteerY = torsoY - torsoHeight/2 - 2*headRadius - 10
+    self.puppeteer.body = love.physics.newBody(
+      game.world, puppeteerX, puppeteerY, "kinematic")
+    puppeteerJoint = love.physics.newDistanceJoint
+    puppeteerJoint = love.physics.newDistanceJoint( self.head.body, self.puppeteer.body, torsoX, torsoY - torsoHeight/2-headRadius, puppeteerX, puppeteerY, false )
+
+    self.puppeteer.speed = 1
+    self.puppeteer.bounce = 50
+    self.puppeteer.points = {
+      {puppeteerX, puppeteerY},
+      {puppeteerX-50, puppeteerY-30},
+      {puppeteerX-400, puppeteerY-60},
+    }
+    self.puppeteer.currentPoint = 1
+    self.puppeteer.currentT = 0
+
+
   end,
 })
 
@@ -205,6 +224,27 @@ Game loop
 
 function Dude:update(dt)
 	self.x, self.y = self.torso.body:getX(), self.torso.body:getY()
+
+  if (self.puppeteer.currentPoint < #self.puppeteer.points) then
+    self.puppeteer.currentT = self.puppeteer.currentT + dt * self.puppeteer.speed;
+    if (self.puppeteer.currentT > 1) then
+      self.puppeteer.currentT = 1
+    end
+    -- TODO : update pos
+
+    xPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][1] + (self.puppeteer.points[self.puppeteer.currentPoint+1][1] - self.puppeteer.points[self.puppeteer.currentPoint][1]) * self.puppeteer.currentT
+    yPuppeteer = self.puppeteer.points[self.puppeteer.currentPoint][2] + (self.puppeteer.points[self.puppeteer.currentPoint+1][2] - self.puppeteer.points[self.puppeteer.currentPoint][2]) * self.puppeteer.currentT
+
+    log:write("puppeteer", xPuppeteer, yPuppeteer)
+
+    self.puppeteer.body:setPosition(xPuppeteer, yPuppeteer)
+
+    if (self.puppeteer.currentT >= 1) then
+      self.puppeteer.currentPoint = self.puppeteer.currentPoint + 1
+      self.puppeteer.currentT = 0
+    end
+  end
+
 end
 
 function Dude:draw(x, y)
