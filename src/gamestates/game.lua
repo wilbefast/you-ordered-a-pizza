@@ -12,6 +12,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
 --]]
 
+local GAME_TIME = 10
+local TIMER_TEXT_LENGTH = 0.6*WORLD_W
+local TIMER_X = WORLD_W/2 - TIMER_TEXT_LENGTH/2
+local TIMER_Y = 0.05*WORLD_H
+
 local state = gamestate.new()
 
 --[[------------------------------------------------------------
@@ -28,6 +33,8 @@ end
 
 function state:enter()
   audio.swap_music()
+
+  self.timer = GAME_TIME
 
   -- create the world
   self.world = love.physics.newWorld(0, 500)
@@ -201,6 +208,15 @@ function state:update(dt)
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
     self.door:enqueue(function(x, y) Dude(x, y) end)
   end
+
+  -- update timer
+  self.timer = self.timer - dt;
+  if (self.timer < 0) then
+    self.timer = 0
+	  gamestate.switch(gameover)
+  end
+
+
 end
 
 
@@ -218,6 +234,16 @@ function state:draw()
 
 	GameObject.drawAll(self.view)
   love.graphics.draw(foregroundb)
+
+
+  --timer
+  local timerInt = math.floor(self.timer)
+  local minutes = math.floor(timerInt/60)
+  local seconds = timerInt - minutes * 60
+  love.graphics.setFont(FONT_MEDIUM)
+  love.graphics.printf(tostring(minutes)..":"..seconds, 
+    TIMER_X, TIMER_Y, TIMER_TEXT_LENGTH, "center")
+
   foregroundb.batch:clear()
 
   -- debug
