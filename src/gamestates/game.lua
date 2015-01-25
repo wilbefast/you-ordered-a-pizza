@@ -48,10 +48,16 @@ Gamestate navigation
 --]]--
 
 function state:init()
-	self.deck = useful.deck()
-	for _, name in ipairs(characterNames) do
-		self.deck.stack(characters[name])
+	self.characterDeck = useful.deck()
+	for _, character in pairs(characters) do
+		self.characterDeck.stack(character)
 	end
+
+	self.propDeck = useful.deck()
+	for _, prop in pairs(props) do
+		self.propDeck.stack(prop)
+	end
+
 end
 
 
@@ -476,7 +482,7 @@ function state:update(dt)
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
     self.door:enqueue(function(x, y) 
 
-    	Dude(x, y, self.deck.draw())
+    	Dude(x, y, self.characterDeck.draw(), self.propDeck.draw())
     end)
   end
 
@@ -543,11 +549,9 @@ function state:draw()
 		  local minutes = math.floor(timerInt/60)
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
-		  local format = string.format("%02d : %02d", minutes, seconds)
-		  love.graphics.setColor(255, 255, 255)
+		  local format = string.format("%02d:%02d", minutes, seconds)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
-		  useful.bindWhite()
 		end
   		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then

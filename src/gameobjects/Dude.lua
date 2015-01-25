@@ -40,7 +40,7 @@ local Dude = Class({
 
   type = GameObject.newType("Dude"),
 
-  init = function(self, x, y, character)
+  init = function(self, x, y, character, prop)
 
   	-- hello!
   	audio:play_sound(character.hello_sound, 0.2)
@@ -275,6 +275,17 @@ local Dude = Class({
 				end
 			end
 		end
+
+		local leftHanded = (math.random() > 0.5)
+		local hand = leftHanded and parts.leftHand or parts.rightHand
+		local hx, hy = hand.body:getPosition()		
+
+		local prop = Prop(x, y, prop)
+		local px, py = prop.body:getPosition()
+
+	  local joint = love.physics.newRopeJoint(
+			hand.body, prop.body, hx, hy, px, py, 50, false)
+
 	end
 })
 Dude:include(GameObject)

@@ -47,6 +47,8 @@ local Prop = Class({
 	  fixture:setFriction(1000000*(prop.friction or 1))
 
 	  self.texture = foregroundb:getPiece(prop.textureName)
+
+	  self.prototype = prop
 	end
 })
 
@@ -70,6 +72,8 @@ Game loop
 function Prop:update(dt)
 	self.x, self.y = self.body:getPosition()
   if self.y > 4*WORLD_H then
+  	self.purge = true
+  elseif self.x > 2*WORLD_W then
   	self.purge = true
   end
 end
