@@ -21,8 +21,8 @@ return {
 		leftForeleg = {"leg_Charlie"},
 		leftFoot = {"left_foot_Charlie"},
 		
-		},
-		orgy = 5
+		}
+	
 	},
 	
 		Turban_Charlie  = {
@@ -32,7 +32,7 @@ return {
 		head = {"head_Charlie"},
 		},
 		
-		orgy = -1
+
 	},
 	
 			Djelaba_Charlie  = {
@@ -49,9 +49,7 @@ return {
 		rightForeleg = {"leg_Charlie2"},
 		leftLeg = {"leg_Charlie2"},
 		leftForeleg = {"leg_Charlie2"},
-		},
-		
-		orgy = -1
+		}
 	},
 
 	Nude_Vador= {
@@ -75,8 +73,7 @@ return {
 		leftForeleg = {"leg_1"},
 		leftFoot = {"left_foot_1"},
 		
-		},
-		orgy = 5
+		}
 	},
 	
 		Slip_Vador  = {
@@ -84,9 +81,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groinSlip_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Helmet_Vador  = {
@@ -94,9 +89,7 @@ return {
 	},
 	body_parts = {
 		head = {"head_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Pant_Vador  = {
@@ -108,9 +101,7 @@ return {
 		rightForeleg = {"leg_Vador"},
 		leftLeg = {"leg_Vador"},
 		leftForeleg = {"leg_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Chest_Vador  = {
@@ -122,9 +113,7 @@ return {
 		rightForearm = {"rightForeArm_Vador"},
 		leftArm = {"leftArm_Vador"},
 		leftForearm = {"leftForeArm_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		RightHand_Vador  = {
@@ -132,9 +121,7 @@ return {
 	},
 	body_parts = {
 		rightHand = {"rightHand_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		LeftHand_Vador  = {
@@ -142,29 +129,25 @@ return {
 	},
 	body_parts = {
 		leftHand = {"leftHand_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		RightShoe_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
+		rightForeleg = {"leg_None"},
 		rightFoot = {"rightFoot_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			LeftShoe_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
+		leftForeleg = {"leg_None"},
 		leftFoot = {"leftFoot_Vador"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	
@@ -189,8 +172,7 @@ return {
 		leftForeleg = {"leg_1"},
 		leftFoot = {"left_foot_1"},
 		
-		},
-		orgy = 5
+		}
 	},
 	
 		Nude_Woman_Pink_1= {
@@ -213,9 +195,7 @@ return {
 		leftLeg = {"leg_1"},
 		leftForeleg = {"leg_1"},
 		leftFoot = {"left_foot_1"},
-		},
-		
-		orgy = 5
+		}
 	},
 	
 	Nude_Man_Black_1= {
@@ -239,8 +219,7 @@ return {
 		leftForeleg = {"leg_3"},
 		leftFoot = {"left_foot_3"},
 		
-		},
-		orgy = 5
+		}
 	},
 	
 		Nude_Woman_Black_1= {
@@ -263,9 +242,7 @@ return {
 		leftLeg = {"leg_3"},
 		leftForeleg = {"leg_3"},
 		leftFoot = {"left_foot_3"},
-		},
-		
-		orgy = 5
+		}
 	},
 	
 	
@@ -290,8 +267,7 @@ return {
 		leftForeleg = {"leg_2"},
 		leftFoot = {"left_foot_2"},
 		
-		},
-		orgy = 5
+		}
 	},
 	
 		Nude_Woman_Yellow_1= {
@@ -314,9 +290,7 @@ return {
 		leftLeg = {"leg_2"},
 		leftForeleg = {"leg_2"},
 		leftFoot = {"left_foot_2"},
-		},
-		
-		orgy = 5
+		}
 	},
 
 			Nude_Woman_Yellow_2= {
@@ -339,9 +313,7 @@ return {
 		leftLeg = {"leg_2"},
 		leftForeleg = {"leg_2"},
 		leftFoot = {"left_foot_2"},
-		},
-		
-		orgy = 5
+		}
 	},
 	
 	Slip  = {
@@ -349,9 +321,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Slip"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	
@@ -360,9 +330,7 @@ return {
 	},
 	body_parts = {
 		leftFoot = {"leftFoot_1"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_1_Right  = {
@@ -370,9 +338,7 @@ return {
 	},
 	body_parts = {
 		rightFoot = {"rightFoot_1"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Adidas_2_Left  = {
@@ -380,9 +346,7 @@ return {
 	},
 	body_parts = {
 		leftFoot = {"leftFoot_2"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_2_Right  = {
@@ -390,9 +354,7 @@ return {
 	},
 	body_parts = {
 		rightFoot = {"rightFoot_2"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Adidas_3_Left  = {
@@ -400,9 +362,7 @@ return {
 	},
 	body_parts = {
 		leftFoot = {"leftFoot_3"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_3_Right  = {
@@ -410,9 +370,7 @@ return {
 	},
 	body_parts = {
 		rightFoot = {"rightFoot_3"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Adidas_4_Left  = {
@@ -420,9 +378,7 @@ return {
 	},
 	body_parts = {
 		leftFoot = {"leftFoot_4"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_4_Right  = {
@@ -430,49 +386,43 @@ return {
 	},
 	body_parts = {
 		rightFoot = {"rightFoot_4"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Adidas_5_Left  = {
 				color = {73,72,61
 	},
 	body_parts = {
+		leftForeleg = {"leg_None"},
 		leftFoot = {"leftFoot_5"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_5_Right  = {
 			color = {73,72,61
 	},
 	body_parts = {
+		rightForeleg = {"leg_None"},
 		rightFoot = {"rightFoot_5"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Adidas_6_Left  = {
 				color = {0,0,0
 	},
 	body_parts = {
+		leftForeleg = {"leg_None"},
 		leftFoot = {"leftFoot_6"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Adidas_6_Right  = {
 			color = {0,0,0
 	},
 	body_parts = {
+		rightForeleg = {"leg_None"},
 		rightFoot = {"rightFoot_6"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Adidas_7_Left  = {
@@ -480,9 +430,7 @@ return {
 	},
 	body_parts = {
 		leftFoot = {"leftFoot_7"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	
@@ -491,9 +439,7 @@ return {
 	},
 	body_parts = {
 		rightFoot = {"rightFoot_7"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	
@@ -503,9 +449,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groinW_1","Culotte_1"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Culotte_Yellow  = {
@@ -513,9 +457,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groinW_2","Culotte_1"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Culotte_Black  = {
@@ -523,9 +465,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groinW_3","Culotte_1"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Jeans  = {
@@ -537,9 +477,7 @@ return {
 		rightForeleg = {"leg_Jeans"},
 		leftLeg = {"leg_Jeans"},
 		leftForeleg = {"leg_Jeans"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_Liberty = {
@@ -551,9 +489,7 @@ return {
 		rightForearm = {"rightForeArm_Liberty"},
 		leftArm = {"leftArm_Liberty"},
 		leftForearm = {"leftForeArm_Liberty"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_01 = {
@@ -565,9 +501,7 @@ return {
 		rightForearm = {"rightForeArm_Shirt01"},
 		leftArm = {"leftArm_Shirt01"},
 		leftForearm = {"leftForeArm_Shirt01"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_02 = {
@@ -579,9 +513,7 @@ return {
 		rightForearm = {"rightForeArm_Shirt02"},
 		leftArm = {"leftArm_Shirt02"},
 		leftForearm = {"leftForeArm_Shirt02"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_03 = {
@@ -593,9 +525,7 @@ return {
 		rightForearm = {"rightForeArm_Shirt03"},
 		leftArm = {"leftArm_Shirt03"},
 		leftForearm = {"leftForeArm_Shirt03"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_04 = {
@@ -607,9 +537,7 @@ return {
 		rightForearm = {"rightForeArm_Shirt04"},
 		leftArm = {"leftArm_Shirt04"},
 		leftForearm = {"leftForeArm_Shirt04"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Shirt_05 = {
@@ -621,9 +549,7 @@ return {
 		rightForearm = {"rightForeArm_Shirt05"},
 		leftArm = {"leftArm_Shirt05"},
 		leftForearm = {"leftForeArm_Shirt05"},
-		},
-	
-		orgy = -1
+		}
 	},
 	
 	Bra_Pink_01 = {
@@ -631,9 +557,7 @@ return {
 	},
 	body_parts = {
 		torso = {"torsoW_1","torso_Bra_03"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Bra_Pape = {
@@ -641,9 +565,7 @@ return {
 	},
 	body_parts = {
 		torso = {"torso_1","torso_Bra_03"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Bra_Yellow_01 = {
@@ -651,9 +573,7 @@ return {
 	},
 	body_parts = {
 		torso = {"torsoW_2","torso_Bra_01"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Bra_Black_01 = {
@@ -661,9 +581,7 @@ return {
 	},
 	body_parts = {
 		torso = {"torsoW_3","torso_Bra_02"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Burka_Pink = {
@@ -685,9 +603,7 @@ return {
 		leftLeg = {"leg_Burka"},
 		leftForeleg = {"leg_Burka"},
 		leftFoot = {"leftFoot_Burka"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Burka_Yellow = {
@@ -709,9 +625,7 @@ return {
 		leftLeg = {"leg_Burka"},
 		leftForeleg = {"leg_Burka"},
 		leftFoot = {"leftFoot_Burka"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Burka_Black = {
@@ -733,9 +647,7 @@ return {
 		leftLeg = {"leg_Burka"},
 		leftForeleg = {"leg_Burka"},
 		leftFoot = {"leftFoot_Burka"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Ours_1 = {
@@ -757,9 +669,7 @@ return {
 		leftLeg = {"leg_Ours"},
 		leftForeleg = {"leg_Ours"},
 		leftFoot = {"left_foot_Ours"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Ours_2 = {
@@ -781,9 +691,7 @@ return {
 		leftLeg = {"leg_Ours2"},
 		leftForeleg = {"leg_Ours2"},
 		leftFoot = {"left_foot_Ours2"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	Mitre = {
@@ -791,9 +699,7 @@ return {
 	},
 	body_parts = {
 		head = {"head_1","head_RoundEye","eyelash_1","head_pape"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 	
@@ -811,9 +717,7 @@ return {
 		rightForeleg = {"leftForeArm_pape"},
 		leftLeg = {"leftForeArm_pape"},
 		leftForeleg = {"leftForeArm_pape"},		
-		},
-		
-		orgy = -1
+		}
 	},
 	
 		Jupe1 = {
@@ -821,9 +725,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe01"},
-		},
-		
-		orgy = -1
+		}
 	},
 
 			Jupe2 = {
@@ -831,9 +733,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe02"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Jupe3 = {
@@ -841,9 +741,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe03"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Jupe4 = {
@@ -851,9 +749,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe04"},
-		},
-		
-		orgy = -1
+		}
 	},
 	
 			Jupe5 = {
@@ -861,9 +757,7 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe05"},
-		},
-		
-		orgy = -1
+		}
 	}
 	
 }
