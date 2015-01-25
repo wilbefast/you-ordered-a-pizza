@@ -330,7 +330,7 @@ function Dude:getVisibleClothes()
 			end
 		end
 		if partCovering then
-			visible[partName] = partCovering
+			visible[partCovering] = partName
 		end
 	end
 	return visible
