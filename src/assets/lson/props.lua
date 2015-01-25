@@ -97,6 +97,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_Dildo2",
 			endings = {
+			  orgy = 5
 			}
 		},
 

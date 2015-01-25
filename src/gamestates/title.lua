@@ -21,6 +21,7 @@ Gamestate navigation
 --]]--
 
 function state:init()
+	self.background = love.graphics.newImage("assets/title.PNG")
 end
 
 function state:enter()
@@ -56,16 +57,15 @@ function state:draw()
 	local offset = 8*math.sin(2*t)
 	
   -- background
-  love.graphics.setColor(255, 0, 0)
-  love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
+  love.graphics.draw(self.background, 0, 0)
 
   useful.bindWhite()
 	love.graphics.setFont(FONT_BIG)
-	love.graphics.printf("SOMEBODY ORDER A PIZZA?", 
-		WORLD_W*0.5 - WORLD_W*0.2, WORLD_H*0.15 + offset, WORLD_W*0.4, "center")
+	love.graphics.printf("\"SOMEBODY ORDER A PIZZA?\"", 
+		WORLD_W*0.35 - WORLD_W*0.2, WORLD_H*0.15 + offset, WORLD_W*0.4, "center")
 	love.graphics.setFont(FONT_MEDIUM)
-	love.graphics.printf("A game with ragdolls", 
-		WORLD_W*0.5 - WORLD_W*0.3, WORLD_H*0.6 + offset, WORLD_W*0.6, "center")
+	love.graphics.printf("LE CORTEX.\n@studilecortex\n#GGJ15", 
+		WORLD_W*0.35 - WORLD_W*0.3, WORLD_H*0.6 + offset, WORLD_W*0.6, "center")
 
 	love.graphics.setFont(FONT_SMALL)
 end

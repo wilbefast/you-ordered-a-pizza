@@ -154,7 +154,7 @@ love.load = function()
 	love.graphics.setFont(FONT_SMALL)
 	FONT_MEDIUM = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 48)
 	FONT_MEDIUM:setFilter("nearest", "nearest", 1)
-	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 64)
+	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 96)
 	FONT_BIG:setFilter("nearest", "nearest", 1)
 
 	-- audio
