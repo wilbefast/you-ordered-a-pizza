@@ -256,6 +256,7 @@ function state:setEnding()
     for field_name,field in pairs(dude.character) do
     	for ending_name, ending_points in pairs(endingPoints) do
     		if ending_name == field_name then
+    			log:write(ending_name..tostring(field))
     			endingPoints[ending_name] = ending_points + field
     		end
     	end
@@ -264,10 +265,10 @@ function state:setEnding()
     -- retrieve clothes points
     local dude_clothes = dude:getVisibleClothes()
     for cloth_value,cloth_name in pairs(dude_clothes) do
-    	log:write(cloth_name)
     	for cloth_field_name, cloth_field in pairs(cloth_value) do
 	    	for ending_name, ending_points in pairs(endingPoints) do
 	    		if ending_name == cloth_field_name then
+    				log:write(cloth_name..cloth_field_name..tostring(cloth_field))
 	    			endingPoints[ending_name] = ending_points + cloth_field
 	    		end
 	    	end
