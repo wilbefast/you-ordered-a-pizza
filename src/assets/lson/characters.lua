@@ -243,8 +243,8 @@ return {
 		"Nude_Vador",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_3" ,
-		rejected_sound ="DefenestrationMan" 
+		hello_sound ="HelloVador" ,
+		rejected_sound ="DefenestrationVador" 
 	},
 	
 			Charlie = {
@@ -272,8 +272,8 @@ return {
 		"Rabbin_Nude",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_1" ,
-		rejected_sound ="DefenestrationWoman" 
+		hello_sound ="HelloRabbin" ,
+		rejected_sound ="DefenestrationRabbin" 
 	},
 	
 		Terro = {
@@ -288,7 +288,7 @@ return {
 		
 		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_6" ,
-		rejected_sound ="DefenestrationMan" 
+		rejected_sound ="DefenestrationTerro" 
 	},
 	
 			Dalai = {
@@ -316,8 +316,8 @@ return {
 		"Terminator_Nude",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_4" ,
-		rejected_sound ="DefenestrationMan" 
+		hello_sound ="HelloRobot" ,
+		rejected_sound ="DefenestrationRobot" 
 	}
 	
 }
