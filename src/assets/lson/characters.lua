@@ -5,8 +5,9 @@ return {
 	"Ours_1",
 	"Ours_2",
 		
-		hello_sound ="HelloMale_1" ,
-		rejected_sound ="DefenestrationMan"   
+		hello_sound ="HelloOurs" ,
+		rejected_sound ="DefenestrationOurs" 
+		
 	},
 
 	Man1 = {
@@ -40,7 +41,7 @@ return {
 		"Burka_Yellow",
 		"Adidas_6_Left",
 		"Adidas_6_Right",
-		"Bra_Pink_01",
+		"Bra_Yellow_01",
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
@@ -53,7 +54,7 @@ return {
 		"Burka_Black",
 		"Adidas_6_Left",
 		"Adidas_6_Right",
-		"Bra_Pink_01",
+		"Bra_Black_01",
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
@@ -141,6 +142,20 @@ return {
 		
 		hello_sound ="HelloMale_3" ,
 		rejected_sound ="DefenestrationMan" 
-	}
+	},
+	
+		WomanJupe1 = {
+	
+		"Adidas_7_Left",
+		"Adidas_7_Right",
+		"Shirt_02",
+		"Bra_Pink_01",
+		"Jupe1",
+		"Culotte_Pink",
+		"Nude_Woman_Pink_1",
+		
+		hello_sound ="HelloFemale_1" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
 	
 }

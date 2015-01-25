@@ -1,14 +1,14 @@
 return {
 	{
-		type = orgy,
+		name = "orgy",
 		trigger = 50,
 		text = "an ORGY !",
 		sound = "Cat"
 	},
 	{
-		type = djihad,
+		name = "jihad",
 		trigger = 50,
-		text = "a DJIHAD !",
+		text = "a JIHAD !",
 		sound = "Cat"
 	}
 	

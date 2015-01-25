@@ -244,8 +244,22 @@ return {
 		orgy = -1
 	},
 	
+			Adidas_7_Left  = {
+	body_parts = {
+		leftFoot = {"leftFoot_7"},
+		},
+		
+		orgy = -1
+	},
 	
 	
+		Adidas_7_Right  = {
+	body_parts = {
+		rightFoot = {"rightFoot_7"},
+		},
+		
+		orgy = -1
+	},
 	
 	
 	
@@ -518,15 +532,58 @@ return {
 		Robe_Pape = {
 	body_parts = {
 		torso = {"torso_pape"},
-		rightArm = {"arm_Burka"},
+		rightArm = {"rightForeArm_pape"},
 		rightForearm = {"rightForeArm_pape"},
-		leftArm = {"arm_Burka"},
+		leftArm = {"rightForeArm_pape"},
 		leftForearm = {"leftForeArm_pape"},
-		groin = {"groin_pape"},	
+		groin = {"groin_pape"},
+		rightLeg = {"leftForeArm_pape"},
+		rightForeleg = {"leftForeArm_pape"},
+		leftLeg = {"leftForeArm_pape"},
+		leftForeleg = {"leftForeArm_pape"},		
+		},
+		
+		orgy = -1
+	},
+	
+		Jupe1 = {
+	body_parts = {
+		groin = {"groin_Jupe01"},
+		},
+		
+		orgy = -1
+	},
+
+			Jupe2 = {
+	body_parts = {
+		groin = {"groin_Jupe02"},
+		},
+		
+		orgy = -1
+	},
+	
+			Jupe3 = {
+	body_parts = {
+		groin = {"groin_Jupe03"},
+		},
+		
+		orgy = -1
+	},
+	
+			Jupe4 = {
+	body_parts = {
+		groin = {"groin_Jupe04"},
+		},
+		
+		orgy = -1
+	},
+	
+			Jupe5 = {
+	body_parts = {
+		groin = {"groin_Jupe05"},
 		},
 		
 		orgy = -1
 	}
-
 	
 }
