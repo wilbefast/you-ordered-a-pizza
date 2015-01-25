@@ -282,7 +282,7 @@ local Dude = Class({
 		local px, py = prop.body:getPosition()
 
 	  local joint = love.physics.newRopeJoint(
-			hand.body, prop.body, hx, hy, px, py, 50, false)
+			hand.body, prop.body, hx, hy, px - 2 + math.random()*4, py + 2 - math.random()*4, 50, false)
 
 	  self.prop = prop
 	  self.propJoint = joint

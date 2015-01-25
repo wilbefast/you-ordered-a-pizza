@@ -176,5 +176,22 @@ return {
 			textureName = "Objet_LAN4",
 			endings = {
 			}
-		}				
+		},
+
+		toyRobot = {
+			width = 100,
+			height = 140,
+			density = 1,
+			textureName = "Objet_Robot1",
+			endings = {
+			}
+		},
+
+		cyberhead = {
+			radius =110,
+			density = 3,
+			textureName = "Objet_Robot2",
+			endings = {
+			}
+		}								
 }
