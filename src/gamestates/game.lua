@@ -19,8 +19,8 @@ local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
 
 local TEXT_LENGTH = 2*WORLD_W
-local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
-local TIMER_Y = 0.9*WORLD_H
+local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 20
+local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
@@ -189,7 +189,7 @@ function state:keypressed(key, uni)
     self.epilogue = 0
   
   elseif key == "p" then
-  	Prop(WORLD_W/2, WORLD_H/2, "ak47")  	
+  	Prop(WORLD_W/2, WORLD_H/2, "pizza")  	
 
   end
 end
@@ -206,28 +206,35 @@ function state:mousepressed(x, y)
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
   	local body = fixture:getBody()
   	local userdata = body:getUserData()
-    if userdata and userdata.dude then
-    	local val = Dude.pickingPriority[userdata.part]
-    	if val > best then
-    		grabbedBody = body
-    		best = val
-    	end
-    end
+    if userdata then
+    	if userdata.dude then
+	    	local val = Dude.pickingPriority[userdata.part]
+	    	if val > best then
+	    		grabbedBody = body
+	    		best = val
+	    	end
+	    elseif userdata.prop then
+	    	grabbedBody = body
+	    	best = math.huge
+	    end
+   	end
     return true
   end)
 
   if grabbedBody then
   	local userdata = grabbedBody:getUserData()
   	local dude = userdata.dude
-		self.grabDude = userdata.dude
-		self.grabPart = userdata.part
-		self.grabHitpoints = 1
-		-- un-puppet
-	  if dude.puppeteer and dude.canBeGrabbed then
-	    dude.puppeteer.joint:destroy()
-	    dude.puppeteer.body:destroy()
-	    dude.puppeteer = nil
-	  end
+  	if dude then
+			self.grabDude = userdata.dude
+			self.grabPart = userdata.part
+			self.grabHitpoints = 1
+			-- un-puppet
+		  if dude.puppeteer and dude.canBeGrabbed then
+		    dude.puppeteer.joint:destroy()
+		    dude.puppeteer.body:destroy()
+		    dude.puppeteer = nil
+		  end
+		 end
 	  -- remove previous grab
 		if self.mouseJoint then
 		  self.mouseJoint:destroy()
@@ -517,7 +524,7 @@ function state:draw()
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
 		  local format = string.format("%02d : %02d", minutes, seconds)
-		  love.graphics.setColor(0, 0, 0)
+		  love.graphics.setColor(255, 255, 255)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
 		  useful.bindWhite()

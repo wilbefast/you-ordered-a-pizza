@@ -91,7 +91,7 @@ return {
 		"Slip",
 		"Nude_Man_Yellow_1",
 		
-		accepted_sound = "ValidWMan",
+		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_2" ,
 		rejected_sound ="DefenestrationMan"  
 	},
