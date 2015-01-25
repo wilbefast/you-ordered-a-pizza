@@ -46,7 +46,11 @@ local Cloth = Class({
 		end
 		size = math.max(3, size)
 
-		self.r, self.g, self.b = math.random()*255, math.random()*255, math.random()*255
+
+		local c = cloth.color
+		self.red, self.green, self.blue = c[1], c[2], c[3]
+		--print(cloth.body_parts.torso[1], self.r, self.g, self.b)
+
 
     GameObject.init(self, x, y)
 
@@ -121,13 +125,15 @@ function Cloth:update(dt)
 end
 
 function Cloth:draw_cloth(x, y)
-	love.graphics.setColor(self.r, self.g, self.b)
+	
 	local vertices = {}
 	for i, b in ipairs(self.bodies) do
 		local bx, by = b:getPosition()
 		table.insert(vertices, bx)
 		table.insert(vertices, by)
 	end
+	
+love.graphics.setColor(self.red, self.green, self.blue)
 	love.graphics.polygon("fill", vertices)
 	useful.bindWhite()
 
