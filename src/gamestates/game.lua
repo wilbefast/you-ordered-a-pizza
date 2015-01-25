@@ -454,22 +454,23 @@ function state:update(dt)
         onscreen[userdata.dude] = true
       end
     end
+    local bx, by = fixture:getBody():getPosition()
+    if bx > WORLD_W then
+    	if not self.windowBroken then
+    		audio:play_sound("Fenetre", 0.2)
+    		self.windowBroken = true
+      end
+      if self.catAtWindow >= 1 then
+      	audio:play_sound("Cat", 0.2)
+      	self.catAtWindow = 0
+      end
+    end
     return true
   end)
   local count = 0
   for dude, isonscreen in pairs(onscreen) do
     if isonscreen then
       count = count + 1
-      if dude.x > WORLD_W then
-      	if not self.windowBroken then
-      		audio:play_sound("Fenetre", 0.2)
-      		self.windowBroken = true
-        end
-        if self.catAtWindow >= 1 then
-        	audio:play_sound("Cat", 0.2)
-        	self.catAtWindow = 0
-        end
-      end
     else
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
