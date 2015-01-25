@@ -15,6 +15,9 @@ Lesser General Public License for more details.
 local camera = Camera(0, 0, 1, 0)
 
 local GAME_TIME = 180
+local END_TRANSITION_DURATION = 2;
+local END_TEXT_DURATION = 3;
+
 local TEXT_LENGTH = 2*WORLD_W
 local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
 local TIMER_Y = 0.9*WORLD_H
@@ -30,9 +33,12 @@ local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
 local cursorDownImage = love.graphics.newImage( "assets/foreground/cursor_down.png" )
 local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" )
 
-local END_TRANSITION_DURATION = 2;
-local END_TEXT_DURATION = 3;
-
+local END_DEBUG = false
+if END_DEBUG then
+	GAME_TIME = 20
+	END_TRANSITION_DURATION = 0.5;
+	END_TEXT_DURATION = 0.5;
+end
 --[[------------------------------------------------------------
 Workspace, local to this file
 --]]--
@@ -297,6 +303,7 @@ function state:setEnding()
 
   end)
 
+	log:write("dude count "..dudeCount.." bite "..nb_bites_a_l_air.." pieds nus"..nb_pieds_nus.." torses poil "..nb_torses_poil)
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
 		endingPoints["alone"] = endingPoints["alone"] + 50;
@@ -306,6 +313,12 @@ function state:setEnding()
 	if dudeCount == nb_pieds_nus then
 		endingPoints["hippie"] = 50
 	end
+
+	-- check orgy ending
+	if nb_bites_a_l_air *2 + nb_torses_poil then
+		endingPoints["orgy"] = 50
+	end
+
 
 	-- find the correct ending
 	for i, endi in ipairs(endings) do
