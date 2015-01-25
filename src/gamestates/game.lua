@@ -19,7 +19,7 @@ local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
 
 local TEXT_LENGTH = 2*WORLD_W
-local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 20
+local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 25
 local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
@@ -35,7 +35,7 @@ local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" 
 
 local END_DEBUG = false
 if END_DEBUG then
-	GAME_TIME = 20
+	GAME_TIME = 5
 	END_TRANSITION_DURATION = 0.5;
 	END_TEXT_DURATION = 0.5;
 end
@@ -48,10 +48,16 @@ Gamestate navigation
 --]]--
 
 function state:init()
-	self.deck = useful.deck()
-	for _, name in ipairs(characterNames) do
-		self.deck.stack(characters[name])
+	self.characterDeck = useful.deck()
+	for _, character in pairs(characters) do
+		self.characterDeck.stack(character)
 	end
+
+	self.propDeck = useful.deck()
+	for _, prop in pairs(props) do
+		self.propDeck.stack(prop)
+	end
+
 end
 
 
@@ -221,6 +227,7 @@ function state:mousepressed(x, y)
     return true
   end)
 
+
   if grabbedBody then
   	local userdata = grabbedBody:getUserData()
   	local dude = userdata.dude
@@ -234,7 +241,13 @@ function state:mousepressed(x, y)
 		    dude.puppeteer.body:destroy()
 		    dude.puppeteer = nil
 		  end
-		 end
+	 	else
+	 		if userdata.prop and userdata.prop.dude then
+	 			userdata.prop.dude:dropProp()
+	 		end
+	 		self.grabDude = nil
+	 		self.grabPart = nil
+	 	end
 	  -- remove previous grab
 		if self.mouseJoint then
 		  self.mouseJoint:destroy()
@@ -314,7 +327,24 @@ function state:setEnding()
 
   end)
 
-	log:write("dude count "..dudeCount.." bite "..nb_bites_a_l_air.." pieds nus"..nb_pieds_nus.." torses poil "..nb_torses_poil)
+	--retrieve props points
+  self.world:queryBoundingBox(-WORLD_W*2, WORLD_H*2, 0, WORLD_H*4, function(fixture) 
+  	local body = fixture:getBody()
+  	local userdata = body:getUserData()
+    if userdata then
+    	if userdata.prop and userdata.prop.prototype then
+    		if userdata.prop.prototype.endings then
+	    		for end_name,end_point in pairs(userdata.prop.prototype.endings) do
+	    			if endingPoints[end_name] then
+	    				endingPoints[end_name] = endingPoints[end_name] + end_point
+	    			end
+	    		end
+    		end
+	    end
+   	end
+   	return true
+  end)
+
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
 		endingPoints["alone"] = endingPoints["alone"] + 50;
@@ -326,7 +356,7 @@ function state:setEnding()
 	end
 
 	-- check orgy ending
-	if nb_bites_a_l_air *2 + nb_torses_poil then
+	if dudeCount <= (nb_bites_a_l_air *2 + nb_torses_poil) then
 		endingPoints["orgy"] = 50
 	end
 
@@ -364,6 +394,10 @@ function state:update(dt)
 
 	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt*GRAB_HIT_POINTS_TEAR)
 	  	if self.grabHitpoints == 0 then
+
+	  		-- lose what you're carrying
+		  	self.grabDude:dropProp()
+
 	  		local cloth = self.grabDude:tearClothingOffPart(self.grabPart) 
 	  		if cloth then
 			  	self.mouseJoint:destroy()
@@ -373,7 +407,7 @@ function state:update(dt)
 					self.grabDude = nil
 					self.grabHitpoints = 0
 			  end
-		  	
+
 		  else
 		  	self.grabHitpoints = math.min(1, self.grabHitpoints + GRAB_HIT_POINTS_REFILL*dt)
 		  end
@@ -420,22 +454,23 @@ function state:update(dt)
         onscreen[userdata.dude] = true
       end
     end
+    local bx, by = fixture:getBody():getPosition()
+    if bx > WORLD_W then
+    	if not self.windowBroken then
+    		audio:play_sound("Fenetre", 0.2)
+    		self.windowBroken = true
+      end
+      if self.catAtWindow >= 1 then
+      	audio:play_sound("Cat", 0.2)
+      	self.catAtWindow = 0
+      end
+    end
     return true
   end)
   local count = 0
   for dude, isonscreen in pairs(onscreen) do
     if isonscreen then
       count = count + 1
-      if dude.x > WORLD_W then
-      	if not self.windowBroken then
-      		audio:play_sound("Fenetre", 0.2)
-      		self.windowBroken = true
-        end
-        if self.catAtWindow >= 1 then
-        	audio:play_sound("Cat", 0.2)
-        	self.catAtWindow = 0
-        end
-      end
     else
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
@@ -456,7 +491,7 @@ function state:update(dt)
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
     self.door:enqueue(function(x, y) 
 
-    	Dude(x, y, self.deck.draw())
+    	Dude(x, y, self.characterDeck.draw(), self.propDeck.draw())
     end)
   end
 
@@ -472,7 +507,7 @@ function state:update(dt)
 
   -- check end
   if self.epilogue and self.epilogue >= (1 + END_TRANSITION_DURATION + END_TEXT_DURATION) then
-  	self.setEnding()
+  	self:setEnding()
   	gamestate.switch(gameover)
   end
 
@@ -523,11 +558,9 @@ function state:draw()
 		  local minutes = math.floor(timerInt/60)
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
-		  local format = string.format("%02d : %02d", minutes, seconds)
-		  love.graphics.setColor(255, 255, 255)
+		  local format = string.format("%02d:%02d", minutes, seconds)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
-		  useful.bindWhite()
 		end
   		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then

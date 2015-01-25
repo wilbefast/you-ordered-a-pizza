@@ -33,14 +33,12 @@ local groinWidth = 81
 local groinHeight = 53
 local memberDistance = 10
 
-local COLLIDE_DUDES = 1
-local COLLIDE_CLOTHES = 2
 
 local Dude = Class({
 
   type = GameObject.newType("Dude"),
 
-  init = function(self, x, y, character)
+  init = function(self, x, y, character, prop)
 
   	-- hello!
   	audio:play_sound(character.hello_sound, 0.2)
@@ -275,13 +273,40 @@ local Dude = Class({
 				end
 			end
 		end
+
+		local leftHanded = (math.random() > 0.5)
+		local hand = leftHanded and parts.leftHand or parts.rightHand
+		local hx, hy = hand.body:getPosition()		
+
+		local prop = Prop(x, y, prop)
+		local px, py = prop.body:getPosition()
+
+	  local joint = love.physics.newRopeJoint(
+			hand.body, prop.body, hx, hy, px - 2 + math.random()*4, py + 2 - math.random()*4, 50, false)
+
+	  self.prop = prop
+	  self.propJoint = joint
+	  prop.dude = self
+	  prop.dudeJoint = joint
+
 	end
 })
 Dude:include(GameObject)
 
+function Dude:dropProp()
+	if self.prop then
+		self.propJoint:destroy()
+		self.prop.dude = nil
+		self.prop.dudeJoint = nil
+		self.prop = nil
+		self.propJoint = nil
+	end
+end
+
 --[[------------------------------------------------------------
 Destruction
 --]]--
+
 
 function Dude.onPurge(self)
 

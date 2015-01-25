@@ -45,8 +45,12 @@ local Prop = Class({
 	  --fixture:setCategory(COLLIDE_DUDES)
 	  --fixture:setMask(COLLIDE_CLOTHES)
 	  fixture:setFriction(1000000*(prop.friction or 1))
+	  fixture:setCategory(COLLIDE_PROPS)
+    fixture:setMask(COLLIDE_CLOTHES,COLLIDE_DUDES)
 
 	  self.texture = foregroundb:getPiece(prop.textureName)
+
+	  self.prototype = prop
 	end
 })
 
@@ -70,6 +74,8 @@ Game loop
 function Prop:update(dt)
 	self.x, self.y = self.body:getPosition()
   if self.y > 4*WORLD_H then
+  	self.purge = true
+  elseif self.x > 2*WORLD_W then
   	self.purge = true
   end
 end

@@ -6,10 +6,28 @@ return {
 		sound = "FinRien"
 	},
 	{
+		name = "robot",
+		trigger = 50,
+		text = "ROBOT INVASION !",
+		sound = "FinRobot"
+	},
+	{
+		name = "ymca",
+		trigger = 50,
+		text = "YMCA !",
+		sound = "FinYMCA"
+	},
+	{
 		name = "orgy",
 		trigger = 50,
 		text = "an ORGY !",
 		sound = "FinOrgie"
+	},
+	{
+		name = "gamer",
+		trigger = 50,
+		text = "a GAMER PARTY !",
+		sound = "FinLAN"
 	},
 	{
 		name = "hippie",
