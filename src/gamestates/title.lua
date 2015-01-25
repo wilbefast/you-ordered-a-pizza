@@ -64,7 +64,7 @@ function state:draw()
 	love.graphics.printf("\"SOMEBODY ORDER A PIZZA?\"", 
 		WORLD_W*0.35 - WORLD_W*0.2, WORLD_H*0.15 + offset, WORLD_W*0.4, "center")
 	love.graphics.setFont(FONT_MEDIUM)
-	love.graphics.printf("LE CORTEX.\n@studilecortex\n#GGJ15", 
+	love.graphics.printf("LE CORTEX.\n@studiolecortex\n#GGJ15", 
 		WORLD_W*0.35 - WORLD_W*0.3, WORLD_H*0.6 + offset, WORLD_W*0.6, "center")
 
 	love.graphics.setFont(FONT_SMALL)
