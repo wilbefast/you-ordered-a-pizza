@@ -19,8 +19,8 @@ local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
 
 local TEXT_LENGTH = 2*WORLD_W
-local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
-local TIMER_Y = 0.9*WORLD_H
+local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 20
+local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
@@ -524,7 +524,7 @@ function state:draw()
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
 		  local format = string.format("%02d : %02d", minutes, seconds)
-		  love.graphics.setColor(0, 0, 0)
+		  love.graphics.setColor(255, 255, 255)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
 		  useful.bindWhite()
