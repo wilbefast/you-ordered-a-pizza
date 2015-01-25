@@ -131,5 +131,50 @@ return {
 			textureName = "Objet_Dildo3",
 			endings = {
 			}
-		}		
+		},
+
+	banana2 = {
+			width = 150,
+			height = 50,
+			density = 0.8,
+			textureName = "Objet_Dildo3",
+			endings = {
+			}
+		}	,
+
+	snes = {
+			width = 150,
+			height = 50,
+			density = 1,
+			textureName = "Objet_LAN1",
+			endings = {
+			}
+		}	,
+
+	gamecube = {
+			width = 150,
+			height = 100,
+			density = 0.8,
+			textureName = "Objet_LAN2",
+			endings = {
+			}
+		}	,
+
+	dreamcast = {
+			width = 120,
+			height = 130,
+			density = 0.8,
+			textureName = "Objet_LAN3",
+			endings = {
+			}
+		},
+
+	gameboy = {
+			width = 70,
+			height = 120,
+			density = 0.8,
+			textureName = "Objet_LAN4",
+			endings = {
+			}
+		}				
 }
