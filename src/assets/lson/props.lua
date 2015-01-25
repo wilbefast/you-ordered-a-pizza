@@ -35,5 +35,45 @@ return {
 		textureName = "Objet_Explosif",
 		endings = {
 		}
+	},
+
+	builderHat = {
+		radius = 50,
+		density = 0.3,
+		textureName = "Objet_Casque",
+		endings = {
+		}
+	},
+
+	indianHat = {
+		radius = 50,
+		density = 0.5,
+		textureName = "Objet_Indien",
+		endings = {
+		}
+	},
+
+	bikerHat = {
+		radius = 50,
+		density = 0.1,
+		textureName = "Objet_Motard",
+		endings = {
+		}
+	},
+
+	cowboyHat = {
+		radius = 60,
+		density = 0.2,
+		textureName = "Objet_Cowboy",
+		endings = {
+		}
+	},
+
+	policeHat = {
+		radius = 50,
+		density = 0.7,
+		textureName = "Objet_Police",
+		endings = {
+		}
 	}
 }
