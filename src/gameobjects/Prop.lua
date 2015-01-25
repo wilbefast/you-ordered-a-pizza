@@ -35,7 +35,7 @@ local Prop = Class({
 		self.body:setUserData({ prop = self })
 		local shape = nil
 		if prop.radius then
-			shape = love.physics.newRectangleShape(prop.width, prop.height)
+			shape = love.physics.newCircleShape(prop.radius)
 		elseif prop.height and prop.width then
 			shape = love.physics.newRectangleShape(prop.width, prop.height)
 		else
