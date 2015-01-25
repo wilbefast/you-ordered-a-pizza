@@ -76,7 +76,7 @@ return {
 		}
 	},
 	
-		Slip_Vador  = {
+	Slip_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -84,7 +84,7 @@ return {
 		}
 	},
 	
-			Helmet_Vador  = {
+	Helmet_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -92,7 +92,7 @@ return {
 		}
 	},
 	
-		Pant_Vador  = {
+	Pant_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -104,7 +104,7 @@ return {
 		}
 	},
 	
-		Chest_Vador  = {
+	Chest_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -116,7 +116,7 @@ return {
 		}
 	},
 	
-		RightHand_Vador  = {
+	RightHand_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -124,7 +124,7 @@ return {
 		}
 	},
 	
-		LeftHand_Vador  = {
+	LeftHand_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -132,7 +132,7 @@ return {
 		}
 	},
 	
-		RightShoe_Vador  = {
+	RightShoe_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -141,7 +141,7 @@ return {
 		}
 	},
 	
-			LeftShoe_Vador  = {
+	LeftShoe_Vador  = {
 		color = {0,0,0
 	},
 	body_parts = {
@@ -175,7 +175,7 @@ return {
 		}
 	},
 	
-		Nude_Woman_Pink_1= {
+	Nude_Woman_Pink_1= {
 			color = {0,0,0
 	},
 		body_parts = {
@@ -222,7 +222,7 @@ return {
 		}
 	},
 	
-		Nude_Woman_Black_1= {
+	Nude_Woman_Black_1= {
 			color = {0,0,0
 	},
 		body_parts = {
@@ -246,7 +246,7 @@ return {
 	},
 	
 	
-		Nude_Man_Yellow_1= {
+	Nude_Man_Yellow_1= {
 			color = {0,0,0
 	},
 		body_parts = {
@@ -270,7 +270,7 @@ return {
 		}
 	},
 	
-		Nude_Woman_Yellow_1= {
+	Nude_Woman_Yellow_1= {
 			color = {0,0,0
 	},
 		body_parts = {
@@ -293,7 +293,7 @@ return {
 		}
 	},
 
-			Nude_Woman_Yellow_2= {
+	Nude_Woman_Yellow_2= {
 			color = {0,0,0
 	},
 		body_parts = {
@@ -341,7 +341,7 @@ return {
 		}
 	},
 	
-		Adidas_2_Left  = {
+	Adidas_2_Left  = {
 				color = {255,255,0
 	},
 	body_parts = {
@@ -357,7 +357,7 @@ return {
 		}
 	},
 	
-		Adidas_3_Left  = {
+	Adidas_3_Left  = {
 				color = {247,123,174
 	},
 	body_parts = {
@@ -373,7 +373,7 @@ return {
 		}
 	},
 	
-		Adidas_4_Left  = {
+	Adidas_4_Left  = {
 				color = {255,255,0
 	},
 	body_parts = {
@@ -389,7 +389,7 @@ return {
 		}
 	},
 	
-		Adidas_5_Left  = {
+	Adidas_5_Left  = {
 				color = {73,72,61
 	},
 	body_parts = {
@@ -407,7 +407,7 @@ return {
 		}
 	},
 	
-		Adidas_6_Left  = {
+	Adidas_6_Left  = {
 				color = {0,0,0
 	},
 	body_parts = {
@@ -425,7 +425,7 @@ return {
 		}
 	},
 	
-			Adidas_7_Left  = {
+	Adidas_7_Left  = {
 					color = {0,0,0
 	},
 	body_parts = {
@@ -434,7 +434,7 @@ return {
 	},
 	
 	
-		Adidas_7_Right  = {
+	Adidas_7_Right  = {
 				color = {0,0,0
 	},
 	body_parts = {
@@ -444,7 +444,7 @@ return {
 	
 	
 	
-		Culotte_Pink  = {
+	Culotte_Pink  = {
 				color = {255,255,255
 	},
 	body_parts = {
@@ -452,7 +452,7 @@ return {
 		}
 	},
 	
-			Culotte_Yellow  = {
+	Culotte_Yellow  = {
 					color = {255,255,255
 	},
 	body_parts = {
@@ -460,7 +460,7 @@ return {
 		}
 	},
 	
-			Culotte_Black  = {
+	Culotte_Black  = {
 					color = {255,255,255
 	},
 	body_parts = {
@@ -560,7 +560,7 @@ return {
 		}
 	},
 	
-		Bra_Pape = {
+	Bra_Pape = {
 				color = {255,255,255
 	},
 	body_parts = {
@@ -606,7 +606,7 @@ return {
 		}
 	},
 	
-		Burka_Yellow = {
+	Burka_Yellow = {
 					color = {0,0,0
 	},
 	body_parts = {
@@ -628,7 +628,7 @@ return {
 		}
 	},
 	
-		Burka_Black = {
+	Burka_Black = {
 					color = {0,0,0
 	},
 	body_parts = {
@@ -672,7 +672,7 @@ return {
 		}
 	},
 	
-		Ours_2 = {
+	Ours_2 = {
 					color = {224,89,83
 	},
 	body_parts = {
@@ -703,7 +703,7 @@ return {
 	},
 	
 	
-		Robe_Pape = {
+	Robe_Pape = {
 					color = {255,255,255
 	},
 	body_parts = {
@@ -720,7 +720,7 @@ return {
 		}
 	},
 	
-		Jupe1 = {
+	Jupe1 = {
 					color = {255,255,255
 	},
 	body_parts = {
@@ -728,7 +728,7 @@ return {
 		}
 	},
 
-			Jupe2 = {
+	Jupe2 = {
 						color = {0,0,0
 	},
 	body_parts = {
@@ -736,7 +736,7 @@ return {
 		}
 	},
 	
-			Jupe3 = {
+	Jupe3 = {
 						color = {255,255,0
 	},
 	body_parts = {
@@ -744,7 +744,7 @@ return {
 		}
 	},
 	
-			Jupe4 = {
+	Jupe4 = {
 						color = {255,0,0
 	},
 	body_parts = {
@@ -752,12 +752,76 @@ return {
 		}
 	},
 	
-			Jupe5 = {
+	Jupe5 = {
 						color = {0,0,0
 	},
 	body_parts = {
 		groin = {"groin_Jupe05"},
 		}
-	}
+	},
+	
+	Rabbin_Nude= {
+	color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_1","head_RoundEye","head_Blond_Hair"},
+		torso = {"torso_1"},
+		rightArm = {"arm_1"},
+		rightForearm = {"arm_1"},
+		rightHand = {"rightHand_1"},
+		leftArm = {"arm_1"},
+		leftForearm = {"arm_1"},
+		leftHand = {"leftHand_1"},
+		groin = {"groin_1"},
+		rightLeg = {"leg_1"},
+		rightForeleg = {"leg_1"},
+		rightFoot = {"right_foot_1"},
+		leftLeg = {"leg_1"},
+		leftForeleg = {"leg_1"},
+		leftFoot = {"left_foot_1"},
+		
+		}
+	},
+	
+	Rabbin_Hat = {
+						color = {0,0,0
+	},
+	body_parts = {
+		head = {"head_1","head_RoundEye","head_Black_Hair","head_hat_Rabbin"},
+		}
+	},
+	
+	Rabbin_Beard = {
+						color = {0,0,0
+	},
+	body_parts = {
+		head = {"head_1","head_RoundEye","head_Black_Hair","head_hat_Rabbin","head_Rabbin"},
+		}
+	},
+	
+	Rabbin_Vest = {
+						color = {0,0,0
+	},
+	body_parts = {
+		torso = {"torso_Rabbin"},
+		rightArm = {"rightArm_Rabbin"},
+		rightForearm = {"rightArm_Rabbin"},
+		leftArm = {"rightArm_Rabbin"},
+		leftForearm = {"rightArm_Rabbin"},
+		}
+	},
+	
+	Rabbin_Pant = {
+						color = {0,0,0
+	},
+	body_parts = {
+		groin = {"groin_Vador"},
+		rightLeg = {"leg_Rabbin"},
+		rightForeleg = {"leg_Rabbin"},
+		leftLeg = {"leg_Rabbin"},
+		leftForeleg = {"leg_Rabbin"},
+		}
+	},
 	
 }

@@ -240,6 +240,20 @@ return {
 		
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
-	}
+	},
+	
+		Rabin = {
+	
+		"LeftShoe_Vador",
+		"RightShoe_Vador",
+		"Rabbin_Vest",
+		"Rabbin_Pant",
+		"Rabbin_Beard",
+		"Rabbin_Hat",
+		"Rabbin_Nude",
+		
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
 	
 }
