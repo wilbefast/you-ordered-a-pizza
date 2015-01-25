@@ -201,6 +201,8 @@ function state:keypressed(key, uni)
 end
 
 function state:mousepressed(x, y)
+	self.grabHitpoints = 1
+
   if x < 0 or x > WORLD_W or y < 0 or y > WORLD_H then
     return
   end
@@ -265,6 +267,7 @@ function state:mousepressed(x, y)
 end
 
 function state:mousereleased()
+	self.grabHitpoints = 1
 
 	self.cursorImage = cursorUpImage
   if self.mouseJoint then
