@@ -68,6 +68,7 @@ end
 -- GAME INCLUDES
 -------------------------------------------------------------------------------
 
+props = require("assets/lson/props")
 clothes = require("assets/lson/clothes")
 characters = require("assets/lson/characters")
 endings = require("assets/lson/endings")
@@ -77,6 +78,7 @@ for name, char in pairs(characters) do
 	table.insert(characterNames, name)
 end
 
+Prop = require("gameobjects/Prop")
 Cloth = require("gameobjects/Cloth")
 Dude = require("gameobjects/Dude")
 Door = require("gameobjects/Door")
@@ -141,12 +143,12 @@ love.load = function()
 
 
   -- fonts
-	FONT_SMALL = love.graphics.newFont("assets/ttf/2086.ttf", 32)
+	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)
 	FONT_SMALL:setFilter("nearest", "nearest", 1)
 	love.graphics.setFont(FONT_SMALL)
-	FONT_MEDIUM = love.graphics.newFont("assets/ttf/2086.ttf", 48)
+	FONT_MEDIUM = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 48)
 	FONT_MEDIUM:setFilter("nearest", "nearest", 1)
-	FONT_BIG = love.graphics.newFont("assets/ttf/2086.ttf", 64)
+	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 64)
 	FONT_BIG:setFilter("nearest", "nearest", 1)
 
 	-- audio

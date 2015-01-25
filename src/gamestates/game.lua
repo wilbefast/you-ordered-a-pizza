@@ -187,6 +187,10 @@ function state:keypressed(key, uni)
 
   elseif key == "return" then
     self.epilogue = 0
+  
+  elseif key == "p" then
+  	Prop(WORLD_W/2, WORLD_H/2, "ak47")  	
+
   end
 end
 
