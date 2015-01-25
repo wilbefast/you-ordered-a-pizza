@@ -356,7 +356,7 @@ function state:setEnding()
 	end
 
 	-- check orgy ending
-	if dudeCount >=2 and dudeCount <=  then
+	if dudeCount >=2 then
 		endingPoints["orgy"] = endingPoints["orgy"] + (nb_bites_a_l_air *2 + nb_torses_poil) * 50 / dudeCount
 	end
 
