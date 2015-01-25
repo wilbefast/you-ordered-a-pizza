@@ -3,9 +3,9 @@ return {
 
 	ak47 = {
 
-		width = 32,
-		height = 150,
-		textureName = "groin_2"
+		width = 150,
+		height = 32,
+		textureName = "Objet_AK47"
 
 	}
 
