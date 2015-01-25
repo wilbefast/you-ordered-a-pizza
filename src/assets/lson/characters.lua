@@ -43,7 +43,7 @@ return {
 		"Adidas_6_Right",
 		"Bra_Yellow_01",
 		"Culotte_Yellow",
-		"Nude_Woman_Yellow_1",
+		"Nude_Woman_Yellow_2",
 		
 		hello_sound ="HelloFemale_4" ,
 		rejected_sound ="DefenestrationWoman" 
@@ -166,7 +166,7 @@ return {
 		"Bra_Yellow_01",
 		"Jupe2",
 		"Culotte_Yellow",
-		"Nude_Woman_Yellow_1",
+		"Nude_Woman_Yellow_2",
 		
 		hello_sound ="HelloFemale_5" ,
 		rejected_sound ="DefenestrationWoman" 

@@ -38,7 +38,7 @@ return {
 		leftArm = {"arm_1"},
 		leftForearm = {"arm_1"},
 		leftHand = {"leftHand_1"},
-		groin = {"groinW_1"},
+		groin = {"groinW_1","groinPoil_Blond"},
 		rightLeg = {"leg_1"},
 		rightForeleg = {"leg_1"},
 		rightFoot = {"right_foot_1"},
@@ -88,7 +88,7 @@ return {
 		leftArm = {"arm_3"},
 		leftForearm = {"arm_3"},
 		leftHand = {"leftHand_3"},
-		groin = {"groinW_3"},
+		groin = {"groinW_3","groinPoil_Black"},
 		rightLeg = {"leg_3"},
 		rightForeleg = {"leg_3"},
 		rightFoot = {"right_foot_3"},
@@ -139,7 +139,32 @@ return {
 		leftArm = {"arm_2"},
 		leftForearm = {"arm_2"},
 		leftHand = {"leftHand_2"},
-		groin = {"groinW_2"},
+		groin = {"groinW_2","groinPoil_Black"},
+		rightLeg = {"leg_2"},
+		rightForeleg = {"leg_2"},
+		rightFoot = {"right_foot_2"},
+		leftLeg = {"leg_2"},
+		leftForeleg = {"leg_2"},
+		leftFoot = {"left_foot_2"},
+		},
+		
+		orgy = 5
+	},
+
+			Nude_Woman_Yellow_2= {
+			color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_2","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Red_Hair"},
+		torso = {"torsoW_2"},
+		rightArm = {"arm_2"},
+		rightForearm = {"arm_2"},
+		rightHand = {"rightHand_2"},
+		leftArm = {"arm_2"},
+		leftForearm = {"arm_2"},
+		leftHand = {"leftHand_2"},
+		groin = {"groinW_2","groinPoil_Red"},
 		rightLeg = {"leg_2"},
 		rightForeleg = {"leg_2"},
 		rightFoot = {"right_foot_2"},
