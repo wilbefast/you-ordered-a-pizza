@@ -101,21 +101,30 @@ function state:enter()
   leftBottomWall.body:setUserData("leftBottomWall")
 
   -- middle wall
-  local middleWallTop = {}
-  middleWallTop.body = love.physics.newBody(
-    self.world, 0, (50 + 6*WORLD_H)/2)
-  middleWallTop.shape = love.physics.newRectangleShape(32, (50 + 3*WORLD_H))
-  middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
-  middleWallTop.fixture:setCategory(COLLIDE_WALLS)
-  middleWallTop.body:setUserData("middleWallTop")
-
   local middleWallBottom = {}
   middleWallBottom.body = love.physics.newBody(
-    self.world, 0, WORLD_H - 80/2)
-  middleWallBottom.shape = love.physics.newRectangleShape(32, 80)
+    self.world, 0, WORLD_H - 40)
+  middleWallBottom.shape = love.physics.newRectangleShape(120, 80)
   middleWallBottom.fixture = love.physics.newFixture(middleWallBottom.body, middleWallBottom.shape)
   middleWallBottom.fixture:setCategory(COLLIDE_WALLS)
   middleWallBottom.body:setUserData("middleWallBottom")
+
+  -- far bottom middle wall
+  local middleWallFarBottom = {}
+  middleWallFarBottom.body = love.physics.newBody(
+    self.world, 0, 5*WORLD_H/2)
+  middleWallFarBottom.shape = love.physics.newRectangleShape(120, 3*WORLD_H)
+  middleWallFarBottom.fixture = love.physics.newFixture(middleWallFarBottom.body, middleWallFarBottom.shape)
+  middleWallFarBottom.fixture:setCategory(COLLIDE_WALLS)
+  middleWallFarBottom.body:setUserData("middleWallFarBottom")
+
+  local middleWallTop = {}
+  middleWallTop.body = love.physics.newBody(
+    self.world, 0, 60/2)
+  middleWallTop.shape = love.physics.newRectangleShape(120, 60)
+  middleWallTop.fixture = love.physics.newFixture(middleWallTop.body, middleWallTop.shape)
+  middleWallTop.fixture:setCategory(COLLIDE_WALLS)
+  middleWallTop.body:setUserData("middleWallTop")
 
   -- right wall
   local rightWallTop = {}
