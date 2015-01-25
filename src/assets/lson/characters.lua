@@ -228,6 +228,16 @@ return {
 		
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
+	},
+	
+			Charlie = {
+	
+		"LeftShoe_Vador",
+		"RightShoe_Vador",
+		"Nude_Charlie",
+		
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
 	}
 	
 }

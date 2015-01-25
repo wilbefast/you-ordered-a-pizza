@@ -1,5 +1,30 @@
 return {
 
+	Nude_Charlie= {
+	color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_Charlie"},
+		torso = {"torso_Charlie"},
+		rightArm = {"arm_Charlie"},
+		rightForearm = {"arm_Charlie"},
+		rightHand = {"rightHand_Charlie"},
+		leftArm = {"arm_Charlie"},
+		leftForearm = {"arm_Charlie"},
+		leftHand = {"leftHand_Charlie"},
+		groin = {"groin_Charlie"},
+		rightLeg = {"leg_Charlie"},
+		rightForeleg = {"leg_Charlie"},
+		rightFoot = {"right_foot_Charlie"},
+		leftLeg = {"leg_Charlie"},
+		leftForeleg = {"leg_Charlie"},
+		leftFoot = {"left_foot_Charlie"},
+		
+		},
+		orgy = 5
+	},
+
 	Nude_Vador= {
 	color = {0,0,0
 	},
