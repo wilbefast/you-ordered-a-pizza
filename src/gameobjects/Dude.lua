@@ -43,7 +43,7 @@ local Dude = Class({
   init = function(self, x, y, character)
 
   	-- hello!
-  	audio:play_sound(character.hello_sound)
+  	audio:play_sound(character.hello_sound, 0.2)
 
     -- semantic object
     GameObject.init(self, x, y)

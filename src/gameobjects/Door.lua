@@ -52,7 +52,7 @@ dingdong = {
 		end
   end,
   onclick = function(self)
-    audio:play_sound("OpenDoor")
+    audio:play_sound("OpenDoor", 0.2)
     self.state = opened
     self.queue[1](self.x, self.y + 32)
     table.remove(self.queue, 1)
@@ -70,7 +70,7 @@ opened = {
     if self.t > 1 then
       self.state = closed
       self.t = 0
-      audio:play_sound("CloseDoor")
+      audio:play_sound("CloseDoor", 0.2)
     end
   end,
   onclick = function(self)

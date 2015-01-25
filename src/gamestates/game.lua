@@ -371,8 +371,8 @@ function state:update(dt)
     else
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
-        audio:play_sound(dude.character.rejected_sound)
-        audio:play_sound("Cat")
+        audio:play_sound(dude.character.rejected_sound, 0.2)
+        audio:play_sound("Cat", 0.2)
         if self.mouseJoint and (self.grabDude == dude) then
         	self.mouseJoint:destroy()
         	self.mouseJoint = nil

@@ -47,10 +47,10 @@ local Cloth = Class({
 		size = math.max(3, size)
 
 
+		audio:play_sound("Tissu", 0.2)
+
 		local c = cloth.color
 		self.red, self.green, self.blue = c[1], c[2], c[3]
-		--print(cloth.body_parts.torso[1], self.r, self.g, self.b)
-
 
     GameObject.init(self, x, y)
 
