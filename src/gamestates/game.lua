@@ -19,7 +19,7 @@ local END_TRANSITION_DURATION = 2;
 local END_TEXT_DURATION = 3;
 
 local TEXT_LENGTH = 2*WORLD_W
-local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 20
+local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2 - 25
 local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
@@ -35,7 +35,7 @@ local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" 
 
 local END_DEBUG = false
 if END_DEBUG then
-	GAME_TIME = 20
+	GAME_TIME = 5
 	END_TRANSITION_DURATION = 0.5;
 	END_TEXT_DURATION = 0.5;
 end
@@ -221,6 +221,7 @@ function state:mousepressed(x, y)
     return true
   end)
 
+
   if grabbedBody then
   	local userdata = grabbedBody:getUserData()
   	local dude = userdata.dude
@@ -314,7 +315,26 @@ function state:setEnding()
 
   end)
 
-	log:write("dude count "..dudeCount.." bite "..nb_bites_a_l_air.." pieds nus"..nb_pieds_nus.." torses poil "..nb_torses_poil)
+	--retrieve props points
+  self.world:queryBoundingBox(-WORLD_W*2, WORLD_H*2, 0, WORLD_H*4, function(fixture) 
+  	local body = fixture:getBody()
+  	local userdata = body:getUserData()
+    log:write("found a body !")
+    if userdata then
+    	if userdata.prop then
+    		log:write("found a prop !")
+    		if userdata.prop.endings then
+	    		for end_name,end_point in pairs(userdata.prop.endings) do
+	    			if endingPoints[end_name] then
+	    				endingPoints[end_name] = endingPoints[end_name] + end_point
+	    			end
+	    		end
+    		end
+	    end
+   	end
+   	return true
+  end)
+
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
 		endingPoints["alone"] = endingPoints["alone"] + 50;
@@ -326,7 +346,7 @@ function state:setEnding()
 	end
 
 	-- check orgy ending
-	if nb_bites_a_l_air *2 + nb_torses_poil then
+	if dudeCount <= (nb_bites_a_l_air *2 + nb_torses_poil) then
 		endingPoints["orgy"] = 50
 	end
 
@@ -472,7 +492,7 @@ function state:update(dt)
 
   -- check end
   if self.epilogue and self.epilogue >= (1 + END_TRANSITION_DURATION + END_TEXT_DURATION) then
-  	self.setEnding()
+  	self:setEnding()
   	gamestate.switch(gameover)
   end
 
