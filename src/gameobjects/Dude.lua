@@ -33,8 +33,6 @@ local groinWidth = 81
 local groinHeight = 53
 local memberDistance = 10
 
-COLLIDE_DUDES = 1
-COLLIDE_CLOTHES = 2
 
 local Dude = Class({
 
