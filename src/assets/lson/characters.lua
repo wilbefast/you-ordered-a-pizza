@@ -256,8 +256,8 @@ return {
 		"Nude_Charlie",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_5" ,
-		rejected_sound ="DefenestrationMan" 
+		hello_sound ="HelloCharlie" ,
+		rejected_sound ="DefenestrationCharlie" 
 	},
 	
 		Rabin = {
@@ -303,8 +303,8 @@ return {
 		"Dalai_Nude",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_4" ,
-		rejected_sound ="DefenestrationMan" 
+		hello_sound ="HelloDalai" ,
+		rejected_sound ="DefenestrationDalai" 
 	},
 	
 		Terminator = {
