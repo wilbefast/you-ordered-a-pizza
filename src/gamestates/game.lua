@@ -206,28 +206,35 @@ function state:mousepressed(x, y)
   self.world:queryBoundingBox(x, y, x, y, function(fixture) 
   	local body = fixture:getBody()
   	local userdata = body:getUserData()
-    if userdata and userdata.dude then
-    	local val = Dude.pickingPriority[userdata.part]
-    	if val > best then
-    		grabbedBody = body
-    		best = val
-    	end
-    end
+    if userdata then
+    	if userdata.dude then
+	    	local val = Dude.pickingPriority[userdata.part]
+	    	if val > best then
+	    		grabbedBody = body
+	    		best = val
+	    	end
+	    elseif userdata.prop then
+	    	grabbedBody = body
+	    	best = math.huge
+	    end
+   	end
     return true
   end)
 
   if grabbedBody then
   	local userdata = grabbedBody:getUserData()
   	local dude = userdata.dude
-		self.grabDude = userdata.dude
-		self.grabPart = userdata.part
-		self.grabHitpoints = 1
-		-- un-puppet
-	  if dude.puppeteer and dude.canBeGrabbed then
-	    dude.puppeteer.joint:destroy()
-	    dude.puppeteer.body:destroy()
-	    dude.puppeteer = nil
-	  end
+  	if dude then
+			self.grabDude = userdata.dude
+			self.grabPart = userdata.part
+			self.grabHitpoints = 1
+			-- un-puppet
+		  if dude.puppeteer and dude.canBeGrabbed then
+		    dude.puppeteer.joint:destroy()
+		    dude.puppeteer.body:destroy()
+		    dude.puppeteer = nil
+		  end
+		 end
 	  -- remove previous grab
 		if self.mouseJoint then
 		  self.mouseJoint:destroy()

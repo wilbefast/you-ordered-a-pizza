@@ -32,6 +32,7 @@ local Prop = Class({
   	end
  
 		self.body = love.physics.newBody(game.world, x, y, "dynamic")
+		self.body:setUserData({ prop = self })
 		local shape = nil
 		if prop.radius then
 			shape = love.physics.newRectangleShape(prop.width, prop.height)
