@@ -5,8 +5,8 @@ return {
 	},
 		body_parts = {
 		
-		head = {"head_Charlie"},
-		torso = {"torso_Charlie"},
+		head = {"head_Charlie_2"},
+		torso = {"torso_Charlie","Charlie"},
 		rightArm = {"arm_Charlie"},
 		rightForearm = {"arm_Charlie"},
 		rightHand = {"rightHand_Charlie"},
@@ -23,6 +23,35 @@ return {
 		
 		},
 		orgy = 5
+	},
+	
+		Turban_Charlie  = {
+		color = {255,255,255
+	},
+	body_parts = {
+		head = {"head_Charlie"},
+		},
+		
+		orgy = -1
+	},
+	
+			Djelaba_Charlie  = {
+		color = {255,255,255
+	},
+	body_parts = {
+		torso = {"torso_Charlie2","Charlie"},
+		rightArm = {"arm_Charlie2"},
+		rightForearm = {"arm_Charlie2"},
+		leftArm = {"arm_Charlie2"},
+		leftForearm = {"arm_Charlie2"},
+		groin = {"groin_Charlie2"},
+		rightLeg = {"leg_Charlie2"},
+		rightForeleg = {"leg_Charlie2"},
+		leftLeg = {"leg_Charlie2"},
+		leftForeleg = {"leg_Charlie2"},
+		},
+		
+		orgy = -1
 	},
 
 	Nude_Vador= {

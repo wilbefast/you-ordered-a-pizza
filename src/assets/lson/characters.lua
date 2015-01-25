@@ -232,8 +232,10 @@ return {
 	
 			Charlie = {
 	
-		"LeftShoe_Vador",
-		"RightShoe_Vador",
+		"Adidas_3_Left",
+		"Adidas_3_Right",
+		"Turban_Charlie",
+		"Djelaba_Charlie",
 		"Nude_Charlie",
 		
 		hello_sound ="HelloFemale_2" ,
