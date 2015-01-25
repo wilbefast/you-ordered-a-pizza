@@ -238,13 +238,15 @@ function state:setEnding()
 	ending = nil
 
 	-- build a table with points count for every ending
-	endingPoints = {}
+	local endingPoints = {}
 	for i,endi in ipairs(endings) do
 		endingPoints[endi.name] = 0
 	end
 
+	local dudeCount = 0
+
 	GameObject.mapToType("Dude", function(dude)
-    
+    dudeCount = dudeCount+1
     -- retrieve character points
     for field_name,field in pairs(dude.character) do
     	for ending_name, ending_points in ipairs(endingPoints) do
@@ -254,11 +256,32 @@ function state:setEnding()
     	end
     end
 
-    -- TODO : retrieve clothes points
+    -- retrieve clothes points
+    local dude_clothes = dude:getVisibleClothes()
+    for cloth_value,cloth_name in pairs(dude_clothes) do
+    	for cloth_field_name, cloth_field in pairs(cloth_value) do
+	    	for ending_name, ending_points in ipairs(endingPoints) do
+	    		if ending_name == cloth_field_name then
+	    			ending_points = ending_points + cloth_field
+	    		end
+	    	end
+    	end
+    end
 
   end)
 
-	-- TODO if one or less dudes, all alone ending
+	-- if one or less dudes, all alone ending
+	if dudeCount <= 1 then
+		endingPoints["alone"] = endingPoints["alone"] + 5000;
+	end
+
+	-- find the correct ending
+	for i, endi in ipairs(endings) do
+		if (ending == nil and endi.trigger <= endingPoints[endi.name]) then
+			ending = endi
+		end
+		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
+	end
 
 	-- if no ending, last ending (normal ending)
 	if ending == nil then
