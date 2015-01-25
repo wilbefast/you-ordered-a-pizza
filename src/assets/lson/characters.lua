@@ -6,7 +6,8 @@ return {
 	"Ours_2",
 		
 		hello_sound ="HelloOurs" ,
-		rejected_sound ="DefenestrationOurs" 
+		rejected_sound ="DefenestrationOurs",
+		accepted_sound ="ValidMan"
 		
 	},
 
@@ -20,7 +21,8 @@ return {
 		 "Nude_Man_Pink_1",
 		
 		hello_sound ="HelloMale_1" ,
-		rejected_sound ="DefenestrationMan"   
+		rejected_sound ="DefenestrationMan",   
+		accepted_sound ="ValidMan"
 	},
 
 	BurkaWomanPink = {
@@ -33,7 +35,8 @@ return {
 		"Nude_Woman_Pink_1",
 		
 		hello_sound ="HelloFemale_3" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman"
 	},
 	
 		BurkaWomanYellow = {
@@ -46,7 +49,8 @@ return {
 		"Nude_Woman_Yellow_2",
 		
 		hello_sound ="HelloFemale_4" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman",
+		accepted_sound ="ValidWoman"
 	},
 	
 		BurkaWomanBlack = {
@@ -59,7 +63,8 @@ return {
 		"Nude_Woman_Black_1",
 		
 		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman"
 	},
 	
 	Woman1 = {
@@ -73,7 +78,8 @@ return {
 		"Nude_Woman_Pink_1",
 		
 		hello_sound ="HelloFemale_1" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 	Man2 = {
@@ -86,7 +92,8 @@ return {
 		"Nude_Man_Yellow_1",
 		
 		hello_sound ="HelloMale_2" ,
-		rejected_sound ="DefenestrationMan"  
+		rejected_sound ="DefenestrationMan", 
+		accepted_sound ="ValidMan"  
 	},
 
 	Woman2 = {
@@ -100,7 +107,8 @@ return {
 		"Nude_Woman_Yellow_1",
 		
 		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 	Man3 = {
@@ -113,7 +121,8 @@ return {
 		"Nude_Man_Black_1",
 		
 		hello_sound ="HelloMale_3" ,
-		rejected_sound ="DefenestrationMan"  
+		rejected_sound ="DefenestrationMan", 
+		accepted_sound ="ValidMan"  
 	},
 
 	Woman3 = {
@@ -127,7 +136,8 @@ return {
 		"Nude_Woman_Black_1",
 		
 		hello_sound ="HelloFemale_3" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 		Pape = {
@@ -141,7 +151,8 @@ return {
 		"Nude_Man_Pink_1",
 		
 		hello_sound ="HelloMale_3" ,
-		rejected_sound ="DefenestrationMan" 
+		rejected_sound ="DefenestrationMan", 
+		accepted_sound ="ValidMan" 
 	},
 	
 		WomanJupe1 = {
@@ -155,7 +166,8 @@ return {
 		"Nude_Woman_Pink_1",
 		
 		hello_sound ="HelloFemale_1" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 		WomanJupe2 = {
@@ -169,7 +181,8 @@ return {
 		"Nude_Woman_Yellow_2",
 		
 		hello_sound ="HelloFemale_5" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 		WomanJupe3 = {
@@ -183,7 +196,8 @@ return {
 		"Nude_Woman_Pink_1",
 		
 		hello_sound ="HelloFemale_4" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 		WomanJupe4 = {
@@ -197,7 +211,8 @@ return {
 		"Nude_Woman_Black_1",
 		
 		hello_sound ="HelloFemale_3" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 	
 		WomanJupe5 = {
@@ -211,7 +226,8 @@ return {
 		"Nude_Woman_Yellow_1",
 		
 		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	},
 		
 		Vador = {
@@ -227,7 +243,8 @@ return {
 		"Nude_Vador",
 		
 		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidMan" 
 	},
 	
 			Charlie = {
@@ -239,7 +256,8 @@ return {
 		"Nude_Charlie",
 		
 		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		rejected_sound ="DefenestrationWoman", 
+		accepted_sound ="ValidWoman" 
 	}
 	
 }

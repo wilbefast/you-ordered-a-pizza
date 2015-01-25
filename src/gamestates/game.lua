@@ -388,7 +388,10 @@ function state:update(dt)
         	self.mouseJoint = nil
         end
       else
-
+      	if not dude.accepted then
+      		dude.accepted = true
+      		audio:play_sound(dude.character.accepted_sound, 0.2)
+    		end
     	end
     end
   end

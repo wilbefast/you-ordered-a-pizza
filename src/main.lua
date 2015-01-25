@@ -188,6 +188,8 @@ love.load = function()
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
 	audio:load_sound("Tissu", 1, 3)
+	audio:load_sound("ValidMan", 1, 3)
+	audio:load_sound("ValidWoman", 0.4, 3)
 
 	-- preload character sounds
 	for character_name, character in pairs(characters) do
