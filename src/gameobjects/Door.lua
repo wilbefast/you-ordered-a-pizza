@@ -54,7 +54,7 @@ dingdong = {
   onclick = function(self)
     audio:play_sound("OpenDoor", 0.2)
     self.state = opened
-    self.queue[1](self.x, self.y + 32)
+    self.queue[1](self.x, self.y)
     table.remove(self.queue, 1)
   end,
   draw = function(self, x, y)

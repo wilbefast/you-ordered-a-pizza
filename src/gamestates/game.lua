@@ -15,9 +15,12 @@ Lesser General Public License for more details.
 local camera = Camera(0, 0, 1, 0)
 
 local GAME_TIME = 180
+local END_TRANSITION_DURATION = 2;
+local END_TEXT_DURATION = 3;
+
 local TEXT_LENGTH = 2*WORLD_W
 local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
-local TIMER_Y = 0.05*WORLD_H
+local TIMER_Y = 0.9*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
@@ -30,9 +33,12 @@ local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
 local cursorDownImage = love.graphics.newImage( "assets/foreground/cursor_down.png" )
 local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" )
 
-local END_TRANSITION_DURATION = 2;
-local END_TEXT_DURATION = 3;
-
+local END_DEBUG = false
+if END_DEBUG then
+	GAME_TIME = 20
+	END_TRANSITION_DURATION = 0.5;
+	END_TEXT_DURATION = 0.5;
+end
 --[[------------------------------------------------------------
 Workspace, local to this file
 --]]--
@@ -61,11 +67,6 @@ function state:enter()
 
   -- create the world
   self.world = love.physics.newWorld(0, 500)
-  self.world:setCallbacks(
-    self.beginContact, 
-    self.endContact, 
-    self.preSolve, 
-    self.postSolve)
   love.physics.setMeter(100) -- 100 pixels per meter
 
   -- floor
@@ -156,6 +157,8 @@ function state:enter()
 
   -- reset state variables
   self.epilogue = nil
+  self.windowBroken = false
+  self.catAtWindow = 1
 end
 
 
@@ -257,6 +260,9 @@ function state:setEnding()
 	end
 
 	local dudeCount = 0
+	local nb_bites_a_l_air = 0
+	local nb_pieds_nus = 0
+	local nb_torses_poil = 0
 
 	GameObject.mapToType("Dude", function(dude)
     dudeCount = dudeCount+1
@@ -284,12 +290,35 @@ function state:setEnding()
     	end
     end
 
+    local naked_parts = dude:getNakedParts()
+    if naked_parts["torso"] then
+    	nb_torses_poil = nb_torses_poil + 1
+    end
+    if naked_parts["groin"] then
+    	nb_bites_a_l_air = nb_bites_a_l_air + 1
+    end
+    if naked_parts["rightFoot"] and naked_parts["leftFoot"] then
+    	nb_pieds_nus = nb_pieds_nus + 1
+    end
+
   end)
 
+	log:write("dude count "..dudeCount.." bite "..nb_bites_a_l_air.." pieds nus"..nb_pieds_nus.." torses poil "..nb_torses_poil)
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
-		endingPoints["alone"] = endingPoints["alone"] + 5000;
+		endingPoints["alone"] = endingPoints["alone"] + 50;
 	end
+
+	-- check hippie ending (all bare feet)
+	if dudeCount == nb_pieds_nus then
+		endingPoints["hippie"] = 50
+	end
+
+	-- check orgy ending
+	if nb_bites_a_l_air *2 + nb_torses_poil then
+		endingPoints["orgy"] = 50
+	end
+
 
 	-- find the correct ending
 	for i, endi in ipairs(endings) do
@@ -340,6 +369,9 @@ function state:update(dt)
 		end
 	end
 
+	-- cat returns
+	self.catAtWindow = math.min(1, self.catAtWindow + 0.2*dt)
+
   -- update physics
   self.world:update(dt)
 
@@ -384,17 +416,30 @@ function state:update(dt)
     -- TODO - do stuff do the dude when he/she goes off screen
     if isonscreen then
       count = count + 1
+      if dude.x > WORLD_W then
+      	if not self.windowBroken then
+      		audio:play_sound("Fenetre", 0.2)
+      		self.windowBroken = true
+        end
+        if self.catAtWindow >= 1 then
+        	audio:play_sound("Cat", 0.2)
+        	self.catAtWindow = 0
+        end
+      end
     else
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
         audio:play_sound(dude.character.rejected_sound, 0.2)
-        audio:play_sound("Cat", 0.2)
+
         if self.mouseJoint and (self.grabDude == dude) then
         	self.mouseJoint:destroy()
         	self.mouseJoint = nil
         end
       else
-
+      	if not dude.accepted then
+      		dude.accepted = true
+      		audio:play_sound(dude.character.accepted_sound, 0.2)
+    		end
     	end
     end
   end
@@ -436,6 +481,14 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
+  if not self.windowBroken then
+  	foregroundb:addb("window_Clean", 565, 605)
+  elseif self.catAtWindow >= 1 then
+  	foregroundb:addb("window_BrokenCat", 565, 605)
+  else
+  	foregroundb:addb("window_Broken", 565, 605)
+  end
+  
   self.bgFin:draw(self, -2*WORLD_W, 2*WORLD_H)
 	GameObject.drawAll(self.view)
   love.graphics.draw(foregroundb)
@@ -461,8 +514,10 @@ function state:draw()
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
 		  local format = string.format("%02d : %02d", minutes, seconds)
+		  love.graphics.setColor(0, 0, 0)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+		  useful.bindWhite()
 		end
   		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then
@@ -470,22 +525,6 @@ function state:draw()
 	  love.graphics.printf("What do we do now ?", 
 	    ENDTEXT_X, ENDTEXT_Y, TEXT_LENGTH, "center")
 	end
-end
-
---[[------------------------------------------------------------
-Physics callbacks
---]]--
-
-function state.beginContact()
-end
-
-function state.endContact()
-end
-
-function state.preSolve()
-end
-
-function state.postSolve()
 end
 
 --[[------------------------------------------------------------

@@ -141,12 +141,12 @@ love.load = function()
 
 
   -- fonts
-	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)
+	FONT_SMALL = love.graphics.newFont("assets/ttf/2086.ttf", 32)
 	FONT_SMALL:setFilter("nearest", "nearest", 1)
 	love.graphics.setFont(FONT_SMALL)
-	FONT_MEDIUM = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 48)
+	FONT_MEDIUM = love.graphics.newFont("assets/ttf/2086.ttf", 48)
 	FONT_MEDIUM:setFilter("nearest", "nearest", 1)
-	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 64)
+	FONT_BIG = love.graphics.newFont("assets/ttf/2086.ttf", 64)
 	FONT_BIG:setFilter("nearest", "nearest", 1)
 
 	-- audio
@@ -188,6 +188,9 @@ love.load = function()
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
 	audio:load_sound("Tissu", 1, 3)
+	audio:load_sound("ValidMan", 1, 3)
+	audio:load_sound("ValidWoman", 0.4, 3)
+	audio:load_sound("Fenetre", 1, 3)
 
 	-- preload character sounds
 	for character_name, character in pairs(characters) do
@@ -200,7 +203,7 @@ love.load = function()
 
 	-- preload endings sounds
 	for i,endi in ipairs(endings) do
-		audio:load_sound(endi.sound, 1, 1)
+		audio:load_music(endi.sound, 1, 1)
 	end
 
 

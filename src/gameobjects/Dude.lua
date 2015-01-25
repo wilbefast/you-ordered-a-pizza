@@ -338,6 +338,23 @@ function Dude:getVisibleClothes()
 	return visible
 end
 
+function Dude:getNakedParts()
+	local naked = {}
+		for partName, part in pairs(self.body_parts) do
+			naked[partName] = true
+			local partCovering = nil
+			for i, cloth in ipairs(self.clothes) do
+				if partCovering == nil and i < #self.clothes then
+					if cloth.body_parts[partName] then
+						partCovering = cloth
+						naked[partName] = false
+					end
+				end
+			end
+		end
+	return naked
+end
+
 function Dude:updateTextures()
 	for partName, part in pairs(self.body_parts) do
 		part.textures = {}

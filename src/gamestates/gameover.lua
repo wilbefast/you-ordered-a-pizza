@@ -26,7 +26,7 @@ end
 function state:enter()	
 	t = 0
 	audio.set_main_music(false)
-  audio:play_sound(ending.sound)
+  audio:play_music(ending.sound)
 end
 
 function state:leave()
