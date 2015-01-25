@@ -254,6 +254,9 @@ function state:setEnding()
 	end
 
 	local dudeCount = 0
+	local nb_bites_a_l_air = 0
+	local nb_pieds_nus = 0
+	local nb_torses_poil = 0
 
 	GameObject.mapToType("Dude", function(dude)
     dudeCount = dudeCount+1
@@ -281,11 +284,27 @@ function state:setEnding()
     	end
     end
 
+    local naked_parts = dude:getNakedParts()
+    if naked_parts["torso"] then
+    	nb_torses_poil = nb_torses_poil + 1
+    end
+    if naked_parts["groin"] then
+    	nb_bites_a_l_air = nb_bites_a_l_air + 1
+    end
+    if naked_parts["rightFoot"] and naked_parts["leftFoot"] then
+    	nb_pieds_nus = nb_pieds_nus + 1
+    end
+
   end)
 
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
-		endingPoints["alone"] = endingPoints["alone"] + 5000;
+		endingPoints["alone"] = endingPoints["alone"] + 50;
+	end
+
+	-- check hippie ending (all bare feet)
+	if dudeCount == nb_pieds_nus then
+		endingPoints["hippie"] = 50
 	end
 
 	-- find the correct ending

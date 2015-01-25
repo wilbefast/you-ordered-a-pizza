@@ -203,7 +203,7 @@ love.load = function()
 
 	-- preload endings sounds
 	for i,endi in ipairs(endings) do
-		audio:load_sound(endi.sound, 1, 1)
+		audio:load_music(endi.sound, 1, 1)
 	end
 
 
