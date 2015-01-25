@@ -291,4 +291,20 @@ return {
 		rejected_sound ="DefenestrationMan" 
 	},
 	
+			Dalai = {
+	
+		"Adidas_4_Left",
+		"Adidas_4_Right",
+		"Dalai_Vest",
+		"Dalai_Pant",
+		"Dalai_Hat",
+		"Dalai_Slip",
+		"Dalai_Bra",
+		"Dalai_Nude",
+		
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_4" ,
+		rejected_sound ="DefenestrationMan" 
+	}
+	
 }
