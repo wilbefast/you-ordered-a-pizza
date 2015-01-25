@@ -164,6 +164,7 @@ return {
 			density = 1,
 			textureName = "Objet_Robot1",
 			endings = {
+				robot = 5
 			}
 		},
 
@@ -172,6 +173,7 @@ return {
 			density = 3,
 			textureName = "Objet_Robot2",
 			endings = {
+				robot = 5
 			}
 		}								
 }
