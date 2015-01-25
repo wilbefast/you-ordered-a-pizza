@@ -1,4 +1,118 @@
 return {
+
+	Nude_Vador= {
+	color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_Vador2"},
+		torso = {"torso_1"},
+		rightArm = {"arm_1"},
+		rightForearm = {"arm_1"},
+		rightHand = {"rightHand_1"},
+		leftArm = {"arm_1"},
+		leftForearm = {"arm_1"},
+		leftHand = {"leftHand_1"},
+		groin = {"groin_1"},
+		rightLeg = {"leg_1"},
+		rightForeleg = {"leg_1"},
+		rightFoot = {"right_foot_1"},
+		leftLeg = {"leg_1"},
+		leftForeleg = {"leg_1"},
+		leftFoot = {"left_foot_1"},
+		
+		},
+		orgy = 5
+	},
+	
+		Slip_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		groin = {"groinSlip_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+			Helmet_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		head = {"head_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+		Pant_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		groin = {"groin_Vador"},
+		rightLeg = {"leg_Vador"},
+		rightForeleg = {"leg_Vador"},
+		leftLeg = {"leg_Vador"},
+		leftForeleg = {"leg_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+		Chest_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		torso = {"torso_Vador"},
+		rightArm = {"rightArm_Vador"},
+		rightForearm = {"rightForeArm_Vador"},
+		leftArm = {"leftArm_Vador"},
+		leftForearm = {"leftForeArm_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+		RightHand_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		rightHand = {"rightHand_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+		LeftHand_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		leftHand = {"leftHand_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+		RightShoe_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		rightFoot = {"rightFoot_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
+			LeftShoe_Vador  = {
+		color = {0,0,0
+	},
+	body_parts = {
+		leftFoot = {"leftFoot_Vador"},
+		},
+		
+		orgy = -1
+	},
+	
 	
 	Nude_Man_Pink_1= {
 	color = {0,0,0
