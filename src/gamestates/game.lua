@@ -17,7 +17,7 @@ local camera = Camera(0, 0, 1, 0)
 local GAME_TIME = 180
 local TEXT_LENGTH = 2*WORLD_W
 local TIMER_X = WORLD_W/2 - TEXT_LENGTH/2
-local TIMER_Y = 0.05*WORLD_H
+local TIMER_Y = 0.9*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
@@ -384,14 +384,21 @@ function state:update(dt)
     -- TODO - do stuff do the dude when he/she goes off screen
     if isonscreen then
       count = count + 1
-    else
-    	if dude.x > WORLD_W/2 then
-    		dude.purge = true
-        audio:play_sound(dude.character.rejected_sound, 0.2)
+      if dude.x > WORLD_W then
+      	if not self.windowBroken then
+      		audio:play_sound("Fenetre", 0.2)
+      		self.windowBroken = true
+        end
         if self.catAtWindow >= 1 then
         	audio:play_sound("Cat", 0.2)
         	self.catAtWindow = 0
         end
+      end
+    else
+    	if dude.x > WORLD_W/2 then
+    		dude.purge = true
+        audio:play_sound(dude.character.rejected_sound, 0.2)
+
         if self.mouseJoint and (self.grabDude == dude) then
         	self.mouseJoint:destroy()
         	self.mouseJoint = nil
@@ -442,6 +449,14 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
+  if not self.windowBroken then
+  	foregroundb:addb("window_Clean", 565, 605)
+  elseif self.catAtWindow >= 1 then
+  	foregroundb:addb("window_BrokenCat", 565, 605)
+  else
+  	foregroundb:addb("window_Broken", 565, 605)
+  end
+  
   self.bgFin:draw(self, -2*WORLD_W, 2*WORLD_H)
 	GameObject.drawAll(self.view)
   love.graphics.draw(foregroundb)
@@ -467,8 +482,10 @@ function state:draw()
 		  local seconds = timerInt - minutes * 60
 		  love.graphics.setFont(FONT_MEDIUM)
 		  local format = string.format("%02d : %02d", minutes, seconds)
+		  love.graphics.setColor(0, 0, 0)
 		  love.graphics.printf(format, 
 		    TIMER_X, TIMER_Y, TEXT_LENGTH, "center")
+		  useful.bindWhite()
 		end
   		love.graphics.draw(self.cursorImage, mx, my)
 	elseif self.epilogue > (1 + END_TRANSITION_DURATION) then

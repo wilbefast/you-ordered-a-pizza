@@ -7,7 +7,7 @@ return {
 		
 		hello_sound ="HelloOurs" ,
 		rejected_sound ="DefenestrationOurs",
-		accepted_sound ="ValidMan"
+		accepted_sound ="HelloOurs"
 		
 	},
 
