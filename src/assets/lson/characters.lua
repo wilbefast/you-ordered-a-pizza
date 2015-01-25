@@ -158,4 +158,60 @@ return {
 		rejected_sound ="DefenestrationWoman" 
 	},
 	
+		WomanJupe2 = {
+	
+		"Adidas_4_Left",
+		"Adidas_4_Right",
+		"Shirt_03",
+		"Bra_Yellow_01",
+		"Jupe2",
+		"Culotte_Yellow",
+		"Nude_Woman_Yellow_1",
+		
+		hello_sound ="HelloFemale_5" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		WomanJupe3 = {
+	
+		"Adidas_7_Left",
+		"Adidas_7_Right",
+		"Shirt_04",
+		"Bra_Pink_01",
+		"Jupe3",
+		"Culotte_Pink",
+		"Nude_Woman_Pink_1",
+		
+		hello_sound ="HelloFemale_4" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		WomanJupe4 = {
+	
+		"Adidas_3_Left",
+		"Adidas_3_Right",
+		"Shirt_05",
+		"Bra_Black_01",
+		"Jupe4",
+		"Culotte_Black",
+		"Nude_Woman_Black_1",
+		
+		hello_sound ="HelloFemale_3" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
+			WomanJupe5 = {
+	
+		"Adidas_6_Left",
+		"Adidas_6_Right",
+		"Shirt_01",
+		"Bra_Yellow_01",
+		"Jupe5",
+		"Culotte_Yellow",
+		"Nude_Woman_Yellow_1",
+		
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
+	
 }
