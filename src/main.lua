@@ -41,6 +41,12 @@ debugWorldDraw = require("debugWorldDraw")
 -- SCALING
 -------------------------------------------------------------------------------
 
+
+
+COLLIDE_DUDES = 1
+COLLIDE_CLOTHES = 2
+COLLIDE_PROPS = 3
+
 WORLD_W = 1024	
 WORLD_H = 768
 

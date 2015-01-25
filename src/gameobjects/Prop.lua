@@ -45,6 +45,8 @@ local Prop = Class({
 	  --fixture:setCategory(COLLIDE_DUDES)
 	  --fixture:setMask(COLLIDE_CLOTHES)
 	  fixture:setFriction(1000000*(prop.friction or 1))
+	  fixture:setCategory(COLLIDE_PROPS)
+    fixture:setMask(COLLIDE_CLOTHES,COLLIDE_DUDES)
 
 	  self.texture = foregroundb:getPiece(prop.textureName)
 
