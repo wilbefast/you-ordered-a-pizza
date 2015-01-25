@@ -197,7 +197,7 @@ love.load = function()
 	-- preload character sounds
 	for character_name, character in pairs(characters) do
 		for character_field_name, character_field in pairs(character) do
-			if character_field_name == "hello_sound" or character_field_name == "rejected_sound" then
+			if character_field_name == "hello_sound" or character_field_name == "rejected_sound" or character_field_name == "accepted_sound" then
 				audio:load_sound(character_field, 1, 2)
 			end
 		end
