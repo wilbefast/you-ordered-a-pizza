@@ -64,7 +64,7 @@ function state:draw()
 	love.graphics.push()
 
 
-		love.graphics.translate(VIEW_W*0.5, 0)
+		love.graphics.translate(WORLD_W*0.5, 0)
 		love.graphics.scale(scale, scale)
 
 		love.graphics.setFont(FONT_BIG)
