@@ -1,6 +1,8 @@
 return {
 	
 	Nude_Man_Pink_1= {
+	color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_1","head_RoundEye","head_Blond_Hair"},
@@ -24,6 +26,8 @@ return {
 	},
 	
 		Nude_Woman_Pink_1= {
+			color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_1","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Blond_Hair"},
@@ -47,6 +51,8 @@ return {
 	},
 	
 	Nude_Man_Black_1= {
+		color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_3","head_RoundEye","head_Red_Hair"},
@@ -70,6 +76,8 @@ return {
 	},
 	
 		Nude_Woman_Black_1= {
+			color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_3","lipstick_Red","head_RoundEye","eyelash_1","head_Long_Black_Hair"},
@@ -94,6 +102,8 @@ return {
 	
 	
 		Nude_Man_Yellow_1= {
+			color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_2","head_AsiatEye","head_Black_Hair"},
@@ -117,6 +127,8 @@ return {
 	},
 	
 		Nude_Woman_Yellow_1= {
+			color = {0,0,0
+	},
 		body_parts = {
 		
 		head = {"head_2","lipstick_Red","head_AsiatEye","eyelash_Asiat","head_Long_Black_Hair"},
@@ -140,6 +152,8 @@ return {
 	},
 	
 	Slip  = {
+		color = {255,255,255
+	},
 	body_parts = {
 		groin = {"groin_Slip"},
 		},
@@ -149,6 +163,8 @@ return {
 	
 	
 	Adidas_1_Left  = {
+			color = {60,140,85
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_1"},
 		},
@@ -157,6 +173,8 @@ return {
 	},
 	
 	Adidas_1_Right  = {
+			color = {60,140,85
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_1"},
 		},
@@ -165,6 +183,8 @@ return {
 	},
 	
 		Adidas_2_Left  = {
+				color = {255,255,0
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_2"},
 		},
@@ -173,6 +193,8 @@ return {
 	},
 	
 	Adidas_2_Right  = {
+			color = {255,255,0
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_2"},
 		},
@@ -181,6 +203,8 @@ return {
 	},
 	
 		Adidas_3_Left  = {
+				color = {247,123,174
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_3"},
 		},
@@ -189,6 +213,8 @@ return {
 	},
 	
 	Adidas_3_Right  = {
+			color = {247,123,174
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_3"},
 		},
@@ -197,6 +223,8 @@ return {
 	},
 	
 		Adidas_4_Left  = {
+				color = {255,255,0
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_4"},
 		},
@@ -205,6 +233,8 @@ return {
 	},
 	
 	Adidas_4_Right  = {
+			color = {255,255,0
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_4"},
 		},
@@ -213,6 +243,8 @@ return {
 	},
 	
 		Adidas_5_Left  = {
+				color = {73,72,61
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_5"},
 		},
@@ -221,6 +253,8 @@ return {
 	},
 	
 	Adidas_5_Right  = {
+			color = {73,72,61
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_5"},
 		},
@@ -229,6 +263,8 @@ return {
 	},
 	
 		Adidas_6_Left  = {
+				color = {0,0,0
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_6"},
 		},
@@ -237,6 +273,8 @@ return {
 	},
 	
 	Adidas_6_Right  = {
+			color = {0,0,0
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_6"},
 		},
@@ -245,6 +283,8 @@ return {
 	},
 	
 			Adidas_7_Left  = {
+					color = {0,0,0
+	},
 	body_parts = {
 		leftFoot = {"leftFoot_7"},
 		},
@@ -254,6 +294,8 @@ return {
 	
 	
 		Adidas_7_Right  = {
+				color = {0,0,0
+	},
 	body_parts = {
 		rightFoot = {"rightFoot_7"},
 		},
@@ -264,6 +306,8 @@ return {
 	
 	
 		Culotte_Pink  = {
+				color = {255,255,255
+	},
 	body_parts = {
 		groin = {"groinW_1","Culotte_1"},
 		},
@@ -272,6 +316,8 @@ return {
 	},
 	
 			Culotte_Yellow  = {
+					color = {255,255,255
+	},
 	body_parts = {
 		groin = {"groinW_2","Culotte_1"},
 		},
@@ -280,6 +326,8 @@ return {
 	},
 	
 			Culotte_Black  = {
+					color = {255,255,255
+	},
 	body_parts = {
 		groin = {"groinW_3","Culotte_1"},
 		},
@@ -288,6 +336,8 @@ return {
 	},
 	
 	Jeans  = {
+			color = {55,92,119
+	},
 	body_parts = {
 		groin = {"groin_Jeans"},
 		rightLeg = {"leg_Jeans"},
@@ -300,6 +350,8 @@ return {
 	},
 	
 	Shirt_Liberty = {
+			color = {235,127,161
+	},
 	body_parts = {
 		torso = {"torso_Liberty"},
 		rightArm = {"rightArm_Liberty"},
@@ -312,6 +364,8 @@ return {
 	},
 	
 	Shirt_01 = {
+			color = {253,112,71
+	},
 	body_parts = {
 		torso = {"torso_Shirt01"},
 		rightArm = {"rightArm_Shirt01"},
@@ -324,6 +378,8 @@ return {
 	},
 	
 	Shirt_02 = {
+			color = {232,47,161
+	},
 	body_parts = {
 		torso = {"torso_Shirt02"},
 		rightArm = {"rightArm_Shirt02"},
@@ -336,6 +392,8 @@ return {
 	},
 	
 	Shirt_03 = {
+			color = {255,255,255
+	},
 	body_parts = {
 		torso = {"torso_Shirt03"},
 		rightArm = {"rightArm_Shirt03"},
@@ -348,6 +406,8 @@ return {
 	},
 	
 	Shirt_04 = {
+			color = {0,0,0
+	},
 	body_parts = {
 		torso = {"torso_Shirt04"},
 		rightArm = {"rightArm_Shirt04"},
@@ -360,6 +420,8 @@ return {
 	},
 	
 	Shirt_05 = {
+			color = {255,255,255
+	},
 	body_parts = {
 		torso = {"torso_Shirt05"},
 		rightArm = {"rightArm_Shirt05"},
@@ -367,11 +429,13 @@ return {
 		leftArm = {"leftArm_Shirt05"},
 		leftForearm = {"leftForeArm_Shirt05"},
 		},
-		
+	
 		orgy = -1
 	},
 	
 	Bra_Pink_01 = {
+			color = {255,255,255
+	},
 	body_parts = {
 		torso = {"torsoW_1","torso_Bra_03"},
 		},
@@ -380,6 +444,8 @@ return {
 	},
 	
 		Bra_Pape = {
+				color = {255,255,255
+	},
 	body_parts = {
 		torso = {"torso_1","torso_Bra_03"},
 		},
@@ -388,6 +454,8 @@ return {
 	},
 	
 	Bra_Yellow_01 = {
+			color = {0,0,0
+	},
 	body_parts = {
 		torso = {"torsoW_2","torso_Bra_01"},
 		},
@@ -396,6 +464,8 @@ return {
 	},
 	
 	Bra_Black_01 = {
+			color = {255,0,0
+	},
 	body_parts = {
 		torso = {"torsoW_3","torso_Bra_02"},
 		},
@@ -404,6 +474,8 @@ return {
 	},
 	
 	Burka_Pink = {
+			color = {0,0,0
+	},
 	body_parts = {
 		head = {"head_1","head_RoundEye","eyelash_1","head_Burka"},
 		torso = {"torso_Burka"},
@@ -426,6 +498,8 @@ return {
 	},
 	
 		Burka_Yellow = {
+					color = {0,0,0
+	},
 	body_parts = {
 		head = {"head_2","head_RoundEye","eyelash_1","head_Burka"},
 		torso = {"torso_Burka"},
@@ -448,6 +522,8 @@ return {
 	},
 	
 		Burka_Black = {
+					color = {0,0,0
+	},
 	body_parts = {
 		head = {"head_3","head_RoundEye","eyelash_1","head_Burka"},
 		torso = {"torso_Burka"},
@@ -470,6 +546,8 @@ return {
 	},
 	
 	Ours_1 = {
+				color = {112,81,37
+	},
 	body_parts = {
 		head = {"head_Ours"},
 		torso = {"torso_Ours"},
@@ -492,6 +570,8 @@ return {
 	},
 	
 		Ours_2 = {
+					color = {224,89,83
+	},
 	body_parts = {
 		head = {"head_Ours2"},
 		torso = {"torso_Ours2"},
@@ -514,6 +594,8 @@ return {
 	},
 	
 	Mitre = {
+				color = {181,155,129
+	},
 	body_parts = {
 		head = {"head_1","head_RoundEye","eyelash_1","head_pape"},
 		},
@@ -521,15 +603,10 @@ return {
 		orgy = -1
 	},
 	
-	Mitre = {
-	body_parts = {
-		head = {"head_1","head_RoundEye","eyelash_1","head_pape"},
-		},
-		
-		orgy = -1
-	},
 	
 		Robe_Pape = {
+					color = {255,255,255
+	},
 	body_parts = {
 		torso = {"torso_pape"},
 		rightArm = {"rightForeArm_pape"},
@@ -547,6 +624,8 @@ return {
 	},
 	
 		Jupe1 = {
+					color = {255,255,255
+	},
 	body_parts = {
 		groin = {"groin_Jupe01"},
 		},
@@ -555,6 +634,8 @@ return {
 	},
 
 			Jupe2 = {
+						color = {0,0,0
+	},
 	body_parts = {
 		groin = {"groin_Jupe02"},
 		},
@@ -563,6 +644,8 @@ return {
 	},
 	
 			Jupe3 = {
+						color = {255,255,0
+	},
 	body_parts = {
 		groin = {"groin_Jupe03"},
 		},
@@ -571,6 +654,8 @@ return {
 	},
 	
 			Jupe4 = {
+						color = {255,0,0
+	},
 	body_parts = {
 		groin = {"groin_Jupe04"},
 		},
@@ -579,6 +664,8 @@ return {
 	},
 	
 			Jupe5 = {
+						color = {0,0,0
+	},
 	body_parts = {
 		groin = {"groin_Jupe05"},
 		},
