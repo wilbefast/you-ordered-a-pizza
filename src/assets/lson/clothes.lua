@@ -788,7 +788,7 @@ return {
 						color = {0,0,0
 	},
 	body_parts = {
-		head = {"head_1","head_RoundEye","head_Black_Hair","head_hat_Rabbin"},
+		head = {"head_1","head_RoundEye","head_hat_Rabbin"},
 		}
 	},
 	
@@ -796,7 +796,7 @@ return {
 						color = {0,0,0
 	},
 	body_parts = {
-		head = {"head_1","head_RoundEye","head_Black_Hair","head_hat_Rabbin","head_Rabbin"},
+		head = {"head_1","head_RoundEye","head_hat_Rabbin","head_Rabbin"},
 		}
 	},
 	
