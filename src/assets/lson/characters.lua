@@ -5,6 +5,7 @@ return {
 	"Ours_1",
 	"Ours_2",
 		
+		accepted_sound = "HelloOurs",
 		hello_sound ="HelloOurs" ,
 		rejected_sound ="DefenestrationOurs" 
 		
@@ -19,6 +20,7 @@ return {
 		 "Slip",
 		 "Nude_Man_Pink_1",
 		
+		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_1" ,
 		rejected_sound ="DefenestrationMan"   
 	},
@@ -32,6 +34,7 @@ return {
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_3" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -45,6 +48,7 @@ return {
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_2",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_4" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -58,6 +62,7 @@ return {
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
+		accepted_sound = "ValidMan",
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -72,6 +77,7 @@ return {
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_1" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -85,6 +91,7 @@ return {
 		"Slip",
 		"Nude_Man_Yellow_1",
 		
+		accepted_sound = "ValidWMan",
 		hello_sound ="HelloMale_2" ,
 		rejected_sound ="DefenestrationMan"  
 	},
@@ -99,6 +106,7 @@ return {
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -112,6 +120,7 @@ return {
 		"Slip",
 		"Nude_Man_Black_1",
 		
+		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_3" ,
 		rejected_sound ="DefenestrationMan"  
 	},
@@ -126,6 +135,7 @@ return {
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_3" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -140,6 +150,7 @@ return {
 		"Slip",
 		"Nude_Man_Pink_1",
 		
+		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_3" ,
 		rejected_sound ="DefenestrationMan" 
 	},
@@ -154,6 +165,7 @@ return {
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_1" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -168,6 +180,7 @@ return {
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_2",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_5" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -182,6 +195,7 @@ return {
 		"Culotte_Pink",
 		"Nude_Woman_Pink_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_4" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -196,6 +210,7 @@ return {
 		"Culotte_Black",
 		"Nude_Woman_Black_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_3" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -210,6 +225,7 @@ return {
 		"Culotte_Yellow",
 		"Nude_Woman_Yellow_1",
 		
+		accepted_sound = "ValidWoman",
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
@@ -226,8 +242,9 @@ return {
 		"Slip_Vador",
 		"Nude_Vador",
 		
-		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_3" ,
+		rejected_sound ="DefenestrationMan" 
 	},
 	
 			Charlie = {
@@ -238,8 +255,9 @@ return {
 		"Djelaba_Charlie",
 		"Nude_Charlie",
 		
-		hello_sound ="HelloFemale_2" ,
-		rejected_sound ="DefenestrationWoman" 
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_5" ,
+		rejected_sound ="DefenestrationMan" 
 	},
 	
 		Rabin = {
@@ -250,10 +268,27 @@ return {
 		"Rabbin_Pant",
 		"Rabbin_Beard",
 		"Rabbin_Hat",
+		"Slip",
 		"Rabbin_Nude",
 		
-		hello_sound ="HelloFemale_2" ,
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_1" ,
 		rejected_sound ="DefenestrationWoman" 
+	},
+	
+		Terro = {
+	
+		"Adidas_1_Left",
+		"Adidas_1_Right",
+		"Terro_Vest",
+		"Rabbin_Pant",
+		"Terro_Hat",
+		"Slip",
+		"Terro_Nude",
+		
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_6" ,
+		rejected_sound ="DefenestrationMan" 
 	},
 	
 }
