@@ -21,6 +21,7 @@ Gamestate navigation
 --]]--
 
 function state:init()
+	self.overlay = love.graphics.newImage("assets/gameover.png")
 end
 
 function state:enter()	
@@ -57,17 +58,33 @@ function state:draw()
   love.graphics.rectangle("fill", 0, 0, WORLD_W, WORLD_H)
   useful.bindWhite()
 
-	local offset = 8*math.sin(2*t)
+	local offset = 8*math.sin(6*t)
+	local scale = 1.5 + 0.5*math.cos(6*t)
 
-	love.graphics.setFont(FONT_BIG)
-	love.graphics.printf(ending.text, 
-		(VIEW_W*0.5 - VIEW_W*0.1)/VIEW_SCALE, (VIEW_H*0.2 + offset)/VIEW_SCALE, VIEW_W*0.2/VIEW_SCALE, "center")
+	love.graphics.push()
 
-	love.graphics.setFont(FONT_SMALL)
-	love.graphics.printf("try again ?", 
-		(VIEW_W*0.5 - VIEW_W*0.2)/VIEW_SCALE, (VIEW_H*0.5 + offset)/VIEW_SCALE, VIEW_W*0.4/VIEW_SCALE, "center")
 
-	love.graphics.setFont(FONT_SMALL)
+		love.graphics.translate(VIEW_W*0.5, 0)
+		love.graphics.scale(scale, scale)
+
+		love.graphics.setFont(FONT_BIG)
+		love.graphics.printf(ending.text, 
+			-VIEW_W*0.2/VIEW_SCALE, 
+			(VIEW_H*0.2 + offset)/VIEW_SCALE/scale, 
+			VIEW_W*0.4/VIEW_SCALE, "center")
+
+		love.graphics.setFont(FONT_MEDIUM)
+		love.graphics.printf("try again ?", 
+			-VIEW_W*0.2/VIEW_SCALE, 
+			(VIEW_H*0.8 + offset)/VIEW_SCALE/scale, 
+			VIEW_W*0.4/VIEW_SCALE, "center")
+
+		love.graphics.setFont(FONT_SMALL)
+	love.graphics.pop()
+
+
+	-- overlay
+	love.graphics.draw(self.overlay, 0, 0)
 end
 
 

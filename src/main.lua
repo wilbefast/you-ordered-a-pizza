@@ -266,7 +266,7 @@ end
 
 love.keypressed = function(key)
 	if key == "o" then
-		DEBUG = (not DEBUG)
+		--DEBUG = (not DEBUG)
 	elseif key == "m" then
 		audio.mute = (not audio.mute)
 	end
