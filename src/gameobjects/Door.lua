@@ -94,6 +94,7 @@ local Door = Class({
 		self.dingdongTimer = -1;
     self.t = 0
     self.queue = { }
+
   end,
 })
 

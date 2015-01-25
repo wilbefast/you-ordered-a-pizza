@@ -42,6 +42,10 @@ Gamestate navigation
 --]]--
 
 function state:init()
+	self.deck = useful.deck()
+	for _, name in ipairs(characterNames) do
+		self.deck.stack(characters[name])
+	end
 end
 
 
@@ -384,7 +388,8 @@ function state:update(dt)
   end
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
     self.door:enqueue(function(x, y) 
-    	Dude(x, y, characters[useful.randIn(characterNames)])
+
+    	Dude(x, y, self.deck.draw())
     end)
   end
 
