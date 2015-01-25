@@ -82,30 +82,6 @@ return {
 		}
 	},
 
-	policeHat = {
-		radius = 50,
-		density = 0.7,
-		textureName = "Objet_Police",
-		endings = {
-		}
-	},
-
-	policeHat = {
-		radius = 50,
-		density = 0.7,
-		textureName = "Objet_Police",
-		endings = {
-		}
-	},
-
-	policeHat = {
-		radius = 50,
-		density = 0.7,
-		textureName = "Objet_Police",
-		endings = {
-		}
-	},
-
 
 	duck = {
 		radius = 50,
@@ -121,6 +97,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_Dildo2",
 			endings = {
+			  orgy = 5
 			}
 		},
 
@@ -133,7 +110,7 @@ return {
 			}
 		},
 
-	banana2 = {
+	banana3 = {
 			width = 150,
 			height = 50,
 			density = 0.8,
@@ -148,6 +125,7 @@ return {
 			density = 1,
 			textureName = "Objet_LAN1",
 			endings = {
+				gamer = 8
 			}
 		}	,
 
@@ -157,6 +135,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_LAN2",
 			endings = {
+				gamer = 8
 			}
 		}	,
 
@@ -166,6 +145,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_LAN3",
 			endings = {
+				gamer = 8
 			}
 		},
 
@@ -175,6 +155,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_LAN4",
 			endings = {
+				gamer = 8
 			}
 		},
 
@@ -184,6 +165,7 @@ return {
 			density = 1,
 			textureName = "Objet_Robot1",
 			endings = {
+				robot = 5
 			}
 		},
 
@@ -192,6 +174,7 @@ return {
 			density = 3,
 			textureName = "Objet_Robot2",
 			endings = {
+				robot = 5
 			}
 		}								
 }

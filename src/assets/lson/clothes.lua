@@ -865,7 +865,8 @@ return {
 		rightForearm = {"rightArm_Rabbin"},
 		leftArm = {"rightArm_Rabbin"},
 		leftForearm = {"rightArm_Rabbin"},
-		}
+		},
+		jihad = 20
 	},
 	
 	Dalai_Nude= {
@@ -937,8 +938,75 @@ return {
 		rightForearm = {"leftArm_Dalai"},
 		leftArm = {"leftArm_Dalai"},
 		leftForearm = {"leftArm_Dalai"},
-		}
-	}
+		},
+		
+	},
 
+	Terminator_Nude= {
+	color = {0,0,0
+	},
+		body_parts = {
+		head = {"head_Robot_3"},
+		torso = {"torso_Robot"},
+		rightArm = {"leg_Robot"},
+		rightForearm = {"leg_Robot"},
+		rightHand = {"leftHand_Robot"},
+		leftArm = {"leg_Robot"},
+		leftForearm = {"leg_Robot"},
+		leftHand = {"rightHand_Robot"},
+		groin = {"groin_Robot"},
+		rightLeg = {"leg_Robot"},
+		rightForeleg = {"leg_Robot"},
+		rightFoot = {"right_foot_Robot"},
+		leftLeg = {"leg_Robot"},
+		leftForeleg = {"leg_Robot"},
+		leftFoot = {"left_foot_Robot"},
+		},
+		robot=50
+	},
+
+		Terminator_Chest= {
+	color = {0,0,0
+	},
+		body_parts = {
+		torso = {"torso_1"},
+		rightArm = {"arm_1"},
+		rightForearm = {"arm_1"},
+		rightHand = {"rightHand_1"},
+		leftArm = {"arm_1"},
+		leftForearm = {"arm_1"},
+		leftHand = {"leftHand_1"},
+		}
+	},
+
+			Terminator_Pant= {
+	color = {0,0,0
+	},
+		body_parts = {
+		groin = {"groin_1"},
+		rightLeg = {"leg_1"},
+		rightForeleg = {"leg_1"},
+		rightFoot = {"right_foot_1"},
+		leftLeg = {"leg_1"},
+		leftForeleg = {"leg_1"},
+		leftFoot = {"left_foot_1"},
+		}
+	},
+	
+		Terminator_Head_2= {
+	color = {0,0,0
+	},
+		body_parts = {
+		head = {"head_Robot_2"},
+		}
+	},
+	
+			Terminator_Head_1= {
+	color = {0,0,0
+	},
+		body_parts = {
+		head = {"head_Robot_1"},
+		}
+	},
 	
 }

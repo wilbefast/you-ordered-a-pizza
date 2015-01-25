@@ -305,6 +305,19 @@ return {
 		accepted_sound = "ValidMan",
 		hello_sound ="HelloMale_4" ,
 		rejected_sound ="DefenestrationMan" 
+	},
+	
+		Terminator = {
+
+		"Terminator_Head_1",		
+		"Terminator_Head_2",
+		"Terminator_Pant",
+		"Terminator_Chest",
+		"Terminator_Nude",
+		
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloMale_4" ,
+		rejected_sound ="DefenestrationMan" 
 	}
 	
 }
