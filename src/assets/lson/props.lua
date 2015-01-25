@@ -17,5 +17,23 @@ return {
 		endings = {
 			normal = 10
 		}
+	},
+
+	champagne = {
+		width = 50,
+		height = 200,
+		density = 1,
+		textureName = "Objet_Champagne",
+		endings = {
+		}
+	},
+
+	bomb = {
+		width = 150,
+		height = 64,
+		density = 1,
+		textureName = "Objet_Explosif",
+		endings = {
+		}
 	}
 }
