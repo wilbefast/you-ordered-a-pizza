@@ -150,7 +150,7 @@ return {
 		},
 
 	sabre = {
-			width = 588,
+			width = 331,
 			height = 40,
 			density = 0.8,
 			textureName = "Objet_Sabre",

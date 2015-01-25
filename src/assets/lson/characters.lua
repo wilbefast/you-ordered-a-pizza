@@ -247,6 +247,24 @@ return {
 		rejected_sound ="DefenestrationVador" 
 	},
 	
+			Vadours = {
+	
+		"LeftShoe_Vador",
+		"RightShoe_Vador",
+		"LeftHand_Vador",
+		"RightHand_Vador",
+		"Chest_Vador",
+		"Helmet_Vador",
+		"Pant_Vador",
+		"Slip_Vador",
+		"Ours_1",
+		"Ours_2",
+		
+		accepted_sound = "ValidMan",
+		hello_sound ="HelloVador" ,
+		rejected_sound ="DefenestrationVador" 
+	},
+	
 			Charlie = {
 	
 		"Adidas_3_Left",
