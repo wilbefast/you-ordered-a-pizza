@@ -173,13 +173,21 @@ love.load = function()
 			playing_music_menu = true
 		end
 	end
-
+	audio.set_main_music = function(on)
+		local m = ((playing_music_menu and music_menu) or music_game)
+		if on then
+			m:play()
+		else
+			m:pause()
+		end
+	end
 
 	-- sound
 	audio:load_sound("CloseDoor", 1, 3)
 	audio:load_sound("Cat", 1, 2)
 	audio:load_sound("OpenDoor", 1, 3)
 	audio:load_sound("DoorBell", 1, 5)
+	audio:load_sound("Tissu", 1, 3)
 
 	-- preload character sounds
 	for character_name, character in pairs(characters) do

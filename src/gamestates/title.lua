@@ -25,6 +25,10 @@ end
 
 function state:enter()
 	t = 0
+	if audio.music then
+		audio.music:pause()
+	end
+	audio.set_main_music(true)
 end
 
 function state:leave()

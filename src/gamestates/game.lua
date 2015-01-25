@@ -42,6 +42,10 @@ Gamestate navigation
 --]]--
 
 function state:init()
+	self.deck = useful.deck()
+	for _, name in ipairs(characterNames) do
+		self.deck.stack(characters[name])
+	end
 end
 
 
@@ -247,11 +251,13 @@ function state:setEnding()
 
 	GameObject.mapToType("Dude", function(dude)
     dudeCount = dudeCount+1
+
     -- retrieve character points
     for field_name,field in pairs(dude.character) do
-    	for ending_name, ending_points in ipairs(endingPoints) do
+    	for ending_name, ending_points in pairs(endingPoints) do
     		if ending_name == field_name then
-    			ending_points = ending_points + field
+    			log:write(ending_name..tostring(field))
+    			endingPoints[ending_name] = ending_points + field
     		end
     	end
     end
@@ -260,9 +266,10 @@ function state:setEnding()
     local dude_clothes = dude:getVisibleClothes()
     for cloth_value,cloth_name in pairs(dude_clothes) do
     	for cloth_field_name, cloth_field in pairs(cloth_value) do
-	    	for ending_name, ending_points in ipairs(endingPoints) do
+	    	for ending_name, ending_points in pairs(endingPoints) do
 	    		if ending_name == cloth_field_name then
-	    			ending_points = ending_points + cloth_field
+    				log:write(cloth_name..cloth_field_name..tostring(cloth_field))
+	    			endingPoints[ending_name] = ending_points + cloth_field
 	    		end
 	    	end
     	end
@@ -277,10 +284,10 @@ function state:setEnding()
 
 	-- find the correct ending
 	for i, endi in ipairs(endings) do
+		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
 		if (ending == nil and endi.trigger <= endingPoints[endi.name]) then
 			ending = endi
 		end
-		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
 	end
 
 	-- if no ending, last ending (normal ending)
@@ -371,8 +378,8 @@ function state:update(dt)
     else
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
-        audio:play_sound(dude.character.rejected_sound)
-        audio:play_sound("Cat")
+        audio:play_sound(dude.character.rejected_sound, 0.2)
+        audio:play_sound("Cat", 0.2)
         if self.mouseJoint and (self.grabDude == dude) then
         	self.mouseJoint:destroy()
         	self.mouseJoint = nil
@@ -384,7 +391,8 @@ function state:update(dt)
   end
   if count == 0 and not self.door:anyQueued() and self.door:isClosed() then
     self.door:enqueue(function(x, y) 
-    	Dude(x, y, characters[useful.randIn(characterNames)])
+
+    	Dude(x, y, self.deck.draw())
     end)
   end
 
