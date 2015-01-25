@@ -824,4 +824,48 @@ return {
 		}
 	},
 	
+		Terro_Nude= {
+	color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_1","head_RoundEye","head_Red_Hair"},
+		torso = {"torso_1"},
+		rightArm = {"arm_1"},
+		rightForearm = {"arm_1"},
+		rightHand = {"rightHand_1"},
+		leftArm = {"arm_1"},
+		leftForearm = {"arm_1"},
+		leftHand = {"leftHand_1"},
+		groin = {"groin_Terro"},
+		rightLeg = {"leg_1"},
+		rightForeleg = {"leg_1"},
+		rightFoot = {"right_foot_1"},
+		leftLeg = {"leg_1"},
+		leftForeleg = {"leg_1"},
+		leftFoot = {"left_foot_1"},
+		
+		}
+	},
+	
+	Terro_Hat = {
+						color = {0,0,0
+	},
+	body_parts = {
+		head = {"head_hat_Terro"},
+		}
+	},
+	
+	Terro_Vest = {
+						color = {0,0,0
+	},
+	body_parts = {
+		torso = {"torso_Terro"},
+		rightArm = {"rightArm_Rabbin"},
+		rightForearm = {"rightArm_Rabbin"},
+		leftArm = {"rightArm_Rabbin"},
+		leftForearm = {"rightArm_Rabbin"},
+		}
+	},
+	
 }

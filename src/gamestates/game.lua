@@ -417,7 +417,6 @@ function state:update(dt)
   end)
   local count = 0
   for dude, isonscreen in pairs(onscreen) do
-    -- TODO - do stuff do the dude when he/she goes off screen
     if isonscreen then
       count = count + 1
       if dude.x > WORLD_W then
