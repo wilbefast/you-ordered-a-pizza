@@ -61,11 +61,6 @@ function state:enter()
 
   -- create the world
   self.world = love.physics.newWorld(0, 500)
-  self.world:setCallbacks(
-    self.beginContact, 
-    self.endContact, 
-    self.preSolve, 
-    self.postSolve)
   love.physics.setMeter(100) -- 100 pixels per meter
 
   -- floor
@@ -147,6 +142,8 @@ function state:enter()
 
   -- reset state variables
   self.epilogue = nil
+  self.windowBroken = false
+  self.catAtWindow = 1
 end
 
 
@@ -331,6 +328,9 @@ function state:update(dt)
 		end
 	end
 
+	-- cat returns
+	self.catAtWindow = math.min(1, self.catAtWindow + 0.2*dt)
+
   -- update physics
   self.world:update(dt)
 
@@ -379,7 +379,10 @@ function state:update(dt)
     	if dude.x > WORLD_W/2 then
     		dude.purge = true
         audio:play_sound(dude.character.rejected_sound, 0.2)
-        audio:play_sound("Cat", 0.2)
+        if self.catAtWindow >= 1 then
+        	audio:play_sound("Cat", 0.2)
+        	self.catAtWindow = 0
+        end
         if self.mouseJoint and (self.grabDude == dude) then
         	self.mouseJoint:destroy()
         	self.mouseJoint = nil
@@ -461,22 +464,6 @@ function state:draw()
 	  love.graphics.printf("What do we do now ?", 
 	    ENDTEXT_X, ENDTEXT_Y, TEXT_LENGTH, "center")
 	end
-end
-
---[[------------------------------------------------------------
-Physics callbacks
---]]--
-
-function state.beginContact()
-end
-
-function state.endContact()
-end
-
-function state.preSolve()
-end
-
-function state.postSolve()
 end
 
 --[[------------------------------------------------------------

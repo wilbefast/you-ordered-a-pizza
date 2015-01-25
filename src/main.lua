@@ -141,12 +141,12 @@ love.load = function()
 
 
   -- fonts
-	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)
+	FONT_SMALL = love.graphics.newFont("assets/ttf/2086.ttf", 32)
 	FONT_SMALL:setFilter("nearest", "nearest", 1)
 	love.graphics.setFont(FONT_SMALL)
-	FONT_MEDIUM = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 48)
+	FONT_MEDIUM = love.graphics.newFont("assets/ttf/2086.ttf", 48)
 	FONT_MEDIUM:setFilter("nearest", "nearest", 1)
-	FONT_BIG = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 64)
+	FONT_BIG = love.graphics.newFont("assets/ttf/2086.ttf", 64)
 	FONT_BIG:setFilter("nearest", "nearest", 1)
 
 	-- audio
