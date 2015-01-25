@@ -868,4 +868,77 @@ return {
 		}
 	},
 	
+	Dalai_Nude= {
+	color = {0,0,0
+	},
+		body_parts = {
+		
+		head = {"head_Dalai"},
+		torso = {"torso_2"},
+		rightArm = {"arm_2"},
+		rightForearm = {"arm_2"},
+		rightHand = {"rightHand_2"},
+		leftArm = {"arm_2"},
+		leftForearm = {"arm_2"},
+		leftHand = {"leftHand_2"},
+		groin = {"groin_2"},
+		rightLeg = {"leg_2"},
+		rightForeleg = {"leg_2"},
+		rightFoot = {"right_foot_2"},
+		leftLeg = {"leg_2"},
+		leftForeleg = {"leg_2"},
+		leftFoot = {"left_foot_2"},
+		
+		}
+	},
+	
+	Dalai_Hat = {
+						color = {140,97,42
+	},
+	body_parts = {
+		head = {"head_Dalai","head_hat_Dalai"},
+		}
+	},
+	
+	Dalai_Slip = {
+						color = {225,82,55
+	},
+	body_parts = {
+		groin = {"groin_Slip Dalai"},
+		}
+	},
+	
+	Dalai_Bra = {
+						color = {225,82,55
+	},
+	body_parts = {
+		torso = {"torso_2","torso_Bra_Dalai",},
+		}
+	},
+	
+	Dalai_Pant = {
+						color = {0,0,0
+	},
+	body_parts = {
+		groin = {"groin_Dalai2"},
+		rightLeg = {"leftArm_Dalai"},
+		rightForeleg = {"leftArm_Dalai"},
+		leftLeg = {"leftArm_Dalai"},
+		leftForeleg = {"leftArm_Dalai"},
+		}
+	},
+	
+	Dalai_Vest = {
+						color = {225,82,55
+	},
+	body_parts = {
+		torso = {"torso_Dalai"},
+		rightArm = {"leftArm_Dalai"},
+		rightForearm = {"leftArm_Dalai"},
+		leftArm = {"leftArm_Dalai"},
+		leftForearm = {"leftArm_Dalai"},
+		}
+	}
+
+	
 }
