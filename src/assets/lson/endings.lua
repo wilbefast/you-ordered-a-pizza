@@ -6,6 +6,12 @@ return {
 		sound = "FinRien"
 	},
 	{
+		name = "ymca",
+		trigger = 50,
+		text = "YMCA !",
+		sound = "FinYMCA"
+	},
+	{
 		name = "orgy",
 		trigger = 50,
 		text = "an ORGY !",
