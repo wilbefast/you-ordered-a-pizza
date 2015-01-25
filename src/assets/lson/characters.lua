@@ -151,8 +151,8 @@ return {
 		"Nude_Man_Pink_1",
 		
 		accepted_sound = "ValidMan",
-		hello_sound ="HelloMale_3" ,
-		rejected_sound ="DefenestrationMan" 
+		hello_sound ="HelloPape" ,
+		rejected_sound ="DefenestrationPape" 
 	},
 	
 		WomanJupe1 = {
