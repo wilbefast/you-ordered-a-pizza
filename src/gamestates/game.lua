@@ -247,11 +247,12 @@ function state:setEnding()
 
 	GameObject.mapToType("Dude", function(dude)
     dudeCount = dudeCount+1
+
     -- retrieve character points
     for field_name,field in pairs(dude.character) do
-    	for ending_name, ending_points in ipairs(endingPoints) do
+    	for ending_name, ending_points in pairs(endingPoints) do
     		if ending_name == field_name then
-    			ending_points = ending_points + field
+    			endingPoints[ending_name] = ending_points + field
     		end
     	end
     end
@@ -259,10 +260,11 @@ function state:setEnding()
     -- retrieve clothes points
     local dude_clothes = dude:getVisibleClothes()
     for cloth_value,cloth_name in pairs(dude_clothes) do
+    	log:write(cloth_name)
     	for cloth_field_name, cloth_field in pairs(cloth_value) do
-	    	for ending_name, ending_points in ipairs(endingPoints) do
+	    	for ending_name, ending_points in pairs(endingPoints) do
 	    		if ending_name == cloth_field_name then
-	    			ending_points = ending_points + cloth_field
+	    			endingPoints[ending_name] = ending_points + cloth_field
 	    		end
 	    	end
     	end
@@ -277,10 +279,10 @@ function state:setEnding()
 
 	-- find the correct ending
 	for i, endi in ipairs(endings) do
+		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
 		if (ending == nil and endi.trigger <= endingPoints[endi.name]) then
 			ending = endi
 		end
-		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
 	end
 
 	-- if no ending, last ending (normal ending)
