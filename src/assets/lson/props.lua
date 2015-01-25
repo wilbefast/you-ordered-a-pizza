@@ -75,5 +75,56 @@ return {
 		textureName = "Objet_Police",
 		endings = {
 		}
-	}
+	},
+
+	policeHat = {
+		radius = 50,
+		density = 0.7,
+		textureName = "Objet_Police",
+		endings = {
+		}
+	},
+
+	policeHat = {
+		radius = 50,
+		density = 0.7,
+		textureName = "Objet_Police",
+		endings = {
+		}
+	},
+
+	policeHat = {
+		radius = 50,
+		density = 0.7,
+		textureName = "Objet_Police",
+		endings = {
+		}
+	},
+
+
+	duck = {
+		radius = 50,
+		density = 0.4,
+		textureName = "Objet_Dildo1",
+		endings = {
+		}
+	},
+
+	banana1 = {
+			width = 150,
+			height = 50,
+			density = 0.8,
+			textureName = "Objet_Dildo2",
+			endings = {
+			}
+		},
+
+	banana2 = {
+			width = 150,
+			height = 50,
+			density = 0.8,
+			textureName = "Objet_Dildo3",
+			endings = {
+			}
+		}		
 }
