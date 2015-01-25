@@ -200,7 +200,7 @@ return {
 		rejected_sound ="DefenestrationWoman" 
 	},
 	
-			WomanJupe5 = {
+		WomanJupe5 = {
 	
 		"Adidas_6_Left",
 		"Adidas_6_Right",
@@ -213,5 +213,21 @@ return {
 		hello_sound ="HelloFemale_2" ,
 		rejected_sound ="DefenestrationWoman" 
 	},
+		
+		Vador = {
+	
+		"LeftShoe_Vador",
+		"RightShoe_Vador",
+		"LeftHand_Vador",
+		"RightHand_Vador",
+		"Chest_Vador",
+		"Helmet_Vador",
+		"Pant_Vador",
+		"Slip_Vador",
+		"Nude_Vador",
+		
+		hello_sound ="HelloFemale_2" ,
+		rejected_sound ="DefenestrationWoman" 
+	}
 	
 }
