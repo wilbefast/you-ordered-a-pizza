@@ -134,6 +134,11 @@ love.load = function()
 	-- sprite atlas
   fudge.set({ monkey = true })
   foregroundb = fudge.new("assets/foreground", { npot = false })
+  fudge.set( { current = foregroundb } )
+  
+  -- animations
+	bgFinAnim = Animation(foregroundb:getPiece("bgFin"), 2048, 1536, 3)
+
 
   -- fonts
 	FONT_SMALL = love.graphics.newFont("assets/ttf/Romulus_by_pix3m.ttf", 32)

@@ -138,6 +138,9 @@ function state:enter()
   -- create a door
   self.door = Door(WORLD_W*0.7)
 
+  -- create animation views
+  self.bgFin = AnimationView(bgFinAnim, 7, 0)
+
   -- reset state variables
   self.epilogue = nil
 end
@@ -232,6 +235,9 @@ end
 
 function state:update(dt)
 	local mx, my = love.mouse.getPosition()
+
+	-- animate
+	self.bgFin:update(dt)
 
   -- un-cloth
   if self.mouseJoint and self.grabDude then
@@ -356,10 +362,10 @@ function state:draw()
 
 	-- objects
   foregroundb:addb("bg", 0, 0, 0, 1, 1)
-  foregroundb:addb("bgFin", -2*WORLD_W, 2*WORLD_H, 0, 1, 1)
+  self.bgFin:draw(self, -2*WORLD_W, 2*WORLD_H)
 	GameObject.drawAll(self.view)
-
   love.graphics.draw(foregroundb)
+  
   love.graphics.draw(lightImage, 0, 0)
 
   foregroundb.batch:clear()
