@@ -149,6 +149,16 @@ return {
 			}
 		},
 
+	sabre = {
+			width = 588,
+			height = 40,
+			density = 0.8,
+			textureName = "Objet_Sabre",
+			endings = {
+			}
+		},
+		
+
 	gameboy = {
 			width = 70,
 			height = 120,
