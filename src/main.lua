@@ -190,6 +190,11 @@ love.load = function()
 		end
 	end
 
+	-- preload endings sounds
+	for i,endi in ipairs(endings) do
+		audio:load_sound(endi.sound, 1, 1)
+	end
+
 
 	-- mouse cursor
 	love.mouse.setVisible(true)

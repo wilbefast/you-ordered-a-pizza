@@ -235,24 +235,35 @@ end
 
 function state:setEnding()
 
-	endingTypes = {}
+	ending = nil
+
+	-- build a table with points count for every ending
+	endingPoints = {}
 	for i,endi in ipairs(endings) do
-		table.insert(endingTypes, endi.type)
-		log:write("coucou1")
+		endingPoints[endi.name] = 0
 	end
-	for i,endi in ipairs(endingTypes) do
-		log:write(i, endi)
-		log:write("coucou2")
-	end
-		log:write("coucou")
 
 	GameObject.mapToType("Dude", function(dude)
     
-    
+    -- retrieve character points
+    for field_name,field in pairs(dude.character) do
+    	for ending_name, ending_points in ipairs(endingPoints) do
+    		if ending_name == field_name then
+    			ending_points = ending_points + field
+    		end
+    	end
+    end
+
+    -- TODO : retrieve clothes points
 
   end)
 
-  ending = endings[2]
+	-- TODO if one or less dudes, all alone ending
+
+	-- if no ending, last ending (normal ending)
+	if ending == nil then
+	  ending = endings[#endings]
+	end
 end
 
 function state:update(dt)
