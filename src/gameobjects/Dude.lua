@@ -320,17 +320,19 @@ end
 
 function Dude:getVisibleClothes()
 	local visible = {}
-	for partName, part in pairs(self.body_parts) do
-		local partCovering = nil
-		for _, cloth in ipairs(self.clothes) do
-			if partCovering then
-				if cloth.body_parts[partName] then
-					partCovering = cloth
+	if #self.clothes == 1 then
+		visible[self.clothes[1]] = 1
+	else
+		for partName, part in pairs(self.body_parts) do
+			local partCovering = nil
+			for i, cloth in ipairs(self.clothes) do
+				if partCovering == nil and i < #self.clothes then
+					if cloth.body_parts[partName] then
+						partCovering = cloth
+						visible[partCovering] = i
+					end
 				end
 			end
-		end
-		if partCovering then
-			visible[partCovering] = partName
 		end
 	end
 	return visible
