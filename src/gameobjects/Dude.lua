@@ -231,16 +231,15 @@ local Dude = Class({
         x, y - torsoHeight/2-headRadius, 
         puppeteerX, puppeteerY, false )
 
-    self.puppeteer.speed = 1
-    self.puppeteer.bounce = 150
+    self.puppeteer.speed = 1.5
+    self.puppeteer.bounce = 100
     self.puppeteer.points = {
       {puppeteerX, puppeteerY},
-      {puppeteerX-50, puppeteerY},
-      {puppeteerX-100, puppeteerY},
-      {puppeteerX-150, puppeteerY},
-      {puppeteerX-200, puppeteerY},
-      {puppeteerX-300, puppeteerY},
-      {puppeteerX-350, puppeteerY-50},
+      {puppeteerX-50, puppeteerY+80},
+      {puppeteerX-100, puppeteerY+130},
+      {puppeteerX-150, puppeteerY+130},
+      {puppeteerX-200, puppeteerY+130},
+      {puppeteerX-300, puppeteerY+130},
     }
     self.puppeteer.currentPoint = 1
     self.puppeteer.currentT = 0
