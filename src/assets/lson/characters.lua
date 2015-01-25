@@ -6,7 +6,8 @@ return {
 	"Ours_2",
 		
 		hello_sound ="HelloOurs" ,
-		rejected_sound ="DefenestrationMan"   
+		rejected_sound ="DefenestrationOurs" 
+		
 	},
 
 	Man1 = {
@@ -141,6 +142,20 @@ return {
 		
 		hello_sound ="HelloMale_3" ,
 		rejected_sound ="DefenestrationMan" 
-	}
+	},
+	
+		WomanJupe1 = {
+	
+		"Adidas_7_Left",
+		"Adidas_7_Right",
+		"Shirt_02",
+		"Bra_Pink_01",
+		"Jupe1",
+		"Culotte_Pink",
+		"Nude_Woman_Pink_1",
+		
+		hello_sound ="HelloFemale_1" ,
+		rejected_sound ="DefenestrationWoman" 
+	},
 	
 }
