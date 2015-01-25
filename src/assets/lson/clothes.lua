@@ -733,7 +733,8 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe02"},
-		}
+		},
+		gamer = 5
 	},
 	
 	Jupe3 = {
@@ -741,7 +742,8 @@ return {
 	},
 	body_parts = {
 		groin = {"groin_Jupe03"},
-		}
+		},
+		gamer = 5
 	},
 	
 	Jupe4 = {

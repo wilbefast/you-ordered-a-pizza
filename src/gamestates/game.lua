@@ -24,7 +24,7 @@ local TIMER_Y = 0.05*WORLD_H
 local ENDTEXT_X = WORLD_W/2 - TEXT_LENGTH/2
 local ENDTEXT_Y = 0.25*WORLD_H
 
-local GRAB_HIT_POINTS_TEAR = 1/10000
+local GRAB_HIT_POINTS_TEAR = 1/8000
 local GRAB_HIT_POINTS_REFILL = 10
 
 local state = gamestate.new()
