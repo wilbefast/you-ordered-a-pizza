@@ -93,7 +93,6 @@ local Cloth = Class({
 		local joint = love.physics.newRopeJoint(
 			body, self.bodies[1], bx, by, mx, my, 100, true)
 
-		self.mesh = love.graphics.newMesh( #self.bodies )
   end,
 })
 

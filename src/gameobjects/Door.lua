@@ -16,7 +16,7 @@ Lesser General Public License for more details.
 Initialisation
 --]]--
 
-local height = WORLD_H*0.7
+local height = WORLD_H*0.8
 
 local DING_DONG_SPEED = 1
 
@@ -54,7 +54,7 @@ dingdong = {
   onclick = function(self)
     audio:play_sound("OpenDoor", 0.2)
     self.state = opened
-    self.queue[1](self.x, self.y)
+    self.queue[1](self.x, self.y-20)
     table.remove(self.queue, 1)
   end,
   draw = function(self, x, y)
@@ -87,7 +87,7 @@ local Door = Class({
 
   init = function(self, x)
 
-    GameObject.init(self, x, WORLD_H*0.75 - 0.5*height, WORLD_W*0.2, height)
+    GameObject.init(self, x, WORLD_H*0.77 - 0.5*height, WORLD_W*0.28, height)
 
     self.state = closed
 
