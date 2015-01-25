@@ -318,6 +318,24 @@ function Dude:tearClothingOffPart(partName)
 	return nil
 end
 
+function Dude:getVisibleClothes()
+	local visible = {}
+	for partName, part in pairs(self.body_parts) do
+		local partCovering = nil
+		for _, cloth in ipairs(self.clothes) do
+			if partCovering then
+				if cloth.body_parts[partName] then
+					partCovering = cloth
+				end
+			end
+		end
+		if partCovering then
+			visible[partName] = partCovering
+		end
+	end
+	return visible
+end
+
 function Dude:updateTextures()
 	for partName, part in pairs(self.body_parts) do
 		part.textures = {}
