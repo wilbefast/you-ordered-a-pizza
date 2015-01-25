@@ -240,7 +240,13 @@ function state:mousepressed(x, y)
 		    dude.puppeteer.body:destroy()
 		    dude.puppeteer = nil
 		  end
-		 end
+	 	else
+	 		if userdata.prop and userdata.prop.dude then
+	 			userdata.prop.dude:dropProp()
+	 		end
+	 		self.grabDude = nil
+	 		self.grabPart = nil
+	 	end
 	  -- remove previous grab
 		if self.mouseJoint then
 		  self.mouseJoint:destroy()
@@ -370,6 +376,10 @@ function state:update(dt)
 
 	  	self.grabHitpoints = math.max(0, self.grabHitpoints + d*dt*GRAB_HIT_POINTS_TEAR)
 	  	if self.grabHitpoints == 0 then
+
+	  		-- lose what you're carrying
+		  	self.grabDude:dropProp()
+
 	  		local cloth = self.grabDude:tearClothingOffPart(self.grabPart) 
 	  		if cloth then
 			  	self.mouseJoint:destroy()
@@ -379,7 +389,7 @@ function state:update(dt)
 					self.grabDude = nil
 					self.grabHitpoints = 0
 			  end
-		  	
+
 		  else
 		  	self.grabHitpoints = math.min(1, self.grabHitpoints + GRAB_HIT_POINTS_REFILL*dt)
 		  end
