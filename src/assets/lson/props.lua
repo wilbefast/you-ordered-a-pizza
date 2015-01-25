@@ -15,7 +15,6 @@ return {
 		density = 0.5,
 		textureName = "Objet_pizza",
 		endings = {
-			normal = 10
 		}
 	},
 
@@ -34,6 +33,7 @@ return {
 		density = 1,
 		textureName = "Objet_Explosif",
 		endings = {
+			jihad = 20
 		}
 	},
 
@@ -42,6 +42,7 @@ return {
 		density = 0.3,
 		textureName = "Objet_Casque",
 		endings = {
+			ymca = 10
 		}
 	},
 
@@ -50,6 +51,7 @@ return {
 		density = 0.5,
 		textureName = "Objet_Indien",
 		endings = {
+			ymca = 10
 		}
 	},
 
@@ -58,6 +60,7 @@ return {
 		density = 0.1,
 		textureName = "Objet_Motard",
 		endings = {
+			ymca = 10
 		}
 	},
 
@@ -66,6 +69,7 @@ return {
 		density = 0.2,
 		textureName = "Objet_Cowboy",
 		endings = {
+			ymca = 10
 		}
 	},
 
@@ -74,6 +78,7 @@ return {
 		density = 0.7,
 		textureName = "Objet_Police",
 		endings = {
+			ymca = 10
 		}
 	},
 
