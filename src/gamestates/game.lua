@@ -331,12 +331,10 @@ function state:setEnding()
   self.world:queryBoundingBox(-WORLD_W*2, WORLD_H*2, 0, WORLD_H*4, function(fixture) 
   	local body = fixture:getBody()
   	local userdata = body:getUserData()
-    log:write("found a body !")
     if userdata then
-    	if userdata.prop then
-    		log:write("found a prop !")
-    		if userdata.prop.endings then
-	    		for end_name,end_point in pairs(userdata.prop.endings) do
+    	if userdata.prop and userdata.prop.prototype then
+    		if userdata.prop.prototype.endings then
+	    		for end_name,end_point in pairs(userdata.prop.prototype.endings) do
 	    			if endingPoints[end_name] then
 	    				endingPoints[end_name] = endingPoints[end_name] + end_point
 	    			end
