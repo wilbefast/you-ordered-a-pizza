@@ -286,13 +286,29 @@ local Dude = Class({
 	  local joint = love.physics.newRopeJoint(
 			hand.body, prop.body, hx, hy, px, py, 50, false)
 
+	  self.prop = prop
+	  self.propJoint = joint
+	  prop.dude = self
+	  prop.dudeJoint = joint
+
 	end
 })
 Dude:include(GameObject)
 
+function Dude:dropProp()
+	if self.prop then
+		self.propJoint:destroy()
+		self.prop.dude = nil
+		self.prop.dudeJoint = nil
+		self.prop = nil
+		self.propJoint = nil
+	end
+end
+
 --[[------------------------------------------------------------
 Destruction
 --]]--
+
 
 function Dude.onPurge(self)
 
