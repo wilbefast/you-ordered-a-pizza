@@ -160,6 +160,8 @@ return {
 			density = 0.8,
 			textureName = "Objet_Sabre",
 			endings = {
+				gamer = 5,
+				jihad = 5
 			}
 		},
 		
