@@ -420,7 +420,7 @@ function state:update(dt)
 	end
 
 	-- cat returns
-	self.catAtWindow = math.min(1, self.catAtWindow + 0.2*dt)
+	self.catAtWindow = math.min(1, self.catAtWindow + 0.05*dt)
 
   -- update physics
   self.world:update(dt)
