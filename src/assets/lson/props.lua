@@ -15,6 +15,7 @@ return {
 		density = 0.5,
 		textureName = "Objet_pizza",
 		endings = {
+			pizza = 10
 		}
 	},
 
@@ -24,6 +25,7 @@ return {
 		density = 1,
 		textureName = "Objet_Champagne",
 		endings = {
+			puke = 10
 		}
 	},
 
@@ -88,6 +90,7 @@ return {
 		density = 0.4,
 		textureName = "Objet_Dildo1",
 		endings = {
+			  orgy = 5
 		}
 	},
 
@@ -107,6 +110,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_Dildo3",
 			endings = {
+			  orgy = 5
 			}
 		},
 
@@ -116,6 +120,7 @@ return {
 			density = 0.8,
 			textureName = "Objet_Dildo3",
 			endings = {
+			  orgy = 5
 			}
 		}	,
 
