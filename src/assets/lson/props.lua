@@ -19,7 +19,26 @@ return {
 		}
 	},
 
+	pizza2 = {
+		radius = 96,
+		density = 0.5,
+		textureName = "Objet_pizza",
+		endings = {
+			pizza = 10
+		}
+	},
+
 	champagne = {
+		width = 50,
+		height = 200,
+		density = 1,
+		textureName = "Objet_Champagne",
+		endings = {
+			puke = 10
+		}
+	},
+
+	champagne2 = {
 		width = 50,
 		height = 200,
 		density = 1,
