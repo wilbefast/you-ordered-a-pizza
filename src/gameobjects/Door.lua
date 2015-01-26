@@ -22,6 +22,20 @@ local DING_DONG_SPEED = 1
 
 local close, dingdong, opened
 
+function hasDoneEnding(endingName)
+  return false
+end
+
+function drawStickers()
+  for endingName, ending in ipairs(endings) do
+    foregroundb:addb(ending.stickerImg, ending.stickerX, ending.stickerY)
+    if hasDoneEnding(endingName) then
+      foregroundb:addb("Objet_Robot1", ending.stickerX, ending.stickerY)
+    end
+
+  end
+end
+
 closed = {
   update = function(self, dt)
     if #self.queue > 0 then
@@ -39,6 +53,7 @@ closed = {
   end,
   draw = function(self, x, y)
   	foregroundb:addb("doorClose", 0, -1)
+    drawStickers()
   end
 }
 dingdong = {
@@ -59,7 +74,8 @@ dingdong = {
   end,
   draw = function(self, x, y)
   	foregroundb:addb("doorClose", 0, -1)
-  	if self.dingdongTimer >= 0 and self.dingdongTimer < 1 then
+  	drawStickers()
+    if self.dingdongTimer >= 0 and self.dingdongTimer < 1 then
   		foregroundb:addb("dingdong", WORLD_W * 0.65, WORLD_H*0.1)
   	end
   end
