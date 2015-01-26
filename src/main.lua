@@ -103,6 +103,8 @@ COLLIDE_CLOTHES = 3
 
 --MUTE = true
 
+GENERATE_SPRITEBATCH = false
+
 -------------------------------------------------------------------------------
 -- SCREEN SHAKE !
 -------------------------------------------------------------------------------
@@ -180,9 +182,13 @@ love.load = function()
 
 	-- sprite atlas
   fudge.set({ monkey = true })
-  foregroundb = fudge.new("assets/foreground", { npot = false })
+  if GENERATE_SPRITEBATCH then
+    foregroundb = fudge.new("assets/foreground", { npot = false })
+  else
+    foregroundb = fudge.import("assets/export/foreground")
+  end
   fudge.set( { current = foregroundb } )
-  
+
   -- animations
 	bgFinAnim = Animation(foregroundb:getPiece("bgFin"), 2048, 1536, 3)
 
