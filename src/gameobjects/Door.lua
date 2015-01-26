@@ -22,14 +22,10 @@ local DING_DONG_SPEED = 1
 
 local close, dingdong, opened
 
-function hasDoneEnding(endingName)
-  return false
-end
-
 function drawStickers()
   for endingName, ending in ipairs(endings) do
     foregroundb:addb(ending.stickerImg, ending.stickerX, ending.stickerY)
-    if hasDoneEnding(endingName) then
+    if save[endingName] then
       foregroundb:addb("Objet_Robot1", ending.stickerX, ending.stickerY)
     end
 

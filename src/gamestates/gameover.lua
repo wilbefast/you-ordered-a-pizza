@@ -61,11 +61,16 @@ function state:draw()
 	local offset = 8*math.sin(6*t)
 	local scale = 1.5 + 0.5*math.cos(6*t)
 
+      -- overlay
+    love.graphics.draw(self.overlay, WORLD_W/2, WORLD_H/2, math.pi*(t*0.1), 4/scale, 4/scale, 512, 384)
+
 	love.graphics.push()
 
 
 		love.graphics.translate(WORLD_W*0.5, 0)
 		love.graphics.scale(scale, scale)
+
+    foregroundb:addb(ending.stickerImg)
 
 		love.graphics.setFont(FONT_BIG)
 		love.graphics.printf(ending.text, 
@@ -80,11 +85,12 @@ function state:draw()
 			VIEW_W*0.4/VIEW_SCALE, "center")
 
 		love.graphics.setFont(FONT_SMALL)
+
 	love.graphics.pop()
 
 
-	-- overlay
-	love.graphics.draw(self.overlay, 0, 0)
+
+
 end
 
 

@@ -67,13 +67,19 @@ return {
 		name = "puke",
 		trigger = 50,
 		text = "OPEN BAR !",
-		sound = "FinPuke"
+		sound = "FinPuke",
+    stickerImg = "Objet_Robot2",
+    stickerX = 650,
+    stickerY = 300
 	},
 	{
 		name = "pizza",
 		trigger = 50,
 		text = "PIZZA TIME !",
-		sound = "FinPizza"
+		sound = "FinPizza",
+    stickerImg = "Objet_Robot2",
+    stickerX = 650,
+    stickerY = 300
 	},
 	{ -- the last ending is the ending by default
 		name = "normal",
