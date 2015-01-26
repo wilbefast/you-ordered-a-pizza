@@ -847,7 +847,10 @@ return {
 		leftForeleg = {"leg_1"},
 		leftFoot = {"left_foot_1"},
 		
-		}
+		},
+
+		jihad = 10
+
 	},
 	
 	Terro_Hat = {

@@ -350,12 +350,12 @@ function state:setEnding()
 
 	-- if one or less dudes, all alone ending
 	if dudeCount <= 1 then
-		endingPoints["alone"] = endingPoints["alone"] + 50;
+		endingPoints["alone"] = endingPoints["alone"] + 10000;
 	end
 
 	-- check hippie ending (all bare feet)
 	if dudeCount == nb_pieds_nus then
-		endingPoints["hippie"] = 50
+		endingPoints["hippie"] = 70
 	end
 
 	-- check orgy ending
@@ -365,10 +365,12 @@ function state:setEnding()
 
 
 	-- find the correct ending
+	local maxScore = 49
 	for i, endi in ipairs(endings) do
-		log:write(endi.name.." ".. endingPoints[endi.name]) -- TEMP TEST
-		if (ending == nil and endi.trigger <= endingPoints[endi.name]) then
+		log:write(endi.name.." ".. endingPoints[endi.name])
+		if (maxScore < endingPoints[endi.name] and endi.trigger <= endingPoints[endi.name]) then
 			ending = endi
+			maxScore = endingPoints[endi.name]
 		end
 	end
 
