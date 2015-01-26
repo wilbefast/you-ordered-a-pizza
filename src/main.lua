@@ -86,6 +86,7 @@ Prop = require("gameobjects/Prop")
 Cloth = require("gameobjects/Cloth")
 Dude = require("gameobjects/Dude")
 Door = require("gameobjects/Door")
+Locker = require("gameobjects/Locker")
 
 -------------------------------------------------------------------------------
 -- DEFINES
@@ -244,6 +245,7 @@ love.load = function()
 	audio:load_sound("ValidMan", 1, 3)
 	audio:load_sound("ValidWoman", 1, 3)
 	audio:load_sound("Fenetre", 1, 3)
+	audio:load_sound("Locker", 1, 4)
 
 	-- preload character sounds
 	for character_name, character in pairs(characters) do

@@ -158,6 +158,16 @@ function state:enter()
   -- create a door
   self.door = Door(WORLD_W*0.7)
 
+  --create lockers
+  self.lockers = {}
+  self.locker_origin_x = 288
+  self.locker_origin_y = 309
+  self.locker_width = 162
+  self.locker_height = 182
+  table.insert(self.lockers, Locker(self.locker_origin_x, self.locker_origin_y, self.locker_width, self.locker_height, self.propDeck.draw()))
+  table.insert(self.lockers, Locker(self.locker_origin_x, self.locker_origin_y + self.locker_height, self.locker_width, self.locker_height, self.propDeck.draw()))
+  table.insert(self.lockers, Locker(self.locker_origin_x + self.locker_width, self.locker_origin_y + self.locker_height, self.locker_width, self.locker_height, self.propDeck.draw()))
+
   -- create animation views
   self.bgFin = AnimationView(bgFinAnim, 7, 0)
 
@@ -259,9 +269,12 @@ function state:mousepressed(x, y)
 
   else
   	-- open doors
-	  GameObject.mapToType("Door", 
-	    function(obj) obj:onclick() end, 
-	    function(obj) return obj:isCollidingPoint(x, y) end)
+    GameObject.mapToType("Door", 
+      function(obj) obj:onclick() end, 
+      function(obj) return obj:isCollidingPoint(x, y) end)
+    GameObject.mapToType("Locker", 
+      function(obj) obj:onclick() end, 
+      function(obj) return obj:isCollidingPoint(x, y) end)
  	end
 
 end
