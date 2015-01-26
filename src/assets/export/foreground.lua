@@ -1,4 +1,4 @@
-local f = {width=8192,height=2048,image=love.graphics.newImage('foreground.png')}
+local f = {width=8192,height=2048,image=love.graphics.newImage('assets/export/foreground.png')}
 f.batch=love.graphics.newSpriteBatch(f.image, 1000)
 f.pieces = {}
 f.pieces['arm_Charlie']={img=f.image,quad=love.graphics.newQuad(1751,1685,24,100,8192,2048),x=1751,y=1685,w=24,h=100}
