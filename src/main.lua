@@ -119,10 +119,48 @@ game = require("gamestates/game")
 title = require("gamestates/title")
 gameover = require("gamestates/gameover")
 
+
+saveFile = "pizzaSave.lua"
+function InitSaveFile()
+	save = {}
+  for i,endi in pairs(endings) do
+		save[endi.name] = false
+	end
+end
+
+function LoadSaveFile()
+	if love.filesystem.exists(saveFile) then
+	 	local loadf = love.filesystem.load(saveFile)
+		if loadf then
+	  	save = loadf()
+	  end
+	end
+end
+
+function SaveSaveFile()
+	local saveContent = "return {"
+	for save_field_name,save_field_value in pairs(save) do
+		local valueString = ""
+		if save_field_value then
+			valueString = "true"
+		else
+			valueString = "false"
+		end
+		saveContent = saveContent.."\n"..save_field_name.."="..valueString..","
+	end
+	saveContent = saveContent.."\n}"
+	love.filesystem.write(saveFile, saveContent)
+end
+
 -------------------------------------------------------------------------------
 -- LOVE CALLBACKS
 -------------------------------------------------------------------------------
 love.load = function()
+
+	-- init save
+	InitSaveFile()
+	LoadSaveFile()
+	SaveSaveFile()
 
 	-- view scaling
 	WORLD_CANVAS = love.graphics.newCanvas(WORLD_W, WORLD_H)
