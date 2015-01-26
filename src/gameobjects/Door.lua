@@ -23,12 +23,20 @@ local DING_DONG_SPEED = 1
 local close, dingdong, opened
 
 function drawStickers()
-  for endingName, ending in ipairs(endings) do
-    foregroundb:addb(ending.stickerImg, ending.stickerX, ending.stickerY)
-    if save[endingName] then
-      foregroundb:addb("Objet_Robot1", ending.stickerX, ending.stickerY)
-    end
+  for i, ending in ipairs(endings) do
 
+    
+    if not save[ending.name] then
+      foregroundb.batch:setColor(255, 255, 255, 25)
+    end
+    foregroundb:addb(ending.stickerImg, ending.stickerX, ending.stickerY)
+    foregroundb:setWhiteb()
+--[[
+    foregroundb:addb(ending.stickerImg, ending.stickerX, ending.stickerY)
+    if save[ending.name] then
+      foregroundb:addb("check", ending.stickerX, ending.stickerY, 0, 0.5, 0.5)
+    end
+--]]
   end
 end
 

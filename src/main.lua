@@ -117,6 +117,9 @@ game = require("gamestates/game")
 title = require("gamestates/title")
 gameover = require("gamestates/gameover")
 
+-------------------------------------------------------------------------------
+-- SAVE
+-------------------------------------------------------------------------------
 
 saveFile = "pizzaSave.lua"
 function InitSaveFile()

@@ -33,7 +33,7 @@ local lightImage = love.graphics.newImage( "assets/foreground/light.PNG" )
 local cursorDownImage = love.graphics.newImage( "assets/foreground/cursor_down.png" )
 local cursorUpImage = love.graphics.newImage( "assets/foreground/cursor_up.png" )
 
-local END_DEBUG = true
+local END_DEBUG = false
 if END_DEBUG then
 	GAME_TIME = 5
 	END_TRANSITION_DURATION = 0.5;

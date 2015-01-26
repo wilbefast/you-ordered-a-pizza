@@ -28,6 +28,9 @@ function state:enter()
 	t = 0
 	audio.set_main_music(false)
   audio:play_music(ending.sound)
+
+  save[ending.name] = true
+  SaveSaveFile()
 end
 
 function state:leave()
@@ -61,8 +64,8 @@ function state:draw()
 	local offset = 8*math.sin(6*t)
 	local scale = 1.5 + 0.5*math.cos(6*t)
 
-      -- overlay
-    love.graphics.draw(self.overlay, WORLD_W/2, WORLD_H/2, math.pi*(t*0.1), 4/scale, 4/scale, 512, 384)
+  -- overlay
+  love.graphics.draw(self.overlay, WORLD_W/2, WORLD_H/2, math.pi*(t*0.1), 4/scale, 4/scale, 512, 384)
 
 	love.graphics.push()
 
